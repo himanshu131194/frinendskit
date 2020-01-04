@@ -1,0 +1,7 @@
+{
+    "verbose": false,
+    "watch": [
+      "./server"
+    ],
+    "exec": "HTTPS=true webpack --mode=development --config webpack.config.server.js && node ./dist/server.generated.js"
+}
