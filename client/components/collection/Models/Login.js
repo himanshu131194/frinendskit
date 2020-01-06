@@ -1,17 +1,12 @@
 import React, {Component, Fragment} from 'react'
+import {Redirect} from 'react-router-dom'
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 
 class LoginModel extends Component{
-    
-    responseFacebook(response){
-         console.log(response);
+    componentDidMount(){
+         
     }
-    
-    responseGoogle(response){
-        console.log(response);
-    }
-
     render(){
         return(
             <div id="share-modal" className="modal share-modal is-xsmall has-light-bg">
@@ -33,23 +28,8 @@ class LoginModel extends Component{
                                         <div className="login-form">
                                         <div className="field button-wrap">
                                            <div className="control uppercase">
-                                              {/* <button className="button is-solid primary-button raised is-fullwidth uppercase mb-15">Login with Google </button> */}
-                                             
-                                              <GoogleLogin
-                                                clientId="38122336055-7stkqff3vae90il94e1p12tp0pq26a4h.apps.googleusercontent.com" //CLIENTID NOT CREATED YET
-                                                buttonText="LOGIN WITH GOOGLE"
-                                                onSuccess={this.responseGoogle}
-                                                onFailure={this.responseGoogle}
-                                               />
-                                              
-                                              {/* <button className="button is-solid accent-button raised is-fullwidth uppercase">Login with Facebook</button> */}
-                                              
-                                              <FacebookLogin
-                                                    appId="426940641303361" //APP ID NOT CREATED YET
-                                                    fields="name,email,picture"
-                                                    callback={this.responseFacebook}
-                                               />
-                                           
+                                              <a className="button is-solid primary-button raised is-fullwidth uppercase mb-15" href="/api/auth/google">Login with Google </a>
+                                              <button className="button is-solid accent-button raised is-fullwidth uppercase">Login with Facebook</button>
                                            </div>
                                         </div>
                                          

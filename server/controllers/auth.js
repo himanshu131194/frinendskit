@@ -11,20 +11,30 @@ export default (router)=>{
   
     router.get('/auth/google/callback', passport.authenticate('google'),
       (req, res) => {
-        console.log('redirect to home page')
         res.redirect('/');
       }
     );
 
     router.get('/authenticate', (req, res) => {
-        console.log(req.user)
-        res.send({
-            key : req.user
-        })
-      }
-    );
+         res.send(req.user);
+    });
 
+    router.get('/logout', (req, res) => {
+        req.logout();
+        res.redirect('/');
+    });
 
+    router.get('/current_user', (req, res) => {
+        if(req.user){
+            res.status(200).send({
+                user 
+            })
+        }else{
+            res.status(400).send({
+                user : null
+            })
+        }
+    });
 
 
     return router;

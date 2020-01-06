@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react'
-import LoginModel from '../Models/Login'
+
 
 class Header extends Component{
       render(){
@@ -47,6 +47,10 @@ class Header extends Component{
 											<span className="indicator"></span>
 										</a>
 									</div>
+
+									<div className="navbar-item">
+										 <div className="spinner-grow"></div>
+									</div>
 									<div className="navbar-item">
 									      <button type="button" className="button is-solid accent-button next-modal raised modal-trigger" data-modal="share-modal">LOGIN</button>
 										  
@@ -72,7 +76,6 @@ class Header extends Component{
 							</div>
 						</div>
 					</div> 
-					<LoginModel/>
           </Fragment>
         )
       }

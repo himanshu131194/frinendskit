@@ -1,1 +1,373 @@
-module.exports=function(e){var t={};function s(o){if(t[o])return t[o].exports;var r=t[o]={i:o,l:!1,exports:{}};return e[o].call(r.exports,r,r.exports,s),r.l=!0,r.exports}return s.m=e,s.c=t,s.d=function(e,t,o){s.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:o})},s.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},s.t=function(e,t){if(1&t&&(e=s(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var o=Object.create(null);if(s.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var r in e)s.d(o,r,function(t){return e[t]}.bind(null,r));return o},s.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return s.d(t,"a",t),t},s.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},s.p="/dist/",s(s.s=11)}([function(e,t){e.exports=require("mongoose")},function(e,t,s){"use strict";(function(e){var s;(s="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.enterModule:void 0)&&s(e);"undefined"!=typeof reactHotLoaderGlobal&&reactHotLoaderGlobal.default.signature;var o,r,n={env:"production",port:process.env.PORT||8080,API_URL:"http://localhost:8080",MONGO_URI:"mongodb+srv://feelfunny:feelfunny123@feelfunny-jfu4v.mongodb.net/test?retryWrites=true",DB:{DEFAULT_COUNT:0,DEFAULT_CONTENT_TYPE:1,DEFAULT_TRUE:!0,DEFAULT_FALSE:!1,DEFAULT_ACCOUNT_TYPE:0,GENDER:{MALE:1,FEMALE:2,OTHER:3},BADGETS:{NOOBIE:1,PRO:2}},S3:{BUCKET:"feel-funny",URL:"https://feel-funny.s3.ap-south-1.amazonaws.com",ACCESS:"AKIA3YIPQLXV4NIO3PWA",SECRET:"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"},MESSAGES:{100:"post has beeb added successfully",101:"section has been added successfully"},ERRORS:{100:"something went wrong, please try to post again"},JWT_SECRET:"himanshu@1234",ACCESS_TOKEN:"0z6v8b4uua"};t.a=n,(o="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.default:void 0)&&o.register(n,"default","/Users/himanshusavita/Documents/live-projects/friendskit-front/config/index.js"),(r="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.leaveModule:void 0)&&r(e)}).call(this,s(2)(e))},function(e,t){e.exports=function(e){if(!e.webpackPolyfill){var t=Object.create(e);t.children||(t.children=[]),Object.defineProperty(t,"loaded",{enumerable:!0,get:function(){return t.l}}),Object.defineProperty(t,"id",{enumerable:!0,get:function(){return t.i}}),Object.defineProperty(t,"exports",{enumerable:!0}),t.webpackPolyfill=1}return t}},function(e,t){e.exports=require("express")},function(e,t){e.exports=require("path")},function(e,t){e.exports=require("body-parser")},function(e,t,s){"use strict";(function(e){var o,r=s(3),n=s.n(r),a=s(4),i=s.n(a),l=(s(1),s(5)),c=s.n(l),d=s(7),u=s(8),f=s(10),p=s.n(f);(o="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.enterModule:void 0)&&o(e);"undefined"!=typeof reactHotLoaderGlobal&&reactHotLoaderGlobal.default.signature;var m=n()();m.use(p()()),m.use(c.a.urlencoded({limit:"10mb",extended:!0})),m.use(c.a.json({limit:"10mb",extended:!0}));var y=process.cwd();m.use(n.a.static(i.a.join(y,"public"))),m.use("/dist",n.a.static(i.a.join(y,"dist"))),m.use("/api",Object(u.a)(n.a.Router())),m.get("*",(function(e,t){t.send(Object(d.a)())}));var h,v,b=m;t.a=b,(h="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.default:void 0)&&(h.register(m,"app","/Users/himanshusavita/Documents/live-projects/friendskit-front/server/express.js"),h.register(y,"CURRENT_WORKING_DIR","/Users/himanshusavita/Documents/live-projects/friendskit-front/server/express.js"),h.register(b,"default","/Users/himanshusavita/Documents/live-projects/friendskit-front/server/express.js")),(v="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.leaveModule:void 0)&&v(e)}).call(this,s(2)(e))},function(e,t,s){"use strict";(function(e){var s;(s="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.enterModule:void 0)&&s(e);"undefined"!=typeof reactHotLoaderGlobal&&reactHotLoaderGlobal.default.signature;var o,r,n=function(){return'<!DOCTYPE html>\n        <html>\n        <head>\n            \x3c!-- Required meta tags --\x3e\n            <meta charset="utf-8">\n            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">\n            <meta http-equiv="x-ua-compatible" content="ie=edge">\n\n            <title> Friendkit | Feed</title>\n            <link rel="icon" type="image/png" href="assets/images/favicon.png" />\n            \x3c!-- Fonts --\x3e\n            <link href="https://fonts.googleapis.com/css?family=Montserrat:600,700,800,900" rel="stylesheet">\n            <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">\n            <link href="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/css/materialdesignicons.min.css" rel="stylesheet">\n            <link href="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/css/webfont.css" rel="stylesheet">\n            \x3c!-- Core CSS --\x3e\n            <link rel="stylesheet" href="/css/bulma.css">\n            <link rel="stylesheet" href="/css/app.css">\n            \n        </head>\n        <body>\n                \x3c!-- Pageloader --\x3e\n                <div class="pageloader"></div>\n                <div class="infraloader is-active"></div>\n                <div class="app-overlay"></div>\n               \n                <div id="root"></div>\n                <script type="text/javascript" src="/dist/bundle.js"><\/script>\n\n\n\n\n\n\n                \x3c!-- Concatenated js plugins and jQuery --\x3e\n                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/app.js"><\/script>\n                \n                \x3c!-- Core js --\x3e\n                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/data/tipuedrop_content.js"><\/script>\n                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/global.js"><\/script>\n                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/main.js"><\/script>\n                \n                \x3c!-- Page and UI related js --\x3e\n                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/feed.js"><\/script>\n      \n                \n                \x3c!-- Components js --\x3e\n                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/widgets.js"><\/script>\n                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/autocompletes.js"><\/script>\n                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/modal-uploader.js"><\/script>\n                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/popovers-users.js"><\/script>\n                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/popovers-pages.js"><\/script>\n                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/go-live.js"><\/script>\n                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/lightbox.js"><\/script>\n                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/touch.js"><\/script>\n                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/tour.js"><\/script>   \n        </body> \n    </html>'};t.a=n,(o="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.default:void 0)&&o.register(n,"default","/Users/himanshusavita/Documents/live-projects/friendskit-front/template.js"),(r="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.leaveModule:void 0)&&r(e)}).call(this,s(2)(e))},function(e,t,s){"use strict";(function(e){s(14);var o,r=s(9),n=s(1);function a(e,t,s,o,r,n,a){try{var i=e[n](a),l=i.value}catch(e){return void s(e)}i.done?t(l):Promise.resolve(l).then(o,r)}(o="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.enterModule:void 0)&&o(e);"undefined"!=typeof reactHotLoaderGlobal&&reactHotLoaderGlobal.default.signature;var i,l,c=function(e){return e.post("/list-posts",function(){var e,t=(e=regeneratorRuntime.mark((function e(t,s){var o,a,i,l;return regeneratorRuntime.wrap((function(e){for(;;)switch(e.prev=e.next){case 0:return o={},e.prev=1,a=parseInt(t.body.offset)||0,i=parseInt(t.body.limit)||2,e.next=5,r.a.aggregate([{$match:o},{$lookup:{from:"sections",localField:"section",foreignField:"_id",as:"section_details"}}]).sort({created:-1}).skip(a).limit(i);case 5:l=e.sent,s.status(200).send({data:l}),e.next=12;break;case 9:e.prev=9,e.t0=e.catch(1),s.status(400).send({error:n.a.ERRORS[100]});case 12:case"end":return e.stop()}}),e,null,[[1,9]])})),function(){var t=this,s=arguments;return new Promise((function(o,r){var n=e.apply(t,s);function i(e){a(n,o,r,i,l,"next",e)}function l(e){a(n,o,r,i,l,"throw",e)}i(void 0)}))});return function(e,s){return t.apply(this,arguments)}}()),e};t.a=c,(i="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.default:void 0)&&i.register(c,"default","/Users/himanshusavita/Documents/live-projects/friendskit-front/server/controllers/index.js"),(l="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.leaveModule:void 0)&&l(e)}).call(this,s(2)(e))},function(e,t,s){"use strict";(function(e){var o,r=s(0),n=s.n(r),a=s(1);(o="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.enterModule:void 0)&&o(e);"undefined"!=typeof reactHotLoaderGlobal&&reactHotLoaderGlobal.default.signature;var i,l,c=a.a.DB,d=new n.a.Schema({user_id:{type:n.a.Schema.ObjectId,ref:"users"},url:{type:String},poster_url:{type:String},slug:{type:String},title:{type:String},points:{type:Number,default:c.DEFAULT_COUNT},comments_count:{type:Number,default:c.DEFAULT_COUNT},tags:[{type:String}],section:{type:n.a.Schema.ObjectId,ref:"sections"},content_type:{type:Number,default:c.DEFAULT_CONTENT_TYPE},mime_type:{type:String},is_new:{type:Boolean,default:c.DEFAULT_TRUE},is_hide:{type:Boolean,default:c.DEFAULT_FALSE},is_nsfw:{type:Boolean,default:c.DEFAULT_FALSE},width:{type:Number},height:{type:Number},duration:{type:Number,default:c.DEFAULT_COUNT},size:{type:Number},liked_list:[{type:n.a.Schema.ObjectId,ref:"users"}],created:{type:Date,default:Date.now},updated:{type:Date},comment:{type:String}}),u=n.a.model("posts",d);t.a=u,(i="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.default:void 0)&&(i.register(c,"DB","/Users/himanshusavita/Documents/live-projects/friendskit-front/server/models/posts.model.js"),i.register(d,"Posts","/Users/himanshusavita/Documents/live-projects/friendskit-front/server/models/posts.model.js"),i.register(u,"default","/Users/himanshusavita/Documents/live-projects/friendskit-front/server/models/posts.model.js")),(l="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.leaveModule:void 0)&&l(e)}).call(this,s(2)(e))},function(e,t){e.exports=require("cors")},function(e,t,s){s(12),e.exports=s(13)},function(e,t){e.exports=require("babel-polyfill")},function(e,t,s){"use strict";s.r(t);var o=s(1),r=s(0),n=s.n(r),a=s(6);"undefined"!=typeof reactHotLoaderGlobal&&reactHotLoaderGlobal.default.signature;n.a.Promise=global.Promise,n.a.connect(o.a.MONGO_URI,{useNewUrlParser:!0}),n.a.connection.on("error",(function(){throw new Error("unable to connect to database")})),a.a.listen(o.a.port,(function(e){e&&console.log(e),console.info("Server started on port %s.",o.a.port)}))},function(e,t,s){"use strict";(function(e){var t,o=s(0),r=s.n(o);(t="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.enterModule:void 0)&&t(e);"undefined"!=typeof reactHotLoaderGlobal&&reactHotLoaderGlobal.default.signature;var n,a,i=new r.a.Schema({value:{type:String},description:{type:String},url:{type:String},created:{type:Date,default:Date.now},updated:{type:Date},comment:{type:String}}),l=r.a.model("sections",i);(n="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.default:void 0)&&(n.register(i,"Sections","/Users/himanshusavita/Documents/live-projects/friendskit-front/server/models/sections.model.js"),n.register(l,"default","/Users/himanshusavita/Documents/live-projects/friendskit-front/server/models/sections.model.js")),(a="undefined"!=typeof reactHotLoaderGlobal?reactHotLoaderGlobal.leaveModule:void 0)&&a(e)}).call(this,s(2)(e))}]);
+module.exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/dist/";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./config/index.js":
+/*!*************************!*\
+  !*** ./config/index.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(module) {(function () {\n  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;\n  enterModule && enterModule(module);\n})();\n\nvar __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal[\"default\"].signature : function (a) {\n  return a;\n};\n\nvar _default = {\n  env: \"development\" || false,\n  port: process.env.PORT || 8080,\n  API_URL: \"http://localhost:8080\",\n  MONGO_URI: 'mongodb+srv://feelfunny:feelfunny123@feelfunny-jfu4v.mongodb.net/test?retryWrites=true',\n  COOKIEKEY: 'mycookiesecret',\n  DB: {\n    DEFAULT_COUNT: 0,\n    DEFAULT_CONTENT_TYPE: 1,\n    //1-images 2- videos\n    DEFAULT_TRUE: true,\n    DEFAULT_FALSE: false,\n    DEFAULT_ACCOUNT_TYPE: 0,\n    // -1 - ADMIN SIDE  0 - Normal , 1- Google, 2- Facebook\n    GENDER: {\n      MALE: 1,\n      FEMALE: 2,\n      OTHER: 3\n    },\n    BADGETS: {\n      NOOBIE: 1,\n      PRO: 2\n    }\n  },\n  S3: {\n    BUCKET: 'feel-funny',\n    URL: 'https://feel-funny.s3.ap-south-1.amazonaws.com',\n    ACCESS: 'AKIA3YIPQLXV4NIO3PWA',\n    SECRET: '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'\n  },\n  LOGIN_KEYS: {\n    GOOGLE: {\n      CLIENT: '38122336055-7stkqff3vae90il94e1p12tp0pq26a4h.apps.googleusercontent.com',\n      SECRET: 'Czvtwg5Is_ZZwdVPEwUAoR8c'\n    }\n  },\n  MESSAGES: {\n    100: \"post has beeb added successfully\",\n    101: \"section has been added successfully\"\n  },\n  ERRORS: {\n    100: \"something went wrong, please try to post again\"\n  },\n  JWT_SECRET: \"himanshu@1234\",\n  ACCESS_TOKEN: \"0z6v8b4uua\"\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = (_default);\n;\n\n(function () {\n  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;\n\n  if (!reactHotLoader) {\n    return;\n  }\n\n  reactHotLoader.register(_default, \"default\", \"/Users/himanshusavita/Documents/live-projects/friendskit-front/config/index.js\");\n})();\n\n;\n\n(function () {\n  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;\n  leaveModule && leaveModule(module);\n})();\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/harmony-module.js */ \"./node_modules/webpack/buildin/harmony-module.js\")(module)))\n\n//# sourceURL=webpack:///./config/index.js?");
+
+/***/ }),
+
+/***/ "./node_modules/webpack/buildin/harmony-module.js":
+/*!*******************************************!*\
+  !*** (webpack)/buildin/harmony-module.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = function(originalModule) {\n\tif (!originalModule.webpackPolyfill) {\n\t\tvar module = Object.create(originalModule);\n\t\t// module.parent = undefined by default\n\t\tif (!module.children) module.children = [];\n\t\tObject.defineProperty(module, \"loaded\", {\n\t\t\tenumerable: true,\n\t\t\tget: function() {\n\t\t\t\treturn module.l;\n\t\t\t}\n\t\t});\n\t\tObject.defineProperty(module, \"id\", {\n\t\t\tenumerable: true,\n\t\t\tget: function() {\n\t\t\t\treturn module.i;\n\t\t\t}\n\t\t});\n\t\tObject.defineProperty(module, \"exports\", {\n\t\t\tenumerable: true\n\t\t});\n\t\tmodule.webpackPolyfill = 1;\n\t}\n\treturn module;\n};\n\n\n//# sourceURL=webpack:///(webpack)/buildin/harmony-module.js?");
+
+/***/ }),
+
+/***/ "./node_modules/webpack/buildin/module.js":
+/*!***********************************!*\
+  !*** (webpack)/buildin/module.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = function(module) {\n\tif (!module.webpackPolyfill) {\n\t\tmodule.deprecate = function() {};\n\t\tmodule.paths = [];\n\t\t// module.parent = undefined by default\n\t\tif (!module.children) module.children = [];\n\t\tObject.defineProperty(module, \"loaded\", {\n\t\t\tenumerable: true,\n\t\t\tget: function() {\n\t\t\t\treturn module.l;\n\t\t\t}\n\t\t});\n\t\tObject.defineProperty(module, \"id\", {\n\t\t\tenumerable: true,\n\t\t\tget: function() {\n\t\t\t\treturn module.i;\n\t\t\t}\n\t\t});\n\t\tmodule.webpackPolyfill = 1;\n\t}\n\treturn module;\n};\n\n\n//# sourceURL=webpack:///(webpack)/buildin/module.js?");
+
+/***/ }),
+
+/***/ "./server/controllers/auth.js":
+/*!************************************!*\
+  !*** ./server/controllers/auth.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var passport__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! passport */ \"passport\");\n/* harmony import */ var passport__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(passport__WEBPACK_IMPORTED_MODULE_0__);\n(function () {\n  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;\n  enterModule && enterModule(module);\n})();\n\nvar __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal[\"default\"].signature : function (a) {\n  return a;\n};\n\n// import postSections from '../models/sections.model'\n // import CONFIG from '../../config';\n\nvar _default = function _default(router) {\n  router.get('/auth/google', passport__WEBPACK_IMPORTED_MODULE_0___default.a.authenticate('google', {\n    scope: ['profile', 'email']\n  }));\n  router.get('/auth/google/callback', passport__WEBPACK_IMPORTED_MODULE_0___default.a.authenticate('google'), function (req, res) {\n    res.redirect('/');\n  });\n  router.get('/authenticate', function (req, res) {\n    res.send(req.user);\n  });\n  router.get('/logout', function (req, res) {\n    req.logout();\n    res.redirect('/');\n  });\n  router.get('/current_user', function (req, res) {\n    if (req.user) {\n      res.status(200).send({\n        user: user\n      });\n    } else {\n      res.status(400).send({\n        user: null\n      });\n    }\n  });\n  return router;\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (_default);\n;\n\n(function () {\n  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;\n\n  if (!reactHotLoader) {\n    return;\n  }\n\n  reactHotLoader.register(_default, \"default\", \"/Users/himanshusavita/Documents/live-projects/friendskit-front/server/controllers/auth.js\");\n})();\n\n;\n\n(function () {\n  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;\n  leaveModule && leaveModule(module);\n})();\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/harmony-module.js */ \"./node_modules/webpack/buildin/harmony-module.js\")(module)))\n\n//# sourceURL=webpack:///./server/controllers/auth.js?");
+
+/***/ }),
+
+/***/ "./server/devBundle.js":
+/*!*****************************!*\
+  !*** ./server/devBundle.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../config */ \"./config/index.js\");\n/* harmony import */ var webpack__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! webpack */ \"webpack\");\n/* harmony import */ var webpack__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(webpack__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var webpack_dev_middleware__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! webpack-dev-middleware */ \"webpack-dev-middleware\");\n/* harmony import */ var webpack_dev_middleware__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(webpack_dev_middleware__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var webpack_hot_middleware__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! webpack-hot-middleware */ \"webpack-hot-middleware\");\n/* harmony import */ var webpack_hot_middleware__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(webpack_hot_middleware__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _webpack_config_client_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../webpack.config.client.js */ \"./webpack.config.client.js\");\n/* harmony import */ var _webpack_config_client_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_webpack_config_client_js__WEBPACK_IMPORTED_MODULE_4__);\n(function () {\n  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;\n  enterModule && enterModule(module);\n})();\n\nvar __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal[\"default\"].signature : function (a) {\n  return a;\n};\n\n\n\n\n\n\n\nvar compile = function compile(app) {\n  if (_config__WEBPACK_IMPORTED_MODULE_0__[\"default\"].env === \"development\") {\n    var compiler = webpack__WEBPACK_IMPORTED_MODULE_1___default()(_webpack_config_client_js__WEBPACK_IMPORTED_MODULE_4___default.a);\n    var middleware = webpack_dev_middleware__WEBPACK_IMPORTED_MODULE_2___default()(compiler, {\n      publicPath: _webpack_config_client_js__WEBPACK_IMPORTED_MODULE_4___default.a.output.publicPath\n    });\n    app.use(middleware);\n    app.use(webpack_hot_middleware__WEBPACK_IMPORTED_MODULE_3___default()(compiler));\n  }\n};\n\nvar _default = {\n  compile: compile\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = (_default);\n;\n\n(function () {\n  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;\n\n  if (!reactHotLoader) {\n    return;\n  }\n\n  reactHotLoader.register(compile, \"compile\", \"/Users/himanshusavita/Documents/live-projects/friendskit-front/server/devBundle.js\");\n  reactHotLoader.register(_default, \"default\", \"/Users/himanshusavita/Documents/live-projects/friendskit-front/server/devBundle.js\");\n})();\n\n;\n\n(function () {\n  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;\n  leaveModule && leaveModule(module);\n})();\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/harmony-module.js */ \"./node_modules/webpack/buildin/harmony-module.js\")(module)))\n\n//# sourceURL=webpack:///./server/devBundle.js?");
+
+/***/ }),
+
+/***/ "./server/express.js":
+/*!***************************!*\
+  !*** ./server/express.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! express */ \"express\");\n/* harmony import */ var express__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(express__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! path */ \"path\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../config */ \"./config/index.js\");\n/* harmony import */ var body_parser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! body-parser */ \"body-parser\");\n/* harmony import */ var body_parser__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(body_parser__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _template_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../template.js */ \"./template.js\");\n/* harmony import */ var _controllers_auth__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./controllers/auth */ \"./server/controllers/auth.js\");\n/* harmony import */ var cors__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! cors */ \"cors\");\n/* harmony import */ var cors__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(cors__WEBPACK_IMPORTED_MODULE_6__);\n/* harmony import */ var cookie_session__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! cookie-session */ \"cookie-session\");\n/* harmony import */ var cookie_session__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(cookie_session__WEBPACK_IMPORTED_MODULE_7__);\n/* harmony import */ var _services_passport__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./services/passport */ \"./server/services/passport.js\");\n/* harmony import */ var _devBundle__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./devBundle */ \"./server/devBundle.js\");\n(function () {\n  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;\n  enterModule && enterModule(module);\n})();\n\nvar __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal[\"default\"].signature : function (a) {\n  return a;\n};\n\n\n\n\nvar passport = __webpack_require__(/*! passport */ \"passport\");\n\n\n\n\n\n\n\n\nvar app = express__WEBPACK_IMPORTED_MODULE_0___default()();\napp.use(cors__WEBPACK_IMPORTED_MODULE_6___default()());\napp.use(body_parser__WEBPACK_IMPORTED_MODULE_3___default.a.urlencoded({\n  limit: '10mb',\n  extended: true\n}));\napp.use(body_parser__WEBPACK_IMPORTED_MODULE_3___default.a.json({\n  limit: '10mb',\n  extended: true\n}));\nvar CURRENT_WORKING_DIR = process.cwd();\napp.use(cookie_session__WEBPACK_IMPORTED_MODULE_7___default()({\n  maxAge: 30 * 24 * 60 * 60 * 1000,\n  keys: [_config__WEBPACK_IMPORTED_MODULE_2__[\"default\"].COOKIEKEY]\n}));\napp.use(passport.initialize());\napp.use(passport.session());\napp.use(express__WEBPACK_IMPORTED_MODULE_0___default.a[\"static\"](path__WEBPACK_IMPORTED_MODULE_1___default.a.join(CURRENT_WORKING_DIR, 'public'))); //comment out before building for production\n\n //comment out before building for production\n\n_devBundle__WEBPACK_IMPORTED_MODULE_9__[\"default\"].compile(app);\napp.use('/dist', express__WEBPACK_IMPORTED_MODULE_0___default.a[\"static\"](path__WEBPACK_IMPORTED_MODULE_1___default.a.join(CURRENT_WORKING_DIR, 'dist')));\napp.use('/api', Object(_controllers_auth__WEBPACK_IMPORTED_MODULE_5__[\"default\"])(express__WEBPACK_IMPORTED_MODULE_0___default.a.Router()));\napp.get('*', function (req, res) {\n  res.send(Object(_template_js__WEBPACK_IMPORTED_MODULE_4__[\"default\"])());\n});\nvar _default = app;\n/* harmony default export */ __webpack_exports__[\"default\"] = (_default);\n;\n\n(function () {\n  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;\n\n  if (!reactHotLoader) {\n    return;\n  }\n\n  reactHotLoader.register(app, \"app\", \"/Users/himanshusavita/Documents/live-projects/friendskit-front/server/express.js\");\n  reactHotLoader.register(CURRENT_WORKING_DIR, \"CURRENT_WORKING_DIR\", \"/Users/himanshusavita/Documents/live-projects/friendskit-front/server/express.js\");\n  reactHotLoader.register(_default, \"default\", \"/Users/himanshusavita/Documents/live-projects/friendskit-front/server/express.js\");\n})();\n\n;\n\n(function () {\n  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;\n  leaveModule && leaveModule(module);\n})();\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/harmony-module.js */ \"./node_modules/webpack/buildin/harmony-module.js\")(module)))\n\n//# sourceURL=webpack:///./server/express.js?");
+
+/***/ }),
+
+/***/ "./server/models/users.model.js":
+/*!**************************************!*\
+  !*** ./server/models/users.model.js ***!
+  \**************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mongoose */ \"mongoose\");\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mongoose__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! crypto */ \"crypto\");\n/* harmony import */ var crypto__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(crypto__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../config */ \"./config/index.js\");\n(function () {\n  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;\n  enterModule && enterModule(module);\n})();\n\nvar __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal[\"default\"].signature : function (a) {\n  return a;\n};\n\n\n\n\nvar DB = _config__WEBPACK_IMPORTED_MODULE_2__[\"default\"].DB;\nvar UserSchema = new mongoose__WEBPACK_IMPORTED_MODULE_0___default.a.Schema({\n  name: {\n    type: String,\n    trim: true,\n    required: true,\n    unique: true\n  },\n  email: {\n    type: String,\n    trim: true,\n    required: true,\n    unique: true\n  },\n  password_hash: {\n    type: String,\n    trim: true\n  },\n  password_salt: {\n    type: String,\n    trim: true\n  },\n  gender: {\n    type: Number,\n    \"default\": DB.GENDER.MALE\n  },\n  dob: {\n    type: Date\n  },\n  country: {\n    type: Number\n  },\n  profile_pic: {\n    thumbnail: {\n      url: {\n        type: String\n      },\n      width: {\n        type: Number\n      },\n      height: {\n        type: Number\n      },\n      size: {\n        type: Number\n      }\n    },\n    original: {\n      url: {\n        type: String\n      },\n      width: {\n        type: Number\n      },\n      height: {\n        type: Number\n      },\n      size: {\n        type: Number\n      }\n    }\n  },\n  description: {\n    type: String\n  },\n  badgets: {\n    type: Number,\n    \"default\": DB.BADGETS.NOOBIE\n  },\n  accounts: {\n    facebook: {\n      type: String\n    },\n    google: {\n      type: String\n    }\n  },\n  account_type: {\n    type: Number,\n    \"default\": DB.DEFAULT_ACCOUNT_TYPE //0\n\n  },\n  account_id: {\n    type: String\n  },\n  favourite_sections: [{\n    type: Number\n  }],\n  created: {\n    type: Date,\n    \"default\": Date.now\n  },\n  updated: {\n    type: Date\n  },\n  comment: {\n    type: String\n  }\n}); // UserSchema\n//   .virtual('password')\n//   .set(function(password) {\n//     this._password = password\n//     this.password_salt = this.makeSalt()\n//     this.password_hash = this.encryptPassword(password)\n//   })\n//   .get(function() {\n//     return this._password\n//   })\n// UserSchema.methods = {\n//     authenticate: function(password){\n//        return this.encryptPassword(password)===this.password_hash;\n//     },\n//     encryptPassword: function(password){\n//        if(!password) return ''\n//        try{\n//           return crypto\n//           .createHmac('sha1', this.password_salt)\n//           .update(password)\n//           .digest('hex')\n//        }catch (err) {\n//         return ''\n//        }\n//     },\n//     makeSalt: function() {\n//         return Math.round((new Date().valueOf() * Math.random())) + ''\n//     }\n// }\n\nvar _default = mongoose__WEBPACK_IMPORTED_MODULE_0___default.a.model('users', UserSchema);\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (_default);\n;\n\n(function () {\n  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;\n\n  if (!reactHotLoader) {\n    return;\n  }\n\n  reactHotLoader.register(DB, \"DB\", \"/Users/himanshusavita/Documents/live-projects/friendskit-front/server/models/users.model.js\");\n  reactHotLoader.register(UserSchema, \"UserSchema\", \"/Users/himanshusavita/Documents/live-projects/friendskit-front/server/models/users.model.js\");\n  reactHotLoader.register(_default, \"default\", \"/Users/himanshusavita/Documents/live-projects/friendskit-front/server/models/users.model.js\");\n})();\n\n;\n\n(function () {\n  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;\n  leaveModule && leaveModule(module);\n})();\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/harmony-module.js */ \"./node_modules/webpack/buildin/harmony-module.js\")(module)))\n\n//# sourceURL=webpack:///./server/models/users.model.js?");
+
+/***/ }),
+
+/***/ "./server/server.js":
+/*!**************************!*\
+  !*** ./server/server.js ***!
+  \**************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../config */ \"./config/index.js\");\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! mongoose */ \"mongoose\");\n/* harmony import */ var mongoose__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(mongoose__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _express__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./express */ \"./server/express.js\");\nvar __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal[\"default\"].signature : function (a) {\n  return a;\n};\n\n\n\nmongoose__WEBPACK_IMPORTED_MODULE_1___default.a.Promise = global.Promise;\nmongoose__WEBPACK_IMPORTED_MODULE_1___default.a.connect(_config__WEBPACK_IMPORTED_MODULE_0__[\"default\"].MONGO_URI, {\n  useNewUrlParser: true\n});\nmongoose__WEBPACK_IMPORTED_MODULE_1___default.a.connection.on('error', function () {\n  throw new Error('unable to connect to database');\n});\n\n_express__WEBPACK_IMPORTED_MODULE_2__[\"default\"].listen(_config__WEBPACK_IMPORTED_MODULE_0__[\"default\"].port, function (err) {\n  if (err) {\n    console.log(err);\n  }\n\n  console.info('Server started on port %s.', _config__WEBPACK_IMPORTED_MODULE_0__[\"default\"].port);\n});\n\n//# sourceURL=webpack:///./server/server.js?");
+
+/***/ }),
+
+/***/ "./server/services/passport.js":
+/*!*************************************!*\
+  !*** ./server/services/passport.js ***!
+  \*************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var passport__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! passport */ \"passport\");\n/* harmony import */ var passport__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(passport__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var passport_google_oauth20__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! passport-google-oauth20 */ \"passport-google-oauth20\");\n/* harmony import */ var passport_google_oauth20__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(passport_google_oauth20__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _models_users_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../models/users.model */ \"./server/models/users.model.js\");\n/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../config */ \"./config/index.js\");\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\nvar __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal[\"default\"].signature : function (a) {\n  return a;\n};\n\n\n\n\n\npassport__WEBPACK_IMPORTED_MODULE_0___default.a.serializeUser(function (user, done) {\n  console.log(user.id);\n  done(null, user.id);\n});\npassport__WEBPACK_IMPORTED_MODULE_0___default.a.deserializeUser(\n/*#__PURE__*/\nfunction () {\n  var _ref = _asyncToGenerator(\n  /*#__PURE__*/\n  regeneratorRuntime.mark(function _callee(id, done) {\n    var user;\n    return regeneratorRuntime.wrap(function _callee$(_context) {\n      while (1) {\n        switch (_context.prev = _context.next) {\n          case 0:\n            _context.next = 2;\n            return _models_users_model__WEBPACK_IMPORTED_MODULE_2__[\"default\"].findOne({\n              _id: id\n            });\n\n          case 2:\n            user = _context.sent;\n            done(null, user);\n\n          case 4:\n          case \"end\":\n            return _context.stop();\n        }\n      }\n    }, _callee);\n  }));\n\n  return function (_x, _x2) {\n    return _ref.apply(this, arguments);\n  };\n}());\npassport__WEBPACK_IMPORTED_MODULE_0___default.a.use(new passport_google_oauth20__WEBPACK_IMPORTED_MODULE_1__[\"Strategy\"]({\n  clientID: _config__WEBPACK_IMPORTED_MODULE_3__[\"default\"].LOGIN_KEYS.GOOGLE.CLIENT,\n  clientSecret: _config__WEBPACK_IMPORTED_MODULE_3__[\"default\"].LOGIN_KEYS.GOOGLE.SECRET,\n  callbackURL: '/api/auth/google/callback'\n},\n/*#__PURE__*/\nfunction () {\n  var _ref2 = _asyncToGenerator(\n  /*#__PURE__*/\n  regeneratorRuntime.mark(function _callee2(accessToken, refreshToken, profile, done) {\n    var existingUser, user;\n    return regeneratorRuntime.wrap(function _callee2$(_context2) {\n      while (1) {\n        switch (_context2.prev = _context2.next) {\n          case 0:\n            _context2.next = 2;\n            return _models_users_model__WEBPACK_IMPORTED_MODULE_2__[\"default\"].findOne({\n              account_id: profile.id\n            });\n\n          case 2:\n            existingUser = _context2.sent;\n            console.log('existing user');\n            console.log(existingUser);\n\n            if (!existingUser) {\n              _context2.next = 7;\n              break;\n            }\n\n            return _context2.abrupt(\"return\", done(null, existingUser));\n\n          case 7:\n            _context2.next = 9;\n            return new _models_users_model__WEBPACK_IMPORTED_MODULE_2__[\"default\"]({\n              name: profile.emails[0].value,\n              email: profile.displayName,\n              acccount_type: 1,\n              account_id: profile.id\n            }).save();\n\n          case 9:\n            user = _context2.sent;\n            done(null, user);\n\n          case 11:\n          case \"end\":\n            return _context2.stop();\n        }\n      }\n    }, _callee2);\n  }));\n\n  return function (_x3, _x4, _x5, _x6) {\n    return _ref2.apply(this, arguments);\n  };\n}()));\n\n//# sourceURL=webpack:///./server/services/passport.js?");
+
+/***/ }),
+
+/***/ "./template.js":
+/*!*********************!*\
+  !*** ./template.js ***!
+  \*********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(module) {(function () {\n  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;\n  enterModule && enterModule(module);\n})();\n\nvar __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal[\"default\"].signature : function (a) {\n  return a;\n};\n\nvar _default = function _default() {\n  return \"<!DOCTYPE html>\\n        <html>\\n        <head>\\n            <!-- Required meta tags -->\\n            <meta charset=\\\"utf-8\\\">\\n            <meta name=\\\"viewport\\\" content=\\\"width=device-width, initial-scale=1, shrink-to-fit=no\\\">\\n            <meta http-equiv=\\\"x-ua-compatible\\\" content=\\\"ie=edge\\\">\\n\\n            <title> Friendkit | Feed</title>\\n            <link rel=\\\"icon\\\" type=\\\"image/png\\\" href=\\\"assets/images/favicon.png\\\" />\\n            <!-- Fonts -->\\n            <link href=\\\"https://fonts.googleapis.com/css?family=Montserrat:600,700,800,900\\\" rel=\\\"stylesheet\\\">\\n            <link href=\\\"https://fonts.googleapis.com/css?family=Roboto:400,500\\\" rel=\\\"stylesheet\\\">\\n            <link href=\\\"https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/css/materialdesignicons.min.css\\\" rel=\\\"stylesheet\\\">\\n            <link href=\\\"https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/css/webfont.css\\\" rel=\\\"stylesheet\\\">\\n            <!-- Core CSS -->\\n            <link rel=\\\"stylesheet\\\" href=\\\"/css/bulma.css\\\">\\n            <link rel=\\\"stylesheet\\\" href=\\\"/css/app.css\\\">\\n            \\n        </head>\\n        <body>\\n                <!-- Pageloader -->\\n                <div class=\\\"pageloader\\\"></div>\\n                <div class=\\\"infraloader is-active\\\"></div>\\n                <div class=\\\"app-overlay\\\"></div>\\n               \\n                <div id=\\\"root\\\"></div>\\n                <script type=\\\"text/javascript\\\" src=\\\"/dist/bundle.js\\\"></script>\\n\\n\\n\\n\\n\\n\\n                <!-- Concatenated js plugins and jQuery -->\\n                <script src=\\\"https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/app.js\\\"></script>\\n                \\n                <!-- Core js -->\\n                <script src=\\\"https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/data/tipuedrop_content.js\\\"></script>\\n                <script src=\\\"https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/global.js\\\"></script>\\n                <script src=\\\"https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/main.js\\\"></script>\\n                \\n                <!-- Page and UI related js -->\\n                <script src=\\\"https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/feed.js\\\"></script>\\n      \\n                \\n                <!-- Components js -->\\n                <script src=\\\"https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/widgets.js\\\"></script>\\n                <script src=\\\"https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/autocompletes.js\\\"></script>\\n                <script src=\\\"https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/modal-uploader.js\\\"></script>\\n                <script src=\\\"https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/popovers-users.js\\\"></script>\\n                <script src=\\\"https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/popovers-pages.js\\\"></script>\\n                <script src=\\\"https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/go-live.js\\\"></script>\\n                <script src=\\\"https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/lightbox.js\\\"></script>\\n                <script src=\\\"https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/touch.js\\\"></script>\\n                <script src=\\\"https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/tour.js\\\"></script>   \\n        </body> \\n    </html>\";\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (_default);\n;\n\n(function () {\n  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;\n\n  if (!reactHotLoader) {\n    return;\n  }\n\n  reactHotLoader.register(_default, \"default\", \"/Users/himanshusavita/Documents/live-projects/friendskit-front/template.js\");\n})();\n\n;\n\n(function () {\n  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;\n  leaveModule && leaveModule(module);\n})();\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/webpack/buildin/harmony-module.js */ \"./node_modules/webpack/buildin/harmony-module.js\")(module)))\n\n//# sourceURL=webpack:///./template.js?");
+
+/***/ }),
+
+/***/ "./webpack.config.client.js":
+/*!**********************************!*\
+  !*** ./webpack.config.client.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("/* WEBPACK VAR INJECTION */(function(module) {(function () {\n  var enterModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.enterModule : undefined;\n  enterModule && enterModule(module);\n})();\n\nvar __signature__ = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal[\"default\"].signature : function (a) {\n  return a;\n};\n\nvar path = __webpack_require__(/*! path */ \"path\");\n\nvar webpack = __webpack_require__(/*! webpack */ \"webpack\");\n\nvar CURRENT_WORKING_DIR = process.cwd();\nvar config = {\n  name: \"browser\",\n  mode: \"development\",\n  devtool: 'eval-source-map',\n  entry: ['babel-polyfill', 'react-hot-loader/patch', 'webpack-hot-middleware/client?reload=true', path.join(CURRENT_WORKING_DIR, 'client/main.js')],\n  output: {\n    path: path.join(CURRENT_WORKING_DIR, '/dist'),\n    filename: 'bundle.js',\n    publicPath: '/dist/'\n  },\n  module: {\n    rules: [{\n      test: /\\.jsx?$/,\n      exclude: /node_modules/,\n      use: ['babel-loader']\n    }, {\n      test: /.css$/,\n      use: [{\n        loader: 'style-loader'\n      }, {\n        loader: 'css-loader'\n      }]\n    }, {\n      test: /\\.(ttf|eot|svg|gif|jpg|png)(\\?[\\s\\S]+)?$/,\n      use: 'file-loader'\n    }]\n  },\n  plugins: [new webpack.HotModuleReplacementPlugin(), new webpack.NoEmitOnErrorsPlugin()]\n};\nmodule.exports = config;\n;\n\n(function () {\n  var reactHotLoader = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.default : undefined;\n\n  if (!reactHotLoader) {\n    return;\n  }\n\n  reactHotLoader.register(CURRENT_WORKING_DIR, \"CURRENT_WORKING_DIR\", \"/Users/himanshusavita/Documents/live-projects/friendskit-front/webpack.config.client.js\");\n  reactHotLoader.register(config, \"config\", \"/Users/himanshusavita/Documents/live-projects/friendskit-front/webpack.config.client.js\");\n})();\n\n;\n\n(function () {\n  var leaveModule = typeof reactHotLoaderGlobal !== 'undefined' ? reactHotLoaderGlobal.leaveModule : undefined;\n  leaveModule && leaveModule(module);\n})();\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/webpack/buildin/module.js */ \"./node_modules/webpack/buildin/module.js\")(module)))\n\n//# sourceURL=webpack:///./webpack.config.client.js?");
+
+/***/ }),
+
+/***/ 0:
+/*!***********************************************!*\
+  !*** multi babel-polyfill ./server/server.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("__webpack_require__(/*! babel-polyfill */\"babel-polyfill\");\nmodule.exports = __webpack_require__(/*! /Users/himanshusavita/Documents/live-projects/friendskit-front/server/server.js */\"./server/server.js\");\n\n\n//# sourceURL=webpack:///multi_babel-polyfill_./server/server.js?");
+
+/***/ }),
+
+/***/ "babel-polyfill":
+/*!*********************************!*\
+  !*** external "babel-polyfill" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"babel-polyfill\");\n\n//# sourceURL=webpack:///external_%22babel-polyfill%22?");
+
+/***/ }),
+
+/***/ "body-parser":
+/*!******************************!*\
+  !*** external "body-parser" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"body-parser\");\n\n//# sourceURL=webpack:///external_%22body-parser%22?");
+
+/***/ }),
+
+/***/ "cookie-session":
+/*!*********************************!*\
+  !*** external "cookie-session" ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"cookie-session\");\n\n//# sourceURL=webpack:///external_%22cookie-session%22?");
+
+/***/ }),
+
+/***/ "cors":
+/*!***********************!*\
+  !*** external "cors" ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"cors\");\n\n//# sourceURL=webpack:///external_%22cors%22?");
+
+/***/ }),
+
+/***/ "crypto":
+/*!*************************!*\
+  !*** external "crypto" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"crypto\");\n\n//# sourceURL=webpack:///external_%22crypto%22?");
+
+/***/ }),
+
+/***/ "express":
+/*!**************************!*\
+  !*** external "express" ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"express\");\n\n//# sourceURL=webpack:///external_%22express%22?");
+
+/***/ }),
+
+/***/ "mongoose":
+/*!***************************!*\
+  !*** external "mongoose" ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"mongoose\");\n\n//# sourceURL=webpack:///external_%22mongoose%22?");
+
+/***/ }),
+
+/***/ "passport":
+/*!***************************!*\
+  !*** external "passport" ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"passport\");\n\n//# sourceURL=webpack:///external_%22passport%22?");
+
+/***/ }),
+
+/***/ "passport-google-oauth20":
+/*!******************************************!*\
+  !*** external "passport-google-oauth20" ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"passport-google-oauth20\");\n\n//# sourceURL=webpack:///external_%22passport-google-oauth20%22?");
+
+/***/ }),
+
+/***/ "path":
+/*!***********************!*\
+  !*** external "path" ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"path\");\n\n//# sourceURL=webpack:///external_%22path%22?");
+
+/***/ }),
+
+/***/ "webpack":
+/*!**************************!*\
+  !*** external "webpack" ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"webpack\");\n\n//# sourceURL=webpack:///external_%22webpack%22?");
+
+/***/ }),
+
+/***/ "webpack-dev-middleware":
+/*!*****************************************!*\
+  !*** external "webpack-dev-middleware" ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"webpack-dev-middleware\");\n\n//# sourceURL=webpack:///external_%22webpack-dev-middleware%22?");
+
+/***/ }),
+
+/***/ "webpack-hot-middleware":
+/*!*****************************************!*\
+  !*** external "webpack-hot-middleware" ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = require(\"webpack-hot-middleware\");\n\n//# sourceURL=webpack:///external_%22webpack-hot-middleware%22?");
+
+/***/ })
+
+/******/ });

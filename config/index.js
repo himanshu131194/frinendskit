@@ -3,6 +3,7 @@ export default {
    port : process.env.PORT || 8080,
    API_URL: "http://localhost:8080",
    MONGO_URI : 'mongodb+srv://feelfunny:feelfunny123@feelfunny-jfu4v.mongodb.net/test?retryWrites=true',
+   COOKIEKEY: 'mycookiesecret',
    DB:{
       DEFAULT_COUNT : 0,
       DEFAULT_CONTENT_TYPE : 1,  //1-images 2- videos
@@ -24,6 +25,12 @@ export default {
       URL : 'https://feel-funny.s3.ap-south-1.amazonaws.com',
       ACCESS: 'AKIA3YIPQLXV4NIO3PWA',
       SECRET: '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',
+   },
+   LOGIN_KEYS:{
+        GOOGLE:{
+           CLIENT: '38122336055-7stkqff3vae90il94e1p12tp0pq26a4h.apps.googleusercontent.com',
+           SECRET : 'Czvtwg5Is_ZZwdVPEwUAoR8c'
+        }
    },
    MESSAGES : {    
       100 : "post has beeb added successfully",
