@@ -21,12 +21,18 @@ export const listPosts = ()=>{
 
 export const authUsers = ()=>{
     return async (dispatch)=>{
-           let err = null, result = [];
+           let err = null, result = null;
            try{
-               let {data} = await axios.get(`${CONFIG.API_URL}/api/list-posts`);
-                    result = data.data
+               let {data} = await axios.get(`${CONFIG.API_URL}/api/authenticate`);
+                    console.log(data)
+                    result = data.user;
+                    console.log(result);
            }catch(e){
                err = e.response.data.error;
+           }
+           result = {
+                auth : result ? true : false,
+                data : result      
            }
            dispatch({
                type: AUTH_USERS,

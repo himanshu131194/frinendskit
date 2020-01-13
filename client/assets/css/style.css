@@ -567,16 +567,20 @@ body.is-white{
     color:#999;
     transition:all .3s
 }
-.navbar .navbar-item.is-account{
-    display:-ms-flexbox;
-    display:flex;
-    -ms-flex-pack:start;
-    justify-content:flex-start;
-    -ms-flex-align:center;
-    align-items:center;
-    margin-left:16px;
-    cursor:pointer
+
+@media screen and (min-width: 1024px){
+    .navbar .navbar-item.is-account{
+        display:-ms-flexbox;
+        display:flex;
+        -ms-flex-pack:start;
+        justify-content:flex-start;
+        -ms-flex-align:center;
+        align-items:center;
+        margin-left:16px;
+        cursor:pointer
+    }
 }
+
 .navbar .navbar-item.is-account .user-image{
     position:relative;
     max-height:38px

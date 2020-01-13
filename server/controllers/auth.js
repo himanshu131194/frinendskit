@@ -15,22 +15,22 @@ export default (router)=>{
       }
     );
 
-    router.get('/authenticate', (req, res) => {
-         res.send(req.user);
-    });
+    // router.get('/authenticate', (req, res) => {
+    //      res.send(req.user);
+    // });
 
     router.get('/logout', (req, res) => {
         req.logout();
         res.redirect('/');
     });
 
-    router.get('/current_user', (req, res) => {
+    router.get('/authenticate', (req, res) => {
         if(req.user){
             res.status(200).send({
-                user 
+                user : req.user
             })
         }else{
-            res.status(400).send({
+            res.send({
                 user : null
             })
         }
