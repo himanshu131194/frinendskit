@@ -40,6 +40,32 @@
     padding: 20px 25px !important;
 }
 
+.model-pd-16{
+    padding: 16px !important;
+}
+
+
+.post-title-box{
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.post-title-box img{
+    height: 60px;
+    width: 60px;
+}
+
+.post-title{
+    width: 100%;
+    margin-left: 16px;
+}
+
+.post-title textarea{
+    padding: 0;
+    border-color: transparent !important;
+    resize: none; 
+}
 
 @-webkit-keyframes spinner-grow{
     0%{
@@ -71,3 +97,7 @@
     animation:spinner-grow .75s linear infinite
 }
 
+
+.pl-0{
+  padding-left: 0px !important;
+}
