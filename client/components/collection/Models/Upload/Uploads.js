@@ -3,8 +3,34 @@ import Loader from './Loader';
 
 class Uploads extends Component{
      state = {
-         loading : 1
+         loading : 0
      }
+    
+    onUploadContent = (e)=>{
+        e.preventDefault();
+        let uploadedFile = e.dataTransfer ? e.dataTransfer.files[0]: e.target.files[0],
+            mime = uploadedFile.type,
+            ext = uploadedFile.name.split('.').pop();
+        let reader = new FileReader;
+          reader.onload =  (data64)=>{
+                    //   this.props.uploadS3({url: null, mime, ext, data64: data64.target.result}, (err, res)=>{
+                    //        console.log(res)
+                    //       if(!err){
+                    //           this.props.setDefaultState(3);
+                    //           this.setState({
+                    //               // uploadStage: 3, 
+                    //               error: 0, 
+                    //               uploadedURL: res.url,
+                    //               urlLoaded: 0,
+                    //              postMime: mime,
+                    //              postSlug: res.slug
+                    //           });
+                    //       }
+                    //     })
+                 console.log(data64.target.result)
+          }
+          reader.readAsDataURL(uploadedFile);
+    }
     render(){
         return(
             <Fragment>
@@ -18,7 +44,7 @@ class Uploads extends Component{
                                     <div className="control uppercase">
                                         <div className="upload-btn-wrapper">
                                         <button className="button is-solid accent-button raised is-fullwidth uppercase"><i class="mdi mdi-plus"></i> add pictures/videos</button>
-                                        <input type="file" id="choose_file" name="myfile" onChange={this.draggableDrop} />
+                                        <input type="file" id="choose_file" name="myfile" onChange={this.onUploadContent} />
                                         </div>
                                     </div>
                                     </div>

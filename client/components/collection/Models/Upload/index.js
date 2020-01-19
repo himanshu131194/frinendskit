@@ -11,7 +11,7 @@ import Section from './Section';
 
 class LoginModel extends Component{
     state = {
-        upload : 2
+        upload : 1
         //2 title
         //3 choose section
         //4 success upload
