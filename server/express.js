@@ -4,7 +4,10 @@ const passport = require('passport');
 import CONFIG from './../config'
 import bodyParser from 'body-parser'
 import Template from './../template.js'
+
 import authController from './controllers/auth'
+import postsController from './controllers/posts'
+
 import cors from 'cors'
 import cookieSession from 'cookie-session'
 
@@ -39,6 +42,8 @@ devBundle.compile(app)
 app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
 
 app.use('/api', authController(express.Router()));
+app.use('/api', postsController(express.Router()));
+
 
 app.get('*', (req, res)=>{
    res.send(Template());

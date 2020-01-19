@@ -3,7 +3,8 @@ import React, {Component, Fragment} from 'react';
 import Header from './collection/partials/Header';
 import MobileHeader from './collection/partials/MobileHeader';
 import LoginModel from './collection/Models/Login'
-import Uploads from './collection/Models/Uploads'
+import Upload from './collection/Models/Upload/'
+
 
 
 class Home extends Component{
@@ -14,7 +15,7 @@ class Home extends Component{
             <MobileHeader/>
 
             <LoginModel/>
-            <Uploads/>
+            <Upload/>
             
                      <div className="post-container">
                          <section className="posts">

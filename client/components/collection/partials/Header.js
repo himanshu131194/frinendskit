@@ -64,6 +64,8 @@ class Header extends Component{
 													</div>
 													<div className="navbar-item">
 														<button type="button" className="button is-solid accent-button next-modal raised modal-trigger" data-modal="upload-modal">UPLOAD NEW</button>
+														<button type="button" className="button is-solid accent-button next-modal raised modal-trigger" data-modal="share-modal">LOGIN</button>
+
 													</div>
 													<div id="account-dropdown" className="navbar-item is-account drop-trigger has-caret">
 															<div className="user-image">
