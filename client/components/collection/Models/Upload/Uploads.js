@@ -1,4 +1,6 @@
 import React, {Component, Fragment} from 'react'
+import {connect} from 'react-redux';
+import * as actions from '../../../actions'
 import Loader from './Loader';
 
 class Uploads extends Component{
@@ -8,27 +10,20 @@ class Uploads extends Component{
     
     onUploadContent = (e)=>{
         e.preventDefault();
+        this.setState({loading: 1});
         let uploadedFile = e.dataTransfer ? e.dataTransfer.files[0]: e.target.files[0],
             mime = uploadedFile.type,
             ext = uploadedFile.name.split('.').pop();
         let reader = new FileReader;
-          reader.onload =  (data64)=>{
-                    //   this.props.uploadS3({url: null, mime, ext, data64: data64.target.result}, (err, res)=>{
-                    //        console.log(res)
-                    //       if(!err){
-                    //           this.props.setDefaultState(3);
-                    //           this.setState({
-                    //               // uploadStage: 3, 
-                    //               error: 0, 
-                    //               uploadedURL: res.url,
-                    //               urlLoaded: 0,
-                    //              postMime: mime,
-                    //              postSlug: res.slug
-                    //           });
-                    //       }
-                    //     })
-                 console.log(data64.target.result)
-          }
+            reader.onload =  (data64)=>{
+                          this.props.uploadS3({url: null, mime, ext, data64: data64.target.result}, (err, res)=>{
+                               console.log(res)
+                              if(!err){
+                                  console.log(err);
+                              }
+                            })
+                    console.log(data64.target.result)
+            }
           reader.readAsDataURL(uploadedFile);
     }
     render(){
@@ -43,7 +38,7 @@ class Uploads extends Component{
                                     <div className="field button-wrap">
                                     <div className="control uppercase">
                                         <div className="upload-btn-wrapper">
-                                        <button className="button is-solid accent-button raised is-fullwidth uppercase"><i class="mdi mdi-plus"></i> add pictures/videos</button>
+                                        <button className="button is-solid accent-button raised is-fullwidth uppercase"><i className="mdi mdi-plus"></i> add pictures/videos</button>
                                         <input type="file" id="choose_file" name="myfile" onChange={this.onUploadContent} />
                                         </div>
                                     </div>
@@ -68,7 +63,7 @@ class Uploads extends Component{
     }
 }
 
-export default Uploads;
+export default connect(state=>state, actions)(Uploads);
 
 
 
