@@ -59,7 +59,7 @@ class MobileHeader extends Component{
                                             <div className="user-image">
                                                 <img src="https://friendkit.cssninja.io/assets/images/avatars/jenna.png" data-demo-src="https://friendkit.cssninja.io/assets/images/avatars/jenna.png" alt="" />
                                             </div>
-                                            <AccountDropdown/>
+                                            {/* <AccountDropdown/> */}
                                     </div>
                                </Fragment>
                               : 

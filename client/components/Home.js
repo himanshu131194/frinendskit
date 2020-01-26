@@ -5,6 +5,9 @@ import MobileHeader from './collection/partials/MobileHeader';
 import LoginModel from './collection/Models/Login'
 import Upload from './collection/Models/Upload/'
 
+import Posts from './collection/Posts/'
+
+
 
 
 class Home extends Component{
@@ -14,15 +17,14 @@ class Home extends Component{
 			   <Header/>
             <MobileHeader/>
 
+
+            <Posts/>
+            
+
             <LoginModel/>
             <Upload/>
             
-                     <div className="post-container">
-                         <section className="posts">
-                           <div className="posts-inner">
-                           </div>
-                        </section>
-                     </div>
+                    
            </Fragment>
       	 )
       }

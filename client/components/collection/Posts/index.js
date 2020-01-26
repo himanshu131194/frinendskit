@@ -1,0 +1,34 @@
+import React, {Component} from 'react'
+import Post from './Post'
+
+class Posts extends Component{
+    render(){
+        return(
+            <div className="view-wrapper">
+                 <div className="container">
+
+                     <div className="view-wrap true-dom">
+                         <div className="columns">
+                              <div className="column is-6">
+                                  {/* POST */}
+                                     <Post/>
+                                     <Post/>
+                                     <Post/>
+                                     <Post/>
+                                     <Post/>
+                                     <Post/>
+                                     <Post/>
+                                     <Post/>
+
+                                  {/* END POST */}
+                              </div>
+                         </div>
+                     </div>
+
+                 </div>
+            </div>
+        )
+    }
+}
+
+export default Posts;
