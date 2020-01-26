@@ -66,7 +66,7 @@ export const uploadAll = ({uploadedURL, postSlug, postTitle , postSections, post
                 let err = null, result = null;
                 console.log('uploadAll');
                 try{
-                    
+                    console.log({uploadedURL, postSlug, postTitle, postSections, postMime, postExt});
                     let {data} = await axios.post(`${CONFIG.API_URL}/api/upload-posts`,
                                                     {uploadedURL, postSlug, postTitle, postSections, postMime, postExt});
                     cb(null, data) 

@@ -8,7 +8,7 @@ class Section extends Component{
     state = {
         loading : 0
     }
-
+    postPublish = React.createRef();
     sectionsList = {};
     
     componentDidMount(){
@@ -23,6 +23,9 @@ class Section extends Component{
              delete this.sectionsList[id]
        
           const sections = Object.keys(this.sectionsList);
+          
+          sections.length>0 ? this.postPublish.current.classList.remove('is-disabled') : this.postPublish.current.classList.add('is-disabled')
+          
           this.props.onSectionComplete(sections);
 
           console.log('this.props.onSendComplete')
@@ -30,10 +33,18 @@ class Section extends Component{
     }
 
     onSubmitPost = ()=>{
-        this.props.uploadAll(this.props.onSendComplete, (err, data)=>{
-            console.log(err)
-            console.log(data)
-       })
+        this.setState({loading: 1}, ()=>{
+            this.props.uploadAll(this.props.onSendComplete, (err, data)=>{
+                if(!err){
+                    setTimeout(()=>{
+                        this.setState({loading : 0});
+                        this.props.onCloseModel();
+                    }, 2000)
+                }
+                console.log(this.props.onCloseModel);
+           })
+        })
+
     }
 
     render(){
@@ -70,7 +81,9 @@ class Section extends Component{
                           </div>
 
                           <div className="text-center">
-                              <button className="button is-solid accent-button raised wd-160px button-big uppercase" onClick={this.onSubmitPost}>publish</button>
+                              <button ref={this.postPublish} className="button is-solid accent-button raised wd-160px button-big uppercase is-disabled" onClick={this.onSubmitPost}>
+                                 publish
+                              </button>
                           </div>
 
                      </div>

@@ -80,41 +80,33 @@ export default (router)=>{
 
 
     router.post('/upload-posts', async (req, res)=>{
-            console.log(req.body);
-            // { uploadedURL: '6508108c-bfef-4da7-9205-a5c5d03742fb',
-            // postSlug:
-            //  'https://feel-funny.s3.ap-south-1.amazonaws.com/posts/6508108c-bfef-4da7-9205-a5c5d03742fb.png',
-            // postTitle: 'this ',
-            // postMime: 'image/png',
-            // postExt: 'png' }
+         
             const newPost = {
-                    user_id: req.user._id,
+                    user_id: req.user ? req.user._id : '5e12110169481b125b9d0cb6',
                     url: (req.body.uploadedURL).trim(),
                     slugId: (req.body.postSlug).trim(),
                     title: (req.body.postTitle).trim(),
-                    // tags: req.body.postTags,
                     section: (req.body.postSections),
                     mime_type: (req.body.postMime).trim(),
                     ext: (req.body.postExt).trim(),
-                    // is_nsfw: req.body.postNSFW
             };
 
             if((req.body.postMime).indexOf('video')>=0){
                 newPost['content_type'] = 2;
             }
 
-            console.log(newPost);
             const posts = new Posts(newPost);
             try{
-            const result = await posts.save();
-            console.log(result);
-            res.status(200).send({
-                data : CONFIG.MESSAGES[100]   
-            })
+                const result = await posts.save();
+                console.log(result);
+                return res.status(200).send({
+                    data : CONFIG.MESSAGES[100]   
+                })
             }catch(e){
-            res.status(400).send({
-                error : CONFIG.ERRORS[100]   
-            })
+                console.log(e);
+                return res.status(400).send({
+                    error : CONFIG.ERRORS[100]   
+                })
             }
         }
     )
