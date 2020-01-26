@@ -215,3 +215,8 @@ bg-1a72ff{
    opacity: 0;
    cursor: pointer;
    }
+
+   .featured-image{
+       max-height: 250px;
+       overflow: hidden;
+   }

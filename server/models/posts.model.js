@@ -41,6 +41,9 @@ const Posts = new mongoose.Schema({
       mime_type:{
           type: String
       },
+      ext : {
+         type: String
+      },
       is_new:{
       	type: Boolean, default: DB.DEFAULT_TRUE
       },

@@ -1,17 +1,23 @@
 import React, {Component, Fragment} from 'react'
-import {Redirect} from 'react-router-dom'
-import FacebookLogin from 'react-facebook-login';
-import GoogleLogin from 'react-google-login';
+import {connect} from 'react-redux';
+import * as actions from '../../../actions'
+
 
 import Title from './Title';
 import Uploads from './Uploads';
 import Section from './Section';
 
+import Common from '../../CommonClass';
 
 
-class LoginModel extends Component{
+
+class PostModel extends Common(Component){
+    data64 = null;
+    s3Upladed = null;
+    dataToUplaod = null;
     state = {
-        upload : 1
+        upload : 1,
+        dataToUplaod : null
         //2 title
         //3 choose section
         //4 success upload
@@ -20,19 +26,55 @@ class LoginModel extends Component{
          
     }
 
-    postUpload(uploadStep){
+    onChangeUploadState(s3Upladed , data){
+
+        console.log(data);
+        console.log('index')
+        this.s3Upladed = s3Upladed;
+        this.data64 = data
+        this.setState({upload: 2});     
+    }
+
+
+    onChangeTitleState = (postData)=>{
+        this.dataToUplaod = postData;
+        this.setState({upload: 3})
+    }
+
+    onSectionSelected = async (sections)=>{
+         this.dataToUplaod.postSections = sections;
+         await this.setState({
+             dataToUplaod : this.dataToUplaod
+         })
+        //  console.log(this.dataToUplaod);
+    }
+
+
+
+    postUpload = (uploadStep)=>{
         switch(uploadStep) {
             case 2:
-                return <Title/>
+                return <Title onLoaddata64={this.data64} ons3Uploaded={this.s3Upladed} onTitleComplete={(data)=>this.onChangeTitleState(data)}/>
                 break;
             case 3:
-                return <Section/>
+                return <Section onSectionComplete={(sections)=>this.onSectionSelected(sections)}  onSendComplete={this.state.dataToUplaod}/>
                 break;
             default:
-                return <Uploads/>
+                return <Uploads onUploadComplete={(result, key)=>this.onChangeUploadState(result, key)}/>
                 break;
         }
     }
+
+    onPostSubmit = (e)=>{
+        e.preventDefault();
+       
+        this.props.uploadAll(this.dataToUplaod, (err, data)=>{
+            console.log(err)
+            console.log(data)
+
+       })
+    }
+
     render(){
         return(
             <div id="upload-modal" className="modal share-modal is-xsmall has-light-bg">
@@ -59,12 +101,10 @@ class LoginModel extends Component{
                                 }
                             </div>
 
-                            <div className="card-footer flex-end">
+                            {/* <div className="card-footer flex-end">
                                 <div className="button-wrap">
-                                    <button type="button" className="button is-solid dark-grey-button close-modal uppercase">Cancel</button>
-                                    {this.state.upload===3 && <button type="button" class="button is-solid accent-button uppercase">submit</button>}
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                 </div>
             </div>
@@ -72,7 +112,7 @@ class LoginModel extends Component{
     }
 }
 
-export default LoginModel;
+export default connect(state=>state, actions)(PostModel);
 
 
 

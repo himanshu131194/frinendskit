@@ -1,4 +1,6 @@
 import postSections from '../models/sections.model'
+import Posts from '../models/posts.model'
+
 import CONFIG from '../../config';
 
 
@@ -34,7 +36,10 @@ export default (router)=>{
         }
     );
 
+
+
     router.post('/upload-s3', async (req, res)=>{
+           console.log('s3-upload');
             try{
                 let result = null;
                 if(!req.body.url && req.body.data64){
@@ -53,17 +58,66 @@ export default (router)=>{
                       ContentType: type
                 }
                 const s3Result = await s3.putObject(params).promise(); 
-                res.status(200).send({
+
+                console.log({
+                    url : `https://${CONFIG.S3.BUCKET}.s3.ap-south-1.amazonaws.com/${key}`,
+                    key: key,
+                    slug: slugId
+                });
+
+                return res.status(200).send({
                     url : `https://${CONFIG.S3.BUCKET}.s3.ap-south-1.amazonaws.com/${key}`,
                     key: key,
                     slug: slugId
                 });
             }catch(e){
-                res.status(400).send({
+                console.log(e);
+                return res.status(400).send({
                     error: 'Please try to upload again'
                 })
             }
     })
+
+
+    router.post('/upload-posts', async (req, res)=>{
+            console.log(req.body);
+            // { uploadedURL: '6508108c-bfef-4da7-9205-a5c5d03742fb',
+            // postSlug:
+            //  'https://feel-funny.s3.ap-south-1.amazonaws.com/posts/6508108c-bfef-4da7-9205-a5c5d03742fb.png',
+            // postTitle: 'this ',
+            // postMime: 'image/png',
+            // postExt: 'png' }
+            const newPost = {
+                    user_id: req.user._id,
+                    url: (req.body.uploadedURL).trim(),
+                    slugId: (req.body.postSlug).trim(),
+                    title: (req.body.postTitle).trim(),
+                    // tags: req.body.postTags,
+                    section: (req.body.postSections),
+                    mime_type: (req.body.postMime).trim(),
+                    ext: (req.body.postExt).trim(),
+                    // is_nsfw: req.body.postNSFW
+            };
+
+            if((req.body.postMime).indexOf('video')>=0){
+                newPost['content_type'] = 2;
+            }
+
+            console.log(newPost);
+            const posts = new Posts(newPost);
+            try{
+            const result = await posts.save();
+            console.log(result);
+            res.status(200).send({
+                data : CONFIG.MESSAGES[100]   
+            })
+            }catch(e){
+            res.status(400).send({
+                error : CONFIG.ERRORS[100]   
+            })
+            }
+        }
+    )
 
     return router;
 }
