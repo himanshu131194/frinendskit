@@ -185,6 +185,18 @@ bg-1a72ff{
   padding-left: 0px !important;
 }
 
+.pr-0{
+    padding-right: 0px !important;
+}
+
+.br-0{
+    border-radius: unset !important;
+}
+
+.border-0{
+    border: none;
+}
+
 .wd-160px{
     width: 160px;
 }

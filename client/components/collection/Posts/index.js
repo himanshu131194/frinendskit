@@ -9,7 +9,7 @@ class Posts extends Component{
 
                      <div className="view-wrap true-dom">
                          <div className="columns">
-                              <div className="column is-6">
+                              <div className="column is-6 pr-0 pl-0">
                                   {/* POST */}
                                      <Post/>
                                      <Post/>

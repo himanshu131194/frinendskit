@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class Post extends Component{
     render(){
         return(
-                <div className="card is-post">
+                <div className="card is-post br-0 border-0">
                         <div className="content-wrap">
 
 
@@ -14,7 +14,7 @@ class Post extends Component{
                                     <img src="https://friendkit.cssninja.io/assets/images/avatars/dan.jpg" data-demo-src="https://friendkit.cssninja.io/assets/images/avatars/dan.jpg" data-user-popover="1" alt="" />
                                 </div>
                                 <div className="user-info">
-                                    <a href="#">Dan Walker</a>
+                                    <a href="#" className="uppercase">funny</a>
                                     <span className="time">July 26 2018, 01:03pm</span>
                                 </div>
                             </div>
@@ -35,10 +35,9 @@ class Post extends Component{
                         {/* BODY */}
                         <div className="card-body">
                             <div className="post-text">
-                                <p>Yesterday with
-                                    <a href="#">@Karen Miller</a> and
-                                    <a href="#">@Marvin Stemperd</a> at the
-                                    <a href="#">#Rock'n'Rolla</a> concert in LA. Was totally fantastic! People were really excited about this one!</p>
+                                <p>
+                                    <a href="#">Concert in LA. Was totally fantastic! People were really excited about this one!</a> 
+                                </p>
                             </div>
                             <div className="post-image">
                                 <a data-fancybox="post1" data-lightbox-type="comments" data-thumb="https://friendkit.cssninja.io/assets/images/demo/unsplash/1.jpg" href="https://friendkit.cssninja.io/assets/images/demo/unsplash/1.jpg" data-demo-href="https://friendkit.cssninja.io/assets/images/demo/unsplash/1.jpg">

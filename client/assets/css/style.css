@@ -10144,9 +10144,9 @@ pre{
     align-items:center
 }
 .card.is-post .user-block img{
-    width:42px;
-    height:42px;
-    border-radius:50%
+    width:35px;
+    height:35px;
+    border-radius: unset;
 }
 .card.is-post .user-block a,.card.is-post .user-block .time{
     display:block
