@@ -10128,11 +10128,11 @@ pre{
     margin-top:16px
 }
 .card.is-post .card-heading,.card.is-post .card-body{
-    padding:16px 16px 0 16px
+    padding:10px 16px 0 16px
 }
 .card.is-post .card-footer{
     border:none;
-    padding:16px;
+    padding:0 16px 10px 16px;
     margin:0
 }
 .card.is-post .user-block{
@@ -10212,7 +10212,7 @@ pre{
 }
 .card.is-post .content-wrap .post-image img{
     display:block;
-    border-radius:3px
+    border-radius:none;
 }
 .card.is-post .content-wrap .post-image .like-wrapper{
     position:absolute;

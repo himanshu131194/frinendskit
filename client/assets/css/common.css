@@ -188,6 +188,9 @@ bg-1a72ff{
 .pr-0{
     padding-right: 0px !important;
 }
+.mr-6{
+    margin-right: 6px;
+}
 
 .br-0{
     border-radius: unset !important;

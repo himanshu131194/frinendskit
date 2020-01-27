@@ -9,7 +9,7 @@ class LoginModel extends Component{
     }
     render(){
         return(
-            <div id="share-modal" className="modal share-modal is-xsmall has-light-bg">
+            <div id="login-modal" className="modal share-modal is-xsmall has-light-bg">
                 <div className="modal-background"></div>
                 <div className="modal-content">
 
@@ -74,7 +74,6 @@ class LoginModel extends Component{
                                 </div>
                             </div>
                         </div>
-
                 </div>
             </div>
 )

@@ -69,13 +69,13 @@ class Header extends Component{
 															<div className="user-image">
 																<img src="https://friendkit.cssninja.io/assets/images/avatars/jenna.png" data-demo-src="https://friendkit.cssninja.io/assets/images/avatars/jenna.png" alt="" />
 															</div>
-															<AccountDropdown/>
+															{/* <AccountDropdown/> */}
 													</div>
 											 </Fragment>
 											 :
 											 <Fragment>
 												<div className="navbar-item">
-													<button type="button" className="button is-solid accent-button next-modal raised modal-trigger" data-modal="share-modal">LOGIN</button>
+													<button type="button" className="button is-solid accent-button next-modal raised modal-trigger" data-modal="login-modal">LOGIN</button>
 												</div>
 											 </Fragment>
 											}
