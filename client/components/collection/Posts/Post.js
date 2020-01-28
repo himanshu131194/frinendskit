@@ -17,7 +17,7 @@ class Post extends Component{
                             <div className="card-heading">
                                 <div className="user-block">
                                     <div className="image">
-                                        <img src="https://friendkit.cssninja.io/assets/images/avatars/dan.jpg" data-demo-src="https://friendkit.cssninja.io/assets/images/avatars/dan.jpg" data-user-popover="1" alt="" />
+                                        <img src="http://pngimg.com/uploads/football/football_PNG52781.png" data-demo-src="http://pngimg.com/uploads/football/football_PNG52781.png" data-user-popover="1" alt="" />
                                     </div>
                                     <div className="user-info">
                                         <a href="#" className="uppercase">funny</a>
