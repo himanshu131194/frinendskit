@@ -80,7 +80,6 @@ export default (router)=>{
 
 
     router.post('/upload-posts', async (req, res)=>{
-         
             const newPost = {
                     user_id: req.user ? req.user._id : '5e12110169481b125b9d0cb6',
                     url: (req.body.uploadedURL).trim(),
@@ -110,6 +109,38 @@ export default (router)=>{
             }
         }
     )
+
+
+    router.get('/list-posts', async (req, res)=>{
+
+            const postMatchObject = {};
+
+            // if(req.query && req.query['post_id']!=='undefined'){
+            //     let _id = (req.query['post_id']).trim();
+            //     postMatchObject['_id'] = mongoose.Types.ObjectId(_id)
+            // }
+
+            try{
+                const posts = await Posts.aggregate([
+                    { $match : postMatchObject },
+                    {
+                            $lookup: {
+                                from : 'sections',
+                                localField: 'section',
+                            foreignField: '_id',
+                            as: 'section_details'
+                        }
+                    }
+                ]).sort({created: -1});
+                res.status(200).send({
+                    data : posts  
+                })
+            }catch(e){
+                res.status(400).send({
+                    error : CONFIG.ERRORS[100]
+                })
+            } 
+    });
 
     return router;
 }

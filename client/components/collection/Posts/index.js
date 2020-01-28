@@ -12,14 +12,6 @@ class Posts extends Component{
                               <div className="column is-6 pr-0 pl-0">
                                   {/* POST */}
                                      <Post/>
-                                     <Post/>
-                                     <Post/>
-                                     <Post/>
-                                     <Post/>
-                                     <Post/>
-                                     <Post/>
-                                     <Post/>
-
                                   {/* END POST */}
                               </div>
                          </div>

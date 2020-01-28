@@ -30,10 +30,10 @@ const Posts = new mongoose.Schema({
       tags:[{
              type: String  
       }],
-      section:[{
+      section:{
          type:mongoose.Schema.ObjectId,
          ref: 'sections'
-      }],
+      },
       content_type:{
       	 type: Number,
       	 default: DB.DEFAULT_CONTENT_TYPE

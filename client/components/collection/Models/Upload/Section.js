@@ -17,18 +17,31 @@ class Section extends Component{
 
     selectedSection = (e)=>{
           const id = e.target.id;
-          this.sectionsList[id]=id;
+          this.sectionsList[id]=e.target;
+          
+          const sectionsList = this.sectionsList;
+          
+          for(let x in sectionsList){
+              if(x!==id){
+                this.sectionsList[x].checked = false;
+              }
+          }
 
-          if(e.target.checked===false)
-             delete this.sectionsList[id]
+          const selected =  e.target.checked ? id : null; 
        
-          const sections = Object.keys(this.sectionsList);
-          
-          sections.length>0 ? this.postPublish.current.classList.remove('is-disabled') : this.postPublish.current.classList.add('is-disabled')
-          
-          this.props.onSectionComplete(sections);
+          console.log(selected);
 
-          console.log('this.props.onSendComplete')
+        //   const sections = Object.keys(this.sectionsList);
+          
+        //   console.log(this.sectionsList);
+        //   console.log(sections);
+
+
+          selected ? this.postPublish.current.classList.remove('is-disabled') : this.postPublish.current.classList.add('is-disabled')
+          
+          this.props.onSectionComplete(selected);
+
+          console.log('this.props.onSendComplete')  
           console.log(this.props.onSendComplete)
     }
 

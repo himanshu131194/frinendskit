@@ -3337,21 +3337,25 @@ button.button{
     display:block
 }
 .fab-wrapper.is-share a{
-    background:#1a72ff;
-    box-shadow:0 14px 26px -12px rgba(0,98,255,0.42),0 4px 23px 0px rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,98,255,0.2) !important
+    /* background:#1a72ff; */
+    border: 1.6px solid #1a72ff;
+    color: #1a72ff;
+    /* box-shadow:0 14px 26px -12px rgba(0,98,255,0.42),0 4px 23px 0px rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,98,255,0.2) !important */
 }
 .fab-wrapper.is-share a:hover{
-    background:#3d88ff
+    background:#1a72ff;
 }
 .fab-wrapper.is-share a:hover svg{
     stroke:#fff
 }
 .fab-wrapper.is-comment a{
-    background:#1a72ff;
-    box-shadow:0 14px 26px -12px rgba(0,98,255,0.42),0 4px 23px 0px rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,98,255,0.2) !important
+    /* background:#1a72ff; */
+    /* box-shadow:0 14px 26px -12px rgba(0,98,255,0.42),0 4px 23px 0px rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,98,255,0.2) !important */
+    border: 1.6px solid #1a72ff;
+    color: #1a72ff;
 }
 .fab-wrapper.is-comment a:hover{
-    background:#3d88ff
+    background:#1a72ff;
 }
 .fab-wrapper.is-comment a:hover svg{
     stroke:#fff
@@ -10144,16 +10148,17 @@ pre{
     align-items:center
 }
 .card.is-post .user-block img{
-    width:35px;
-    height:35px;
+    width:30px;
+    height:30px;
     border-radius: unset;
 }
 .card.is-post .user-block a,.card.is-post .user-block .time{
     display:block
 }
 .card.is-post .user-block a{
-    font-size:.9rem;
-    font-weight:500;
+    /* font-size:.9rem; */
+    font-size:.8rem;
+    font-weight:400;
     color:#393a4f;
     transition:color .3s
 }
@@ -10161,7 +10166,8 @@ pre{
     color:#4a4b67
 }
 .card.is-post .user-block .time{
-    font-size:.8rem;
+    /* font-size:.8rem; */
+    font-size: .65rem;
     color:#999
 }
 .card.is-post .user-block .user-info{
@@ -10208,7 +10214,7 @@ pre{
 }
 .card.is-post .content-wrap .post-image{
     position:relative;
-    margin:10px 0
+    margin:5px 0 10px 0;
 }
 .card.is-post .content-wrap .post-image img{
     display:block;
