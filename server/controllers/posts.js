@@ -142,5 +142,31 @@ export default (router)=>{
             } 
     });
 
+
+
+
+    router.get('/query-test', async (req, res)=>{
+
+        const postMatchObject = {};
+
+        // if(req.query && req.query['post_id']!=='undefined'){
+        //     let _id = (req.query['post_id']).trim();
+        //     postMatchObject['_id'] = mongoose.Types.ObjectId(_id)
+        // }
+
+        // try{
+        //     const posts  = await Posts.updateMany({is_new: true}, { section: '5cb4c313531214b21d2abbc5' });
+        //     res.status(200).send({
+        //         data : posts  
+        //     })
+        // }catch(e){
+        //     res.status(400).send({
+        //         error : e
+        //     })
+        // } 
+});
+
     return router;
 }
+
+// {"_id":{"$oid":"5cb4c313531214b21d2abbc5"},"value":"funny","url":"https://geekandsundry.com/wp-content/uploads/2015/03/joker-1-970x545.jpg","created":{"$date":{"$numberLong":"1555350291124"}},"__v":{"$numberInt":"0"}}

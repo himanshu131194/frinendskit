@@ -48,7 +48,7 @@ class MobileHeader extends Component{
                            {this.props.user
                             ? */}
                             {/* <Fragment> */}
-                              {this.props.user && this.props.user.auth===false
+                              {this.props.user && this.props.user.auth===true
                               ?
                                <Fragment>
                                     <div className="navbar-item">
@@ -64,7 +64,7 @@ class MobileHeader extends Component{
                                </Fragment>
                               : 
                               <Fragment>
-                                   <div className="navbar-item">
+                                   {/* <div className="navbar-item">
                                    <button type="button" className="button is-solid accent-button next-modal raised modal-trigger" data-modal="upload-modal">UPLOAD NEW</button>
                                    </div>
                                    <div id="account-dropdown" className="navbar-item is-account drop-trigger has-caret">
@@ -72,7 +72,10 @@ class MobileHeader extends Component{
                                                 <img src="https://friendkit.cssninja.io/assets/images/avatars/jenna.png" data-demo-src="https://friendkit.cssninja.io/assets/images/avatars/jenna.png" alt="" />
                                             </div>
                                             <AccountDropdown/>
-                                    </div>
+                                    </div> */}
+                                    <div className="navbar-item">
+													<button type="button" className="button is-solid accent-button next-modal raised modal-trigger" data-modal="login-modal">LOGIN</button>
+									</div>
                               </Fragment>
                               } 
                             {/* </Fragment>

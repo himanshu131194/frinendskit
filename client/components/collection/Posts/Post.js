@@ -5,6 +5,7 @@ import * as actions from '../../actions'
 class Post extends Component{
     componentDidMount(){
         this.props.listPosts();
+        console.log(this.props.user);
     }
     render(){
         return(
@@ -41,7 +42,7 @@ class Post extends Component{
                             <div className="card-body">
                                 <div className="post-text">
                                     <p>
-                                        <a href="#">Concert in LA. Was totally fantastic! People were really excited about this one!</a> 
+                                        <a href="#">{result.title}</a> 
                                     </p>
                                 </div>
                                 <div className="post-image">
