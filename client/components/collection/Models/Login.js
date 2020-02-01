@@ -15,7 +15,7 @@ class LoginModel extends Component{
 
                         <div className="card">
                             <div className="card-heading">
-                                <h3 className="uppercase">Create an account</h3>
+                                <h3 className="uppercase">become a member</h3>
                                 <div className="close-wrap">
                                     <span className="close-modal">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -26,17 +26,18 @@ class LoginModel extends Component{
                             <div className="login-wrapper">
                             <div className="form-wrapper">
                                         <div className="login-form">
-                                        <div className="field button-wrap">
+                                            <div className="field button-wrap">
                                            <div className="control uppercase">
                                               <a className="button is-solid primary-button raised is-fullwidth uppercase mb-15" href="/api/auth/google">Login with Google </a>
+                                                <div className="field">
+                                                  <h3 className="uppercase text-center">OR</h3>
+                                                </div>
                                               <button className="button is-solid accent-button raised is-fullwidth uppercase">Login with Facebook</button>
                                            </div>
                                         </div>
-                                         
-                                        <div className="field">
-                                             <h3 className="uppercase text-center">OR</h3>
-                                        </div>
-
+                                            {/* <div className="field">
+                                                <h3 className="uppercase text-center">OR</h3>
+                                            </div>
                                             <div className="field">
                                                 <div className="control">
                                                     <input className="input email-input" type="text" placeholder="jennadavis@gmail.com" />
@@ -59,11 +60,12 @@ class LoginModel extends Component{
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="field">
+                                            <div className="field"> 
                                                 <div className="control uppercase">
                                                     <a className="button loginbutton-wrapper is-fullwidth uppercase">Login</a>
                                                 </div>
                                             </div>
+        */}
                                         </div>
                             </div>
                             </div>

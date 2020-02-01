@@ -1,6 +1,6 @@
 import express from 'express'
 import path from 'path'
-const passport = require('passport');
+import passport from 'passport'
 import CONFIG from './../config'
 import bodyParser from 'body-parser'
 import Template from './../template.js'
@@ -11,7 +11,9 @@ import postsController from './controllers/posts'
 import cors from 'cors'
 import cookieSession from 'cookie-session'
 
-import './services/passport';
+import './services/passport_google';
+// import './services/passport_local';
+
 
 const app = express();
 

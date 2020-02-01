@@ -33,7 +33,7 @@ passport.use(
       const user = await new User({ 
           name : profile.emails[0].value,
           email : profile.displayName,
-          acccount_type: 1,
+          account_type: 1,
           account_id : profile.id 
         }).save();
       done(null, user);

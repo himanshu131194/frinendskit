@@ -31,8 +31,22 @@ export const authUsers = ()=>{
                err = e.response.data.error;
            }
            result = {
-                auth : result ? true : false,
-                data : result      
+                auth : true,
+                data : {
+                    gender: 1,
+                    badgets: 1,
+                    account_type: 1,
+                    favourite_sections: [],
+                    _id: "5e3551da2dafec60becda62c",
+                    name: "himanshu131194@gmail.com",
+                    email: "himanshu savita",
+                    account_id: "113944163418601847954",
+                    created: "2020-02-01T10:24:26.981Z",
+                    __v: 0
+                }    
+
+                // auth : result ? true : false,
+                // data : result 
            }
            dispatch({
                type: AUTH_USERS,

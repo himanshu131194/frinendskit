@@ -1,8 +1,8 @@
 export default {
    env : process.env.NODE_ENV || 'development',
    port : process.env.PORT || 8080,
-   API_URL: "http://localhost:8080",
-   // API_URL: "http://192.168.0.132:8080",
+   // API_URL: "http://localhost:8080",
+   API_URL: "http://192.168.0.132:8080",
    MONGO_URI : 'mongodb+srv://feelfunny:feelfunny123@feelfunny-jfu4v.mongodb.net/test?retryWrites=true',
    COOKIEKEY: 'mycookiesecret',
    DB:{

@@ -81,36 +81,36 @@ const UserSchema = new mongoose.Schema({
       }
 })
 
-// UserSchema
-//   .virtual('password')
-//   .set(function(password) {
-//     this._password = password
-//     this.password_salt = this.makeSalt()
-//     this.password_hash = this.encryptPassword(password)
-//   })
-//   .get(function() {
-//     return this._password
-//   })
+UserSchema
+  .virtual('password')
+  .set(function(password) {
+    this._password = password
+    this.password_salt = this.makeSalt()
+    this.password_hash = this.encryptPassword(password)
+  })
+  .get(function() {
+    return this._password
+  })
 
 
-// UserSchema.methods = {
-//     authenticate: function(password){
-//        return this.encryptPassword(password)===this.password_hash;
-//     },
-//     encryptPassword: function(password){
-//        if(!password) return ''
-//        try{
-//           return crypto
-//           .createHmac('sha1', this.password_salt)
-//           .update(password)
-//           .digest('hex')
-//        }catch (err) {
-//         return ''
-//        }
-//     },
-//     makeSalt: function() {
-//         return Math.round((new Date().valueOf() * Math.random())) + ''
-//     }
-// }
+UserSchema.methods = {
+    authenticate: function(password){
+       return this.encryptPassword(password)===this.password_hash;
+    },
+    encryptPassword: function(password){
+       if(!password) return ''
+       try{
+          return crypto
+          .createHmac('sha1', this.password_salt)
+          .update(password)
+          .digest('hex')
+       }catch (err) {
+        return ''
+       }
+    },
+    makeSalt: function() {
+        return Math.round((new Date().valueOf() * Math.random())) + ''
+    }
+}
 
 export default mongoose.model('users', UserSchema);

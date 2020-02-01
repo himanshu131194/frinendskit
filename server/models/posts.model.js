@@ -27,6 +27,10 @@ const Posts = new mongoose.Schema({
       	 type: Number,
       	 default: DB.DEFAULT_COUNT
       },
+      shared_count:  {
+         type: Number,
+         default: DB.DEFAULT_COUNT
+      },
       tags:[{
              type: String  
       }],

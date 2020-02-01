@@ -5,7 +5,7 @@ import CONFIG from '../../config';
 
 
 // import postSections from '../models/sections.model'
-// import User from '../models/users.model'
+import User from '../models/users.model'
 // import Posts from '../models/posts.model'
 // import Emojis from '../models/emojis'
 // import likedPosts from '../models/liked_posts.model'
@@ -112,6 +112,7 @@ export default (router)=>{
 
 
     router.get('/list-posts', async (req, res)=>{
+           
 
             const postMatchObject = {};
 
@@ -147,23 +148,24 @@ export default (router)=>{
 
     router.get('/query-test', async (req, res)=>{
 
-        const postMatchObject = {};
+        // const postMatchObject = {};
+
 
         // if(req.query && req.query['post_id']!=='undefined'){
         //     let _id = (req.query['post_id']).trim();
         //     postMatchObject['_id'] = mongoose.Types.ObjectId(_id)
         // }
 
-        // try{
-        //     const posts  = await Posts.updateMany({is_new: true}, { section: '5cb4c313531214b21d2abbc5' });
-        //     res.status(200).send({
-        //         data : posts  
-        //     })
-        // }catch(e){
-        //     res.status(400).send({
-        //         error : e
-        //     })
-        // } 
+        try{
+            const posts  = await Users.remove({});
+            res.status(200).send({
+                data : posts  
+            })
+        }catch(e){
+            res.status(400).send({
+                error : e
+            })
+        } 
 });
 
     return router;
