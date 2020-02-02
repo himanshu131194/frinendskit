@@ -19,15 +19,19 @@ const Posts = new mongoose.Schema({
       title: {
       	  type: String,
       },
-      points: {
+      liked: {
+          type: Boolean,
+          default: DB.DEFAULT_FALSE
+      },
+      like_count: {
       	 type: Number,
       	 default: DB.DEFAULT_COUNT
       },
-      comments_count:  {
+      comment_count:  {
       	 type: Number,
       	 default: DB.DEFAULT_COUNT
       },
-      shared_count:  {
+      share_count:  {
          type: Number,
          default: DB.DEFAULT_COUNT
       },
@@ -69,7 +73,7 @@ const Posts = new mongoose.Schema({
       size:{
       	 type: Number
       },
-      liked_list:[
+      liker_list:[
             {
               type: mongoose.Schema.ObjectId,
               ref: 'users'

@@ -234,3 +234,11 @@ bg-1a72ff{
        max-height: 250px;
        overflow: hidden;
    }
+
+
+.post-liked.fab-wrapper.post-action div{
+    background:#1a72ff;
+}
+.post-liked.fab-wrapper.post-action div svg{
+    stroke:#fff
+}

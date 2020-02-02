@@ -3343,12 +3343,12 @@ button.button{
     border: 1.6px solid #1a72ff;
     color: #1a72ff;
 }
-.fab-wrapper.post-action div:hover{
+/* .fab-wrapper.post-action div:hover{
     background:#1a72ff;
 }
 .fab-wrapper.post-action div:hover svg{
     stroke:#fff
-}
+} */
 
 
 .fab-wrapper .small-fab{

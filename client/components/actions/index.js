@@ -108,6 +108,20 @@ export const listSections = ()=>{
 }
 
 
+export const postLiked = (post_id, flag, cb)=>{
+    return async ()=>{
+            //  let err = null, result = null;
+                 try{
+                     let {data} = await axios.post(`${CONFIG.API_URL}/api/post-liked`, {post_id, flag});
+                     let result = data.data;
+                     cb(null, result) 
+                 }catch(e){
+                    //  err = e.response.data.error;
+                     cb(e, null)
+                 }
+    }
+}
+
 
 
 

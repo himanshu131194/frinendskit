@@ -2,6 +2,29 @@
 import passport from 'passport'
 // import CONFIG from '../../config';
 
+export default {
+    // googleLogin : passport.authenticate('google', { scope: ['profile', 'email']}),
+    googleCallback: (req, res) => {
+        res.redirect('/');
+    }, 
+    googleAuthenticate: (req, res) => {
+        if(req.user){
+            res.status(200).send({
+                user : req.user
+            })
+        }else{
+            res.send({
+                user : null
+            })
+        }
+    },
+    googleLogout:  (req, res) => {
+        req.logout();
+        res.redirect('/');
+    }
+}
+
+
 export default (router)=>{
 
     router.get('/auth/google', passport.authenticate('google', {
