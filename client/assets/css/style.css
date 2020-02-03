@@ -10750,7 +10750,8 @@ pre{
 }
 .card.is-post .comments-wrap .card-footer{
     margin:0 !important;
-    padding:16px
+    /* padding:16px; */
+    padding:10px;
 }
 .card.is-post .comments-wrap .card-footer .post-comment{
     width:100%
