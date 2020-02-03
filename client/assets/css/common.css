@@ -37,6 +37,13 @@
 .mb-15{
     margin-bottom: 15px !important;
 }
+.mb-0{
+    margin-bottom: 0 !important;
+}
+
+.m-0{
+    margin: 0 !important;
+}
 
 .text-center{
     text-align: center;
@@ -241,4 +248,8 @@ bg-1a72ff{
 }
 .post-liked.fab-wrapper.post-action div svg{
     stroke:#fff
+}
+
+.comment-media-left{
+    margin-right: .5rem;
 }

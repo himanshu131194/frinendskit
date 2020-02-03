@@ -7,6 +7,12 @@ import Upload from './collection/Models/Upload/'
 
 import Posts from './collection/Posts/'
 
+import CommentsModel from './collection/Models/Comments'
+
+
+
+
+
 
 
 
@@ -24,6 +30,7 @@ class Home extends Component{
             <LoginModel/>
             <Upload/>
             
+            <CommentsModel/>
                     
            </Fragment>
       	 )

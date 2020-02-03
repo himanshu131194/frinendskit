@@ -170,16 +170,16 @@ export default {
         //     let _id = (req.query['post_id']).trim();
         //     postMatchObject['_id'] = mongoose.Types.ObjectId(_id)
         // }
-        // try{
-        //     const posts  = await Posts.updateMany({}, {liked: false, like_count: 0, comment_count: 0, share_count: 0});
-        //     res.status(200).send({
-        //         data : posts  
-        //     })
-        // }catch(e){
-        //     res.status(400).send({
-        //         error : e
-        //     })
-        // } 
+        try{
+            const posts  = await Posts.updateMany({}, {liked: false, like_count: 0, comment_count: 0, share_count: 0});
+            res.status(200).send({
+                data : posts  
+            })
+        }catch(e){
+            res.status(400).send({
+                error : e
+            })
+        } 
     }
 
 }

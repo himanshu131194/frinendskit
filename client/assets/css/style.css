@@ -5615,7 +5615,8 @@ button.button{
         height:110px !important
     }
     .modal .modal-content{
-        max-width:340px
+        /* max-width:340px; */
+        max-width:100%;
     }
     .modal .modal-content .content-block{
         width:314px
@@ -10582,8 +10583,8 @@ pre{
     stroke:#757a91
 }
 .card.is-post .comments-wrap .comments-body{
-    padding:16px;
-    max-height:450px;
+    padding:10px;
+    max-height:400px;
     overflow-y:auto
 }
 .card.is-post .comments-wrap .comments-body .comments-placeholder{
@@ -10605,16 +10606,19 @@ pre{
     color:#999
 }
 .card.is-post .comments-wrap .comments-body .is-comment{
+    padding-top: .5rem;
+    border-top: none;
     -ms-flex-align:stretch;
     align-items:stretch
 }
 .card.is-post .comments-wrap .comments-body .is-comment .media-left img{
-    height:42px;
-    width:42px;
+    height:35px;
+    width:35px;
     border-radius:50%
 }
 .card.is-post .comments-wrap .comments-body .is-comment .media-content a{
-    font-size:.9rem;
+    /* font-size:.9rem; */
+    font-size:.8rem;
     font-weight:500 !important;
     display:block;
     color:#393a4f
@@ -10624,12 +10628,15 @@ pre{
 }
 .card.is-post .comments-wrap .comments-body .is-comment .media-content .time{
     display:block;
-    font-size:.8rem;
+    /* font-size:.8rem; */
+    font-size:.7rem;
     color:#888da8;
-    margin-bottom:10px
+    /* margin-bottom:10px; */
+    margin-bottom:3px;
 }
 .card.is-post .comments-wrap .comments-body .is-comment .media-content p{
-    font-size:.9rem !important;
+    /* font-size:.9rem !important; */
+    font-size:.8rem !important;
     color:#757a91
 }
 .card.is-post .comments-wrap .comments-body .is-comment .media-content .controls{
