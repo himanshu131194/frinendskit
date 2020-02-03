@@ -46,15 +46,15 @@ export default () => {
       
                 
                 <!-- Components js -->
-                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/widgets.js"></script>
-                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/autocompletes.js"></script>
-                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/modal-uploader.js"></script>
-                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/popovers-users.js"></script>
-                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/popovers-pages.js"></script>
-                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/go-live.js"></script>
-                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/lightbox.js"></script>
-                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/touch.js"></script>
-                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/tour.js"></script>   
+                <script src="httpss://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/widgets.js"></script>
+                <script src="httpss://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/autocompletes.js"></script>
+                <script src="httpss://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/modal-uploader.js"></script>
+                <script src="httpss://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/popovers-users.js"></script>
+                <script src="httpss://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/popovers-pages.js"></script>
+                <script src="httpss://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/go-live.js"></script>
+                <script src="httpss://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/lightbox.js"></script>
+                <script src="httpss://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/touch.js"></script>
+                <script src="httpss://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/tour.js"></script>   
         </body> 
     </html>`  
 }

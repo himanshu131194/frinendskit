@@ -5614,9 +5614,13 @@ button.button{
     .modal.albums-help-modal img,.modal.videos-help-modal img{
         height:110px !important
     }
-    .modal .modal-content{
+    .modal .modal-content.comment-content{
         /* max-width:340px; */
         max-width:100%;
+    }
+
+    .modal .modal-content{
+        max-width:340px;
     }
     .modal .modal-content .content-block{
         width:314px

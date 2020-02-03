@@ -5,7 +5,7 @@ export default ()=>{
     return(
 <div id="comment-modal" className="modal share-modal is-xsmall has-light-bg">
 <div className="modal-background"></div>
-<div className="modal-content">
+<div className="modal-content comment-content">
 <div id="feed-post-1" class="card is-post br-0">
           <div className="card-heading">
                 <h4>Comments<small>(8)</small></h4>
