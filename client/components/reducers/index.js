@@ -1,8 +1,9 @@
 import {combineReducers} from 'redux'
-import {listOfPostsReducer, authUsersReducer, listOfSectionsReducer} from './reducers'
+import {listOfPostsReducer, authUsersReducer, listOfSectionsReducer, selectedPostReducer} from './reducers'
 
 export default combineReducers({
 	  listOfPosts :  listOfPostsReducer,
 	  listOfSections : listOfSectionsReducer,
-	  user : authUsersReducer
+	  user : authUsersReducer,
+	  selectedPost : selectedPostReducer
 })

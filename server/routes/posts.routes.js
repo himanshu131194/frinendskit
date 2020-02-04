@@ -23,7 +23,7 @@ export default (router)=>{
     router.post('/upload-posts', postsController.uploadPost);
     router.post('/post-liked',  usersController.authenticate,  postsController.postLiked)
     
-    // router.post('/post-comments', usersController.authenticate, postsController.postComments)
+    router.post('/post-comments', usersController.authenticate, postsController.postComments)
        
     return router;
 }

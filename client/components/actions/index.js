@@ -1,4 +1,4 @@
-import {LOAD_POSTS, AUTH_USERS, LIST_SECTIONS} from './types'
+import {LOAD_POSTS, AUTH_USERS, LIST_SECTIONS, CURRENT_POST} from './types'
 import CONFIG from '../../../config'
 import axios from 'axios'
 
@@ -107,7 +107,6 @@ export const listSections = ()=>{
     }
 }
 
-
 export const postLiked = (post_id, flag, cb)=>{
     return async ()=>{
             //  let err = null, result = null;
@@ -122,8 +121,27 @@ export const postLiked = (post_id, flag, cb)=>{
     }
 }
 
+export const postComments = (post_id, text, cb)=>{
+    return async ()=>{
+             let err = null, result = null;
+                 try{
+                     let {data} = await axios.post(`${CONFIG.API_URL}/api/post-comments`, {post_id, text});
+                     cb(null, data) 
+                 }catch(e){
+                     err = e.response.data.error;
+                     cb(err, null)
+                 }
+    }
+}
 
-
+export const setPostId = (post_id)=>{
+    return (dispatch)=>{
+            dispatch({
+                type: CURRENT_POST,
+                payload: post_id
+            })
+    }
+}
 
 
 

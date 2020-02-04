@@ -180,6 +180,33 @@ export default {
                 error : e
             })
         } 
+    },
+
+    postComments: async (req, res)=>{
+        const postId = (req.body.post_id).trim(),
+              commentTxt = (req.body.text).trim();
+         const comments = new Comments({
+                  user_id: req.user._id,
+              post_id: postId,
+              text: commentTxt
+         });
+        try{
+           const result = await comments.save();
+           const countComments = await Posts.findOneAndUpdate(
+                    { _id: postId },
+                    {
+                        $inc : { comment_count: 1 }
+                    },
+                    {new: true}
+           );
+           res.status(200).send({
+               data : countComments  
+           })
+        }catch(e){
+           res.status(400).send({
+               error : e   
+           })
+        }
     }
 
 }

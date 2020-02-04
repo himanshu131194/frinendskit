@@ -1,4 +1,4 @@
-import {LOAD_POSTS, AUTH_USERS, LIST_SECTIONS} from '../actions/types'
+import {LOAD_POSTS, AUTH_USERS, LIST_SECTIONS, CURRENT_POST} from '../actions/types'
 
 export const listOfPostsReducer = (state=null, action)=>{
 	switch(action.type){
@@ -43,6 +43,11 @@ export const listOfSectionsReducer = (state=[], action)=>{
 	}
 } 
 
-
-
-
+export const selectedPostReducer = (state=null, action)=>{
+	switch(action.type){
+		  case CURRENT_POST:
+			return action.payload;
+		  default: 
+		   return state;
+	}
+} 
