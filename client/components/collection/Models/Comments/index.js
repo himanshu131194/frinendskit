@@ -37,9 +37,18 @@ class CommentsModel extends Component{
                                     <Comment />
                                     <Comment />
                                     <Comment />
+                                    <Comment />
+                                    <Comment />
+                                    <Comment />
+                                    <Comment />
+                                    <Comment />
+                                    <Comment />
+                                    <Comment />
+                                    <Comment />
+                                    
                                 </div>
                                 <div class="card-footer">
-                                    <CommentContent/>
+                                    <CommentContent onPostComment={(status)=>this.setState({loading: status})}/>
                                 </div>
                             </div>
                         </div>

@@ -10755,7 +10755,7 @@ pre{
 .card.is-post .comments-wrap .card-footer{
     margin:0 !important;
     /* padding:16px; */
-    padding:10px;
+    padding:5px 10px;
 }
 .card.is-post .comments-wrap .card-footer .post-comment{
     width:100%
@@ -10776,7 +10776,7 @@ pre{
     display:-ms-flexbox;
     display:flex;
     -ms-flex-pack:start;
-    justify-content:flex-start;
+    justify-content:flex-end;
     -ms-flex-align:center;
     align-items:center;
     padding:8px;
