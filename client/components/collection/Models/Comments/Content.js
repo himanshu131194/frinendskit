@@ -5,26 +5,29 @@ import * as actions from '../../../actions'
 class CommentContent extends Component{
     
     commentContent = React.createRef();
+    postComment = React.createRef();
 
-
+    
     onComment = (e)=>{
         e.preventDefault();
+        this.setState({loading: 1});
         const content = (this.commentContent.current.value).trim();
-        console.log(this.props);
-        // if(content!==''){
-        //     let postId = e.currentTarget.dataset.post;
-        //     txt = (document.getElementById('text_'+postId).value).trim();
-        //     this.props.postComments(postId, txt, (err, res)=>{
-        //         if(!err){
-        //             let totalPoints = document.getElementById('total_comments_'+postId);
-        //             totalPoints.innerHTML = parseInt(totalPoints.innerHTML.split(" ")[0])+1 + " comments";
-        //             document.getElementById('text_'+postId).value = '';
-        //             this.setState({loading: 0});
-        //             this.loadComments(null, postId);
-        //         }
-        //     })
-        // }
+        if(content!==''){
+            const postId = this.props.selectedPost;
+            this.props.postComments(postId, content, (err, res)=>{
+                if(!err){
+                    this.setState({loading: 0});
+                    // this.loadComments(null, postId);
+                }
+            })
+        }
     }
+
+    validateComment = (e)=>{
+        const content = (this.commentContent.current.value).trim();
+        (content!=='') ? this.postComment.current.classList.remove('is-disabled') : this.postComment.current.classList.add('is-disabled') 
+    }
+
     render(){
         return(
             <div class="media post-comment">
@@ -32,7 +35,7 @@ class CommentContent extends Component{
                 <div class="field">
                     <p class="control">
                         {/* <textarea ref={this.postTitle} className="textarea comment-textarea" rows="1" placeholder="Say something about this ..."></textarea> */}
-                        <textarea ref={this.commentContent} class="textarea" rows="3" placeholder="Write a comment..."></textarea>
+                        <textarea ref={this.commentContent} onKeyUp={this.validateComment} class="textarea" rows="3" placeholder="Write a comment..."></textarea>
                     </p>
                 </div>
                 <div class="actions">
@@ -43,7 +46,7 @@ class CommentContent extends Component{
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-camera"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                         <input type="file" />
                     </div>
-                    <a class="button is-solid primary-button raised uppercase" onClick={this.onComment}>Post Comment</a>
+                    <a class="button is-solid primary-button raised uppercase is-disabled" ref={this.postComment} onClick={this.onComment}>Post Comment</a>
                 </div>
             </div>
         </div>

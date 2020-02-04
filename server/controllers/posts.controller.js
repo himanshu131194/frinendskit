@@ -1,6 +1,7 @@
 import postSections from '../models/sections.model'
 import Posts from '../models/posts.model'
 import likedPosts from '../models/liked_posts.model'
+import Comments from '../models/comments.model'
 
 import CONFIG from '../../config';
 // import postSections from '../models/sections.model'
