@@ -22,6 +22,9 @@ passport.use(
       callbackURL: '/api/auth/google/callback',
     },
     async (accessToken, refreshToken, profile, done) => {
+      
+      console.log(profile);
+
       const existingUser = await User.findOne({ account_id: profile.id});
       console.log('existing user');
       console.log(existingUser);
@@ -34,7 +37,8 @@ passport.use(
           name : profile.emails[0].value,
           email : profile.displayName,
           account_type: 1,
-          account_id : profile.id 
+          account_id : profile.id,
+          profile_pic: profile.photos[0].value
         }).save();
       done(null, user);
     }

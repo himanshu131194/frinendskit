@@ -3,10 +3,15 @@ import Comment from './Comment';
 import CommentContent from './Content'
 import Loader from '../Upload/Loader'
 
+import {connect} from 'react-redux';
+import * as actions from '../../../actions'
 
 class CommentsModel extends Component{
         state = {
             loading : 0
+        }
+        componentDidMount(){
+             
         }
         render(){
             return(
@@ -60,4 +65,4 @@ class CommentsModel extends Component{
 
 
 
-export default CommentsModel;
+export default connect(state=>state, actions)(CommentsModel);

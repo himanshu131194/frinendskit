@@ -134,6 +134,20 @@ export const postComments = (post_id, text, cb)=>{
     }
 }
 
+export const listComments = (post_id, cb)=>{
+    return async ()=>{
+             let err = null, result = null;
+             console.log(post_id);
+                 try{
+                     let {data} = await axios.post(`${CONFIG.API_URL}/api/list-comments`, {post_id});
+                     cb(null, data['data']) 
+                 }catch(e){
+                     err = e;
+                     cb(err, null)
+                 }
+    }
+}
+
 export const setPostId = (post_id)=>{
     return (dispatch)=>{
             dispatch({

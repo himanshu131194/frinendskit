@@ -35,18 +35,19 @@ const UserSchema = new mongoose.Schema({
             type: Number
       },
       profile_pic:{
-            thumbnail: {
-                  url : { type: String },
-                  width: {type: Number},
-                  height: { type:Number },
-                  size: {type: Number}
-            },
-            original: {
-                  url : { type: String },
-                  width: {type: Number},
-                  height: { type:Number },
-                  size: {type: Number}
-            }
+            // thumbnail: {
+            //       url : { type: String },
+            //       width: {type: Number},
+            //       height: { type:Number },
+            //       size: {type: Number}
+            // },
+            // original: {
+            //       url : { type: String },
+            //       width: {type: Number},
+            //       height: { type:Number },
+            //       size: {type: Number}
+            // }
+            type: String
       },
       description:{
             type: String

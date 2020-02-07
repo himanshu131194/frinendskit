@@ -57,7 +57,7 @@ class MobileHeader extends Component{
                                     </div>
                                     <div id="account-dropdown" className="navbar-item is-account drop-trigger has-caret">
                                             <div className="user-image">
-                                                <img src="https://friendkit.cssninja.io/assets/images/avatars/jenna.png" data-demo-src="https://friendkit.cssninja.io/assets/images/avatars/jenna.png" alt="" />
+                                                <img src={this.props.user.data.profile_pic} data-demo-src={this.props.user.data.profile_pic} alt="" />
                                             </div>
                                             {/* <AccountDropdown/> */}
                                     </div>

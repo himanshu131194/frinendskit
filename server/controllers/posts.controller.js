@@ -2,6 +2,7 @@ import postSections from '../models/sections.model'
 import Posts from '../models/posts.model'
 import likedPosts from '../models/liked_posts.model'
 import Comments from '../models/comments.model'
+import mongoose from 'mongoose'
 
 import CONFIG from '../../config';
 // import postSections from '../models/sections.model'
@@ -208,6 +209,34 @@ export default {
                error : e   
            })
         }
+    },
+
+    listComments: async (req, res)=>{
+        const commentId = req.body.post_id;
+        console.log(commentId)
+        try{
+           const comments = await Comments.aggregate([
+                  {
+                      $match: { post_id: mongoose.Types.ObjectId(commentId) }
+                  },
+                  {  
+                     $lookup: {
+                          from : 'users',
+                          localField: 'user_id',
+                          foreignField: '_id',
+                          as: 'user_details'
+                    }
+                  },
+                  {$sort: { created: -1 }}
+           ]);
+           res.status(200).send({
+               data : comments  
+           })
+        }catch(e){
+           res.status(400).send({
+               error : e
+           })
+        } 
     }
 
 }
