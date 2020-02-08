@@ -27,16 +27,8 @@ class PostFooter extends Component{
     onOpenComment = (e)=>{
         e.preventDefault(); 	   
         let postId = e.currentTarget.dataset.postid;
-
-        console.log(postId);
-        
-        this.props.listComments(postId, async (err, res)=>{
-             if(!err){
-                 console.log(res);
-                 //await this.setState({ loading : 0, [postId]: res});
-             }
-        }) 
-
+        this.props.setPostId(postId); 
+        this.props.listComments(postId); 
     }
 
     render(){

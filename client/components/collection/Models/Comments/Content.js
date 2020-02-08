@@ -14,14 +14,18 @@ class CommentContent extends Component{
         const content = (this.commentContent.current.value).trim();
         if(content!==''){
             const postId = this.props.selectedPost;
+
+            console.log(postId);
+
             this.props.postComments(postId, content, (err, res)=>{
                 if(!err){
                     setTimeout(()=>{
                         this.props.onPostComment(0);
                         this.commentContent.current.value = '';
                         this.postComment.current.classList.add('disabled-red');
+                        //REFRESH COMMENTS LIST 
+                        this.props.listComments(postId); 
                     }, 2000)
-                    // this.loadComments(null, postId);
                 }
             })
         }

@@ -260,3 +260,10 @@ bg-1a72ff{
     pointer-events:none;
     cursor:default !important
 }
+
+.card.is-post .comments-wrap .comments-body .is-comment .media-content .controls .like-count span.liked-comment{
+    color:#ff5f59
+}
+.card.is-post .comments-wrap .comments-body .is-comment .media-content .controls .like-count svg.liked-comment{
+    stroke:#ff5f59
+}

@@ -32,7 +32,7 @@ export default {
                 badgets: 1,
                 account_type: 1,
                 favourite_sections: [],
-                _id: "5e3551da2dafec60becda62c",
+                _id: "5e3c3c250beed20e0a53291c",
                 name: "himanshu131194@gmail.com",
                 email: "himanshu savita",
                 profile_pic: {
