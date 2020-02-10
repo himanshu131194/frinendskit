@@ -262,8 +262,10 @@ bg-1a72ff{
 }
 
 .card.is-post .comments-wrap .comments-body .is-comment .media-content .controls .like-count span.liked-comment{
-    color:#ff5f59
+    color:#1a72ff;
 }
 .card.is-post .comments-wrap .comments-body .is-comment .media-content .controls .like-count svg.liked-comment{
-    stroke:#ff5f59
+    stroke:#1a72ff;
+    fill:#1a72ff;
+
 }

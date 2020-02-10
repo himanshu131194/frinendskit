@@ -19,6 +19,10 @@ const Comments = new mongoose.Schema({
          type: Number,
          default: DB.DEFAULT_COUNT
       },
+      liked:{
+         type: Boolean,
+         default: DB.DEFAULT_FALSE
+      },
       replies_count:{
           type: Number,
           default: DB.DEFAULT_COUNT

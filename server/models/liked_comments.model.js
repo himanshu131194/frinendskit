@@ -5,11 +5,16 @@ const {DB} = CONFIG;
 
 const likedComments = new mongoose.Schema({
       user_id: {
-          
+         type: mongoose.Schema.ObjectId,
+         ref: 'users'       
       },
       comment_id:{
          type: mongoose.Schema.ObjectId,
          ref: 'comments'
+      },
+      post_id:{
+         type: mongoose.Schema.ObjectId,
+         ref: 'posts'
       },
       created: {
       	 type: Date,

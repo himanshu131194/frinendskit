@@ -2,6 +2,8 @@ import postSections from '../models/sections.model'
 import Posts from '../models/posts.model'
 import likedPosts from '../models/liked_posts.model'
 import Comments from '../models/comments.model'
+import likedComments from '../models/liked_comments.model'
+
 import mongoose from 'mongoose'
 
 import CONFIG from '../../config';
@@ -212,27 +214,90 @@ export default {
     },
 
     listComments: async (req, res)=>{
-        const commentId = req.body.post_id;
-        console.log(commentId)
+        const postId = req.body.post_id;
         try{
            const comments = await Comments.aggregate([
                   {
-                      $match: { post_id: mongoose.Types.ObjectId(commentId) }
+                    $match: { post_id: mongoose.Types.ObjectId(postId) }
                   },
                   {  
-                     $lookup: {
+                    $lookup: {
                           from : 'users',
                           localField: 'user_id',
                           foreignField: '_id',
                           as: 'user_details'
                     }
                   },
+                  {
+                    $unwind: "$user_details"
+                  },
+                  {
+                     $lookup: {
+                         from: 'liked_comments',
+                         pipeline: [
+                             { $match: {
+                                 post_id: mongoose.Types.ObjectId(postId),
+                                 user_id: mongoose.Types.ObjectId(req.body._id)
+                                //  user_id: req.body._id
+                             }}
+                         ],
+                        //  localField: 'post_id',
+                        //  foreignField: 'post_id',
+                         as : 'liked'
+                     }
+                  },
                   {$sort: { created: -1 }}
            ]);
+
+           console.log(comments);
+
            res.status(200).send({
                data : comments  
            })
         }catch(e){
+           res.status(400).send({
+               error : e
+           })
+        } 
+    },
+
+    upvoteComments: async (req, res)=>{
+        const commentId = req.body.comment_id;
+        const postId = req.body.post_id;
+        const counter = req.body.flag===true ? 1: -1;
+        console.log("commentId");
+        try{
+            if(counter){
+                const likedComment = new likedComments({
+                    user_id: mongoose.Types.ObjectId(req.user._id),
+                    comment_id: mongoose.Types.ObjectId(commentId),     
+                    post_id: mongoose.Types.ObjectId(postId)                    
+                });
+                await likedComment.save();
+
+                console.log('liked commnet');
+            }else{
+                await likedComments.deleteOne({
+                    user_id: mongoose.Types.ObjectId(req.user._id),
+                    comment_id: mongoose.Types.ObjectId(commentId), 
+                    post_id: mongoose.Types.ObjectId(postId)                    
+                })
+            }
+            const upvotedComment = await Comments.findOneAndUpdate(
+                { _id: mongoose.Types.ObjectId(commentId) },
+                {
+                    $inc : { points: counter }
+                },
+                {new: true}
+            );
+
+            console.log(upvotedComment);
+
+            res.status(200).send({
+                data : upvotedComment  
+            })
+        }catch(e){
+            console.log(e);
            res.status(400).send({
                error : e
            })

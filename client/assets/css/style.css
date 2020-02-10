@@ -10674,12 +10674,13 @@ pre{
     width:14px;
     stroke:#888da8
 }
-.card.is-post .comments-wrap .comments-body .is-comment .media-content .controls .like-count:hover span{
+/* .card.is-post .comments-wrap .comments-body .is-comment .media-content .controls .like-count:hover span{
     color:#ff5f59
 }
 .card.is-post .comments-wrap .comments-body .is-comment .media-content .controls .like-count:hover svg{
     stroke:#ff5f59
-}
+} */
+
 .card.is-post .comments-wrap .comments-body .is-comment .media-content .controls .reply,.card.is-post .comments-wrap .comments-body .is-comment .media-content .controls .edit{
     margin:0 5px
 }

@@ -1,4 +1,4 @@
-import {LOAD_POSTS, AUTH_USERS, LIST_SECTIONS, CURRENT_POST, COMMENTS_LIST} from './types'
+import {LOAD_POSTS, AUTH_USERS, LIST_SECTIONS, CURRENT_POST, COMMENTS_LIST, COMMENT_UPVOTE} from './types'
 import CONFIG from '../../../config'
 import axios from 'axios'
 
@@ -148,6 +148,20 @@ export const listComments = (post_id)=>{
                     type: COMMENTS_LIST,
                     payload: result
                 })
+    }
+}
+
+
+export const upvoteComments = (comment_id, post_id, flag, cb)=>{
+    return async ()=>{
+             let result = null;
+                 try{
+                     let {data} = await axios.post(`${CONFIG.API_URL}/api/upvote-comments`, {comment_id, post_id, flag});
+                     result = data['data'];
+                     cb(null, result)
+                 }catch(e){
+                     cb(e, null)
+                 }
     }
 }
 
