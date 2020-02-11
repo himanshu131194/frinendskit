@@ -10688,9 +10688,9 @@ pre{
     font-size:.8rem;
     color:#888da8
 }
-.card.is-post .comments-wrap .comments-body .is-comment .media-content .controls .reply a:hover,.card.is-post .comments-wrap .comments-body .is-comment .media-content .controls .edit a:hover{
+/* .card.is-post .comments-wrap .comments-body .is-comment .media-content .controls .reply a:hover,.card.is-post .comments-wrap .comments-body .is-comment .media-content .controls .edit a:hover{
     color:#ff5f59
-}
+} */
 .card.is-post .comments-wrap .comments-body .is-comment .media-right svg{
     height:18px;
     width:18px;
@@ -10771,7 +10771,7 @@ pre{
     border-color:#e8e8e8;
     border-bottom:none;
     border-radius:4px 4px 0 0;
-    resize:none
+    resize:none;
 }
 .card.is-post .comments-wrap .card-footer .post-comment .actions{
     display:-ms-flexbox;

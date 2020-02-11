@@ -175,6 +175,19 @@ export const setPostId = (post_id)=>{
     }
 }
 
+export const deleteComment = (post_id, comment_id, cb)=>{
+    return async ()=>{
+        let result = null;
+            try{
+                let {data} = await axios.post(`${CONFIG.API_URL}/api/delete-comments`, {comment_id, post_id});
+                result = data['data'];
+                cb(null, result)
+            }catch(e){
+                cb(e, null)
+            }
+    }
+}
+
 
 
 

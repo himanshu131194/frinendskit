@@ -11,7 +11,7 @@ class CommentsModel extends Component{
             loading : 0
         }
         loadListOfComments = (result)=>{
-            return result.map((res)=><Comment key ={res._id} onLoadedComment={res}/>)
+            return result.map((res)=><Comment key ={res._id} onLoadedComment={res} onCommentChange={(status)=>this.setState({loading: status})}/>)
         }
         render(){
             return(
@@ -43,7 +43,7 @@ class CommentsModel extends Component{
                                 : <Loader/>
                                }
                                 <div class="card-footer">
-                                    <CommentContent onPostComment={(status)=>this.setState({loading: status})}/>
+                                    <CommentContent onCommentChange={(status)=>this.setState({loading: status})}/>
                                 </div>
                             </div>
                         </div>
