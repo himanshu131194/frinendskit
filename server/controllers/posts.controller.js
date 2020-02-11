@@ -215,10 +215,12 @@ export default {
 
     listComments: async (req, res)=>{
         const postId = req.body.post_id;
+        console.log(req.user);
+
         try{
            const comments = await Comments.aggregate([
                   {
-                    $match: { post_id: mongoose.Types.ObjectId(postId) }
+                    $match : { post_id : mongoose.Types.ObjectId(postId)  }
                   },
                   {  
                     $lookup: {
@@ -228,26 +230,49 @@ export default {
                           as: 'user_details'
                     }
                   },
+                  { $unwind: "$user_details" },
                   {
-                    $unwind: "$user_details"
-                  },
-                  {
-                     $lookup: {
-                         from: 'liked_comments',
-                         pipeline: [
-                             { $match: {
-                                 post_id: mongoose.Types.ObjectId(postId),
-                                 user_id: mongoose.Types.ObjectId(req.body._id)
-                                //  user_id: req.body._id
-                             }}
-                         ],
-                        //  localField: 'post_id',
-                        //  foreignField: 'post_id',
-                         as : 'liked'
-                     }
-                  },
-                  {$sort: { created: -1 }}
+                    $lookup: {
+                        from: 'liked_comments',
+                        let : { liked_comment: '$_id' },
+                        pipeline: [
+                            { $match:
+                                { $expr:
+                                   { $and:
+                                      [
+                                        { $eq: [ "$comment_id",  "$$liked_comment" ] },
+                                        { post_id: mongoose.Types.ObjectId(postId) },
+                                        { user_id: mongoose.Types.ObjectId(req.user._id)},
+                                      ]
+                                   }
+                                }
+                            }
+                        ],
+                        as : 'liked'
+                    }
+                   },
+                { $sort: { created : -1 } }
            ]);
+
+        //    {
+        //     $lookup: {
+        //         from: 'liked_comments',
+        //         let : { searched_comment: "$_id"},
+        //         pipeline: [
+        //             { $match: {
+        //                 $and:[
+        //                     { post_id: mongoose.Types.ObjectId(postId) },
+        //                     { user_id: mongoose.Types.ObjectId(req.user._id)},
+        //                     { comment_id: '$$searched_comment'}
+        //                 ]
+        //                //  user_id: req.body._id
+        //             }}
+        //         ],
+        //        //  localField: 'post_id',
+        //        //  foreignField: 'post_id',
+        //         as : 'liked'
+        //     }
+        //  }
 
            console.log(comments);
 

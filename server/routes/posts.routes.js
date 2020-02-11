@@ -12,7 +12,7 @@ export default (router)=>{
     
     // router.get('/list-emojis', postsController.listEmojis);
     
-    router.post('/list-comments', postsController.listComments);
+    router.post('/list-comments', usersController.authenticate, postsController.listComments);
     router.post('/upvote-comments', usersController.authenticate, postsController.upvoteComments);
 
     
