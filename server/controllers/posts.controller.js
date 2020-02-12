@@ -215,6 +215,7 @@ export default {
 
     listComments: async (req, res)=>{
         const postId = req.body.post_id;
+        const userId = mongoose.Types.ObjectId(req.user._id);
         try{
            const comments = await Comments.aggregate([
                   { $match : { post_id : mongoose.Types.ObjectId(postId)  } },
@@ -246,8 +247,8 @@ export default {
                         ],
                         as : 'liked'
                     }
-                   },
-                   {$project: 
+                  },
+                  { $project: 
                     { 
                         points: 1,
                         created: 1,
@@ -258,9 +259,13 @@ export default {
                         'user_details.profile_pic': 1, 
                         'user_details._id': 1
                     }
-                   },
-                   { $sort: { created : -1 } }
+                  },
+                  {
+                     $set : { current_user: { $eq: [ "$user_id", userId ] } }
+                  },
+                  { $sort: { created : -1 } }
            ]);
+           console.log(comments);
            res.status(200).send({
                data : comments  
            })
