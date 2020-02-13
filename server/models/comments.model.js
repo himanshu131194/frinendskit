@@ -30,6 +30,9 @@ const Comments = new mongoose.Schema({
       text:{
          type: String
       },
+      is_active:{
+      	type: Boolean, default: DB.DEFAULT_TRUE
+      },
       created: {
       	 type: Date,
       	 default: Date.now

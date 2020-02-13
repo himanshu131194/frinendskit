@@ -16,6 +16,9 @@ const likedComments = new mongoose.Schema({
          type: mongoose.Schema.ObjectId,
          ref: 'posts'
       },
+      is_active:{
+      	type: Boolean, default: DB.DEFAULT_TRUE
+      },
       created: {
       	 type: Date,
       	 default: Date.now

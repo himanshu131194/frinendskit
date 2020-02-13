@@ -79,6 +79,9 @@ const Posts = new mongoose.Schema({
               ref: 'users'
             }
       ],
+      is_active:{
+      	type: Boolean, default: DB.DEFAULT_TRUE
+      },
       created: {
       	 type: Date,
       	 default: Date.now

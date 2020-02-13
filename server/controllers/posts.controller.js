@@ -218,7 +218,7 @@ export default {
         const userId = mongoose.Types.ObjectId(req.user._id);
         try{
            const comments = await Comments.aggregate([
-                  { $match : { post_id : mongoose.Types.ObjectId(postId)  } },
+                  { $match : { post_id : mongoose.Types.ObjectId(postId), is_active : 1  } },
                   {  
                     $lookup: {
                           from : 'users',
@@ -281,20 +281,15 @@ export default {
         const postId = req.body.post_id;
         const counter = req.body.flag===true ? 1: -1;
         try{
-            if(counter>0){
-                const likedComment = new likedComments({
-                    user_id: mongoose.Types.ObjectId(req.user._id),
-                    comment_id: mongoose.Types.ObjectId(commentId),     
-                    post_id: mongoose.Types.ObjectId(postId)                    
-                });
-                await likedComment.save();
-            }else{
-                await likedComments.deleteOne({
-                    user_id: mongoose.Types.ObjectId(req.user._id),
-                    comment_id: mongoose.Types.ObjectId(commentId), 
-                    post_id: mongoose.Types.ObjectId(postId)                    
-                })
-            }
+            let isActive = counter>0 ? 0: 1;
+            await likedComments.findOneAndUpdate({
+                user_id: mongoose.Types.ObjectId(req.user._id),
+                comment_id: mongoose.Types.ObjectId(commentId), 
+                post_id: mongoose.Types.ObjectId(postId)                    
+            }, 
+            { is_active: isActive },
+            { upsert: true })
+
             const upvotedComment = await Comments.findOneAndUpdate(
                 { _id: mongoose.Types.ObjectId(commentId) },
                 {
@@ -302,6 +297,7 @@ export default {
                 },
                 {new: true}
             );
+
             res.status(200).send({
                 data : upvotedComment  
             })
@@ -315,11 +311,20 @@ export default {
     deleteComment : async (req, res)=>{
           const {comment_id, post_id} = req.body;
           try {
-            const result = await Comments.deleteOne({
+            const result = await Comments.findOneAndUpdate({
                 _id: mongoose.Types.ObjectId(comment_id), 
                 user_id : mongoose.Types.ObjectId(req.user._id),
                 post_id: mongoose.Types.ObjectId(post_id)                    
-            })
+            }, 
+            { is_active: 0 });
+
+            await likedComments.findOneAndUpdate({
+                user_id: mongoose.Types.ObjectId(req.user._id),
+                comment_id: mongoose.Types.ObjectId(comment_id), 
+                post_id: mongoose.Types.ObjectId(post_id)                    
+            }, 
+            { is_active: 0 })
+
             res.status(200).send({
                 data : result  
             })
