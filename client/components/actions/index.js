@@ -188,6 +188,18 @@ export const deleteComment = (post_id, comment_id, cb)=>{
     }
 }
 
+export const downloadContent = (content_url, post_id, cb)=>{
+    return async ()=>{
+            try{
+                let {data} = await axios.get(`${CONFIG.API_URL}/api/download-content?content_url=${content_url}&post_id=${post_id}`, {
+                    responseType: 'arraybuffer'	
+                });
+                cb(null, data)
+            }catch(e){
+                cb(e, null)
+            }
+    }
+}
 
 
 

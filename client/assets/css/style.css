@@ -3337,7 +3337,7 @@ button.button{
     display:block
 }
 
-.fab-wrapper.post-action div{
+.fab-wrapper.post-action div.small-fab{
     /* background:#1a72ff; */
     /* box-shadow:0 14px 26px -12px rgba(0,98,255,0.42),0 4px 23px 0px rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,98,255,0.2) !important */
     border: 1.6px solid #1a72ff;
@@ -3363,7 +3363,7 @@ button.button{
     border-radius:50%;
     color:#fcfcfc;
     opacity:1;
-    transition:all .3s
+    /* transition:all .3s */
 }
 .fab-wrapper .small-fab svg{
     width:18px;
@@ -3404,12 +3404,12 @@ button.button{
     background:#fafafa
 }
 .load-more-button.loading{
-    height:24px;
-    width:24px;
+    height:43px;
+    width:43px;
     padding:0;
     border-width:2px;
-    border-radius:17px;
-    border-color:#eee #eee #eee #999;
+    border-radius:50%;
+    border-color:#eee #eee #eee #1a72ff;
     background:#fff;
     font-size:0;
     color:transparent;

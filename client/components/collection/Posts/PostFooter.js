@@ -2,8 +2,13 @@ import React, { Component } from "react";
 import {connect} from 'react-redux';
 import * as actions from '../../actions'
 
+import axios from 'axios';
+
 
 class PostFooter extends Component{
+    state = {
+        downloadLoading : 0
+    }
     onLike = (e)=>{
         e.preventDefault();
         const ele = e.currentTarget;
@@ -31,6 +36,20 @@ class PostFooter extends Component{
         this.props.listComments(postId); 
     }
 
+    downLoadOnpage = async (e)=>{
+        e.preventDefault();
+        this.setState({ downloadLoading: 1});
+        const {id, url, ext, section} = e.currentTarget.dataset;
+        this.props.downloadContent(url, id, (err, data)=>{
+            const blob = new Blob([data], {type: 'image/*'})
+            let a = document.createElement('a');
+            a.href = window.URL.createObjectURL(blob);
+            a.download = `${id}_${section}.${ext}`
+            a.click();
+            this.setState({ downloadLoading: 0});
+        })
+    }
+
     render(){
         return(
                 <div className="card-footer">
@@ -47,13 +66,29 @@ class PostFooter extends Component{
                             </svg>
                         </div>
                     </div> 
-                    <div className="fab-wrapper post-action">
-                        <div className="small-fab share-fab modal-trigger" data-modal="share-modal">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-link-2">
-                                <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
-                                <line x1="8" y1="12" x2="16" y2="12"></line>
-                            </svg>
-                        </div>
+                    <div className="fab-wrapper post-action"  data-id={this.props.onPost._id} data-url={this.props.onPost.url} data-section={this.props.onPost.section_details.value} data-ext={this.props.onPost.ext} onClick={this.downLoadOnpage}>
+                        
+                        {
+                         this.state.downloadLoading==0
+                           ?
+                            <div className="small-fab share-fab modal-trigger">
+                                {/* <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-link-2">
+                                    <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
+                                    <line x1="8" y1="12" x2="16" y2="12"></line>
+                                </svg> */}
+                                {/* <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 21.825 21.825" className="download-arrow-svg"> 
+                                    <path d="M16.791,13.254c0.444-0.444,1.143-0.444,1.587,0c0.429,0.444,0.429,1.143,0,1.587l-6.65,6.651  c-0.206,0.206-0.492,0.333-0.809,0.333c-0.317,0-0.603-0.127-0.81-0.333l-6.65-6.651c-0.444-0.444-0.444-1.143,0-1.587  s1.143-0.444,1.587,0l4.746,4.762V1.111C9.791,0.492,10.299,0,10.918,0c0.619,0,1.111,0.492,1.111,1.111v16.904L16.791,13.254z">
+                                    </path>
+                                </svg> */}
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down"><line x1="12" y1="5" x2="12" y2="19"></line>
+                                <polyline points="19 12 12 19 5 12"></polyline>
+                                </svg>
+                            </div>
+                            :
+                            <div className="d-flex">
+                                <a className="load-more-button loading"></a>
+                            </div>
+                        } 
                     </div>
                 </div>
                 <div className="likers-text">
@@ -82,7 +117,7 @@ class PostFooter extends Component{
                             <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
                             <line x1="8" y1="12" x2="16" y2="12"></line>
                         </svg>
-                        <span>{this.props.onPost.share_count}</span>
+                        <span>{this.props.onPost.download_count}</span>
                     </div>
 
                 </div>

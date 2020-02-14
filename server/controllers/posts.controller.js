@@ -124,7 +124,8 @@ export default {
                         foreignField: '_id',
                         as: 'section_details'
                     }
-                }
+                },
+                { $unwind: "$section_details" }
             ]).sort({created: -1});
             res.status(200).send({
                 data : posts  
@@ -333,6 +334,32 @@ export default {
                 error : e
             })
           }
+    },
+
+    downloadContent : async (req, res)=>{
+        let {content_url, post_id} =  req.query;
+
+        console.log(post_id);
+        console.log(content_url);
+
+        try{
+            let content = await rp({
+                uri: content_url,
+                encoding: null
+            });
+            const updatePosts = await Posts.findOneAndUpdate(
+                { _id: mongoose.Types.ObjectId(post_id) },
+                { $inc : { download_count: 1 } },
+                {new: true}
+            );
+            console.log(updatePosts);
+            res.status(200).send(content)
+         }catch(e){
+             console.log(e);
+            res.status(400).send({
+                error : e   
+            })
+         }
     }
 
 }

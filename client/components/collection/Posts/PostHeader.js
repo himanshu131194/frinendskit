@@ -9,7 +9,7 @@ class PostHeader extends Component{
             <div className="card-heading">
                 <div className="user-block">
                     <div className="image">
-                        <img src={this.props.onPost.section_details[0].url} data-demo-src={this.props.onPost.section_details[0].url} alt="" />
+                        <img src={this.props.onPost.section_details.url} data-demo-src={this.props.onPost.section_details.url} alt="" />
                     </div>
                     <div className="user-info">
                         <a href="#" className="uppercase">funny</a>

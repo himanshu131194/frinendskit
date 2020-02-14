@@ -23,10 +23,15 @@ export default {
       }
    },
    S3:{
-      BUCKET : 'feel-funny',
-      URL : 'https://feel-funny.s3.ap-south-1.amazonaws.com',
-      ACCESS: 'AKIA3YIPQLXV4NIO3PWA',
-      SECRET: '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',
+      // BUCKET : 'feel-funny',
+      // URL : 'https://feel-funny.s3.ap-south-1.amazonaws.com',
+      // ACCESS: 'AKIA3YIPQLXV4NIO3PWA',
+      // SECRET: '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',
+      BUCKET : 'stylemycv',
+      URL : 'https://stylemycv.s3.ap-south-1.amazonaws.com',
+      ACCESS: 'AKIA3YIPQLXVUZ3S3UD7',
+      SECRET: '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',
+      PASSWORD: 'WMwQ}t%c(XqR'
    },
    LOGIN_KEYS:{
         GOOGLE:{

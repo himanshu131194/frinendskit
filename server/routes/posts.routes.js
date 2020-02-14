@@ -8,7 +8,8 @@ export default (router)=>{
     router.get('/list-posts', postsController.listPosts);
     
     router.get('/query-test', postsController.queryTest);
-    
+
+    router.get('/download-content', postsController.downloadContent);
     
     // router.get('/list-emojis', postsController.listEmojis);
     
@@ -16,6 +17,8 @@ export default (router)=>{
     router.post('/upvote-comments', usersController.authenticate, postsController.upvoteComments);
 
     router.post('/delete-comments', usersController.authenticate, postsController.deleteComment);
+
+
 
     
     // router.post('/user-posts', usersController.authenticate, postsController.userPosts);
