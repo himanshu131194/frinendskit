@@ -41,16 +41,20 @@ export default {
     uploadImagetoS3 : async (req, res)=>{
         console.log('s3-upload');
          try{
-             let result = null;
+             let result = null, base64 = null, mime = null, ext = null;
              if(!req.body.url && req.body.data64){
                      result = Buffer.from(req.body.data64.replace(/^data:image\/\w+;base64,/, ""), 'base64');
-                 }else{
+             }else{
                      result = await rp({url: req.body.url, encoding: null});
-                 }
+                     let buff = new Buffer(result);
+                         ext = (req.body.url).split('.').pop();
+                         base64 = `data:image/${ext};base64,`+buff.toString('base64');
+                         mime = `image/${ext}`;
+             }
              const slugId = uuid();
              const base64Data = result;
-             const type = req.body.mime;
-             const key = `posts/${slugId}.${req.body.ext}`;
+             const type = req.body.mime? req.body.mime : mime;
+             const key = req.body.ext ? `posts/${slugId}.${req.body.ext}` : `posts/${slugId}.${ext}`;
              const params = {
                    Bucket: CONFIG.S3.BUCKET,
                    Key: key,
@@ -62,13 +66,19 @@ export default {
              console.log({
                  url : `https://${CONFIG.S3.BUCKET}.s3.ap-south-1.amazonaws.com/${key}`,
                  key: key,
-                 slug: slugId
+                 slug: slugId,
+                 base64, 
+                 mime,
+                 ext
              });
 
              return res.status(200).send({
                  url : `https://${CONFIG.S3.BUCKET}.s3.ap-south-1.amazonaws.com/${key}`,
                  key: key,
-                 slug: slugId
+                 slug: slugId,
+                 base64, 
+                 mime,
+                 ext
              });
          }catch(e){
              console.log(e);
@@ -422,12 +432,11 @@ export default {
           }
     },
 
+
+
+
     downloadContent : async (req, res)=>{
         let {content_url, post_id} =  req.query;
-
-        console.log(post_id);
-        console.log(content_url);
-
         try{
             let content = await rp({
                 uri: content_url,
@@ -438,7 +447,6 @@ export default {
                 { $inc : { download_count: 1 } },
                 { new: true}
             );
-            console.log(updatePosts);
             res.status(200).send(content)
          }catch(e){
              console.log(e);

@@ -62,7 +62,6 @@ export const uploadS3 = ({url, mime, ext, data64}, cb)=>{
             //  if(token){
                  try{
                      let {data} = await axios.post(`${CONFIG.API_URL}/api/upload-s3`, {url, mime, ext, data64});
-
                      cb(null, data) 
                  }catch(e){
                      err = e;

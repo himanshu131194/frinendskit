@@ -46,6 +46,7 @@ class Uploads extends Component{
                                     // localStorage.setItem(this.storageKey, data64.target.result); 
 
                                     // this.storageKey =  this.setLocalStorage(data64.target.result);
+                                    console.log( data64.target.result);
                                     this.props.onUploadComplete(this.uploadedFileObj, data64.target.result);
                               }
 
@@ -53,6 +54,30 @@ class Uploads extends Component{
             }
           reader.readAsDataURL(uploadedFile);
     }
+
+    validateUplaodURL = (url)=>{
+        return /^(https?:\/\/).+(\.(jpe?g|png|gif))?$/.test(url);
+    }
+
+    onTypeImageURL = (e)=>{
+         const contentURL = e.target.value.trim();
+         if(contentURL.length>0){
+
+            this.props.uploadS3({url: contentURL, mime:null, ext: null, data64:null}, (err, res)=>{
+                console.log(res);
+                if(!err){
+                      this.uploadedFileObj.postMime = res.mime;
+                      this.uploadedFileObj.postExt = res.ext;
+                      this.uploadedFileObj.postSlug = res.slug;
+                      this.uploadedFileObj.uploadedURL = res.url;
+                      this.props.onUploadComplete(this.uploadedFileObj, res.base64);
+                }
+
+              })
+             console.log(contentURL);
+         }
+    }
+
     render(){
         return(
             <Fragment>
@@ -77,7 +102,7 @@ class Uploads extends Component{
 
                                     <div className="field">
                                         <div className="control">
-                                            <input className="input pl-0 text-center" type="text" placeholder="paste url for picture/video" />
+                                            <input className="input pl-0 text-center" onInput={this.onTypeImageURL} type="text" placeholder="paste url for picture/video" />
                                         </div>
                                     </div>
 
