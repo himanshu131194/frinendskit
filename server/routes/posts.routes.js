@@ -5,7 +5,7 @@ export default (router)=>{
     
     router.get('/list-sections', postsController.listSections);
     
-    router.get('/list-posts', postsController.listPosts);
+    router.get('/list-posts', usersController.authenticate, postsController.listPosts);
     
     router.get('/query-test', postsController.queryTest);
 

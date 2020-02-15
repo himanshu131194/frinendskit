@@ -109,28 +109,115 @@ export default {
     },
 
     listPosts : async (req, res)=>{
-        const postMatchObject = {};
+        const postMatchObject = { is_active: true };
         // if(req.query && req.query['post_id']!=='undefined'){
         //     let _id = (req.query['post_id']).trim();
         //     postMatchObject['_id'] = mongoose.Types.ObjectId(_id)
         // }
         try{
+            // const posts = await Posts.aggregate([
+            //     { $match : postMatchObject },
+            //     {
+            //             $lookup: {
+            //                 from : 'sections',
+            //                 localField: 'section',
+            //             foreignField: '_id',
+            //             as: 'section_details'
+            //         }
+            //     },
+            //     { $unwind: "$section_details" }
+            // ]).sort({created: -1});
+
+
+
+
             const posts = await Posts.aggregate([
-                { $match : postMatchObject },
-                {
-                        $lookup: {
-                            from : 'sections',
-                            localField: 'section',
-                        foreignField: '_id',
-                        as: 'section_details'
-                    }
-                },
-                { $unwind: "$section_details" }
-            ]).sort({created: -1});
+                                { $match : postMatchObject },
+                                {
+                                  $lookup: {
+                                    from : 'sections',
+                                    localField: 'section',
+                                    foreignField: '_id',
+                                    as: 'section_details'
+                                  }
+                                },
+                                { $unwind: "$section_details" },
+                                {
+                                  $lookup: {
+                                    from : 'liked_posts',
+                                    let : { liked_post : '$_id'},
+                                    pipeline: [
+                                        {
+                                            $match:{
+                                                    $expr:{
+                                                        $and: [
+                                                              { $eq: [ "$post_id",  "$$liked_post" ] },
+                                                              { user_id: mongoose.Types.ObjectId(req.user._id) }, 
+                                                        ]
+                                                    }
+                                            }
+                                        }
+                                    ],
+                                    as : 'liked'
+                                  }
+                                },
+                                { $project: 
+                                    { 
+                                        like_count: 1,
+                                        comment_count: 1,
+                                        share_count: 1,
+                                        download_count: 1,
+                                        user_id: 1,
+                                        url: 1,
+                                        title: 1,
+                                        section: 1,
+                                        mime_type: 1,
+                                        ext: 1,
+                                        created: 1,
+                                        liked: { $size:  "$liked" },
+                                        'section_details._id': 1, 
+                                        'section_details.value': 1, 
+                                        'section_details.url': 1, 
+                                    }
+                                },
+                                { $sort: { created : -1 } }
+                            ])
+
+                // _id: "5e46e6f75416b6765da3f858"
+                // liked: true
+                // like_count: 1
+                // comment_count: 0
+                // share_count: 0
+                // download_count: 32
+                // tags: []
+                // content_type: 1
+                // is_new: true
+                // is_hide: false
+                // is_nsfw: false
+                // duration: 0
+                // liker_list: []
+                // is_active: true
+                // user_id: "5e12110169481b125b9d0cb6"
+                // url: "https://stylemycv.s3.ap-south-1.amazonaws.com/posts/504f5135-42bd-4ba5-b7d9-ba456a092be2.png"
+                // title: ""
+                // section: "5cb4c313531214b21d2abbc5"
+                // mime_type: "image/png"
+                // ext: "png"
+                // created: "2020-02-14T18:29:11.537Z"
+                // __v: 0
+                // section_details:
+                // _id: "5cb4c313531214b21d2abbc5"
+                // value: "funny"
+                // url: "https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557376304.186_U5U7u5_100x100wp.webp"
+                // created: "2019-04-15T17:44:51.124Z"
+                // __v: 0
+            // console.log(posts);
+
             res.status(200).send({
                 data : posts  
             })
         }catch(e){
+            console.log(e);
             res.status(400).send({
                 error : CONFIG.ERRORS[100]
             })
@@ -141,16 +228,15 @@ export default {
         console.log(req.user);
         const postId = (req.body.post_id).trim();
         const counter = req.body.flag===true ? 1: -1;
-
-        console.log(req.body.flag);
-
-        console.log(req.user._id);
-         const liked = new likedPosts({
-                  user_id: req.user._id,
-                  post_id: postId
-         });
         try{
-           const result = await liked.save();
+           let isActive = counter>0 ? true: false;
+           await likedPosts.findOneAndUpdate({
+               user_id: mongoose.Types.ObjectId(req.user._id),
+               post_id: mongoose.Types.ObjectId(postId)                    
+           }, 
+           { is_active: isActive },
+           { upsert: true });
+
            const updatePosts = await Posts.findOneAndUpdate(
                     { _id: postId },
                     {
@@ -190,8 +276,8 @@ export default {
     postComments: async (req, res)=>{
         const postId = (req.body.post_id).trim(),
               commentTxt = (req.body.text).trim();
-         const comments = new Comments({
-                  user_id: req.user._id,
+        const comments = new Comments({
+              user_id: req.user._id,
               post_id: postId,
               text: commentTxt
          });
@@ -219,7 +305,7 @@ export default {
         const userId = mongoose.Types.ObjectId(req.user._id);
         try{
            const comments = await Comments.aggregate([
-                  { $match : { post_id : mongoose.Types.ObjectId(postId), is_active : 1  } },
+                  { $match : { post_id : mongoose.Types.ObjectId(postId), is_active : true  } },
                   {  
                     $lookup: {
                           from : 'users',
@@ -282,7 +368,7 @@ export default {
         const postId = req.body.post_id;
         const counter = req.body.flag===true ? 1: -1;
         try{
-            let isActive = counter>0 ? 0: 1;
+            let isActive = counter>0 ? true: false;
             await likedComments.findOneAndUpdate({
                 user_id: mongoose.Types.ObjectId(req.user._id),
                 comment_id: mongoose.Types.ObjectId(commentId), 
@@ -317,14 +403,14 @@ export default {
                 user_id : mongoose.Types.ObjectId(req.user._id),
                 post_id: mongoose.Types.ObjectId(post_id)                    
             }, 
-            { is_active: 0 });
+            { is_active: false });
 
             await likedComments.findOneAndUpdate({
                 user_id: mongoose.Types.ObjectId(req.user._id),
                 comment_id: mongoose.Types.ObjectId(comment_id), 
                 post_id: mongoose.Types.ObjectId(post_id)                    
             }, 
-            { is_active: 0 })
+            { is_active: false })
 
             res.status(200).send({
                 data : result  
@@ -350,7 +436,7 @@ export default {
             const updatePosts = await Posts.findOneAndUpdate(
                 { _id: mongoose.Types.ObjectId(post_id) },
                 { $inc : { download_count: 1 } },
-                {new: true}
+                { new: true}
             );
             console.log(updatePosts);
             res.status(200).send(content)

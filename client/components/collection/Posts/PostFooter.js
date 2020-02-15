@@ -7,8 +7,9 @@ import axios from 'axios';
 
 class PostFooter extends Component{
     state = {
-        downloadLoading : 0
+        downloadLoading : 0,
     }
+    downloadCount = React.createRef();
     onLike = (e)=>{
         e.preventDefault();
         const ele = e.currentTarget;
@@ -47,6 +48,8 @@ class PostFooter extends Component{
             a.download = `${id}_${section}.${ext}`
             a.click();
             this.setState({ downloadLoading: 0});
+            let downloadCounter = this.downloadCount.current.innerHTML;
+            this.downloadCount.current.innerHTML = parseInt(downloadCounter)+1; 
         })
     }
 
@@ -54,7 +57,7 @@ class PostFooter extends Component{
         return(
                 <div className="card-footer">
                 <div className="likers-group">
-                    <div onClick={this.onLike} data-postid={this.props.onPost._id} data-liked={this.props.onPost.liked ? true: false}  data-count={this.like_count} className={this.props.onPost.liked ? "post-liked fab-wrapper post-action mr-6": "fab-wrapper post-action mr-6"}>
+                    <div onClick={this.onLike} data-postid={this.props.onPost._id} data-liked={this.props.onPost.liked>0 ? true: false}  data-count={this.like_count} className={this.props.onPost.liked>0 ? "post-liked fab-wrapper post-action mr-6": "fab-wrapper post-action mr-6"}>
                         <div className="small-fab">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-thumbs-up"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
                         </div>
@@ -113,11 +116,14 @@ class PostFooter extends Component{
                     </div>
 
                     <div className="shares-count">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-link-2">
+                        {/* <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-link-2">
                             <path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path>
                             <line x1="8" y1="12" x2="16" y2="12"></line>
+                        </svg> */}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-down"><line x1="12" y1="5" x2="12" y2="19"></line>
+                                <polyline points="19 12 12 19 5 12"></polyline>
                         </svg>
-                        <span>{this.props.onPost.download_count}</span>
+                        <span ref={this.downloadCount}>{this.props.onPost.download_count}</span>
                     </div>
 
                 </div>
