@@ -40,23 +40,23 @@ class CommentContent extends Component{
 
     render(){
         return(
-            <div class="media post-comment">
-                <div class="media-content">
-                    <div class="field">
-                        <p class="control">
+            <div className="media post-comment">
+                <div className="media-content">
+                    <div className="field">
+                        <p className="control">
                             {/* <textarea ref={this.postTitle} className="textarea comment-textarea" rows="1" placeholder="Say something about this ..."></textarea> */}
-                        <textarea ref={this.commentContent} onKeyUp={this.validateComment} onChange={this.validateComment} class="textarea" rows="1" placeholder="Write a comment..."></textarea>
+                        <textarea ref={this.commentContent} onKeyUp={this.validateComment} onChange={this.validateComment} className="textarea" rows="1" placeholder="Write a comment..."></textarea>
                         </p>
                     </div>
-                    <div class="actions">
-                        {/* <div class="action is-auto">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-at-sign"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>
+                    <div className="actions">
+                        {/* <div className="action is-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-at-sign"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>
                         </div> */}
-                        <div class="action is-upload">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-camera"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+                        <div className="action is-upload">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-camera"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
                             <input type="file" />
                         </div>
-                        <a class="button is-solid primary-button raised uppercase disabled-red" ref={this.postComment} onClick={this.onComment}>Post Comment</a>
+                        <a className="button is-solid primary-button raised uppercase disabled-red" ref={this.postComment} onClick={this.onComment}>Post Comment</a>
                     </div>
                 </div>
             </div>

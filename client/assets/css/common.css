@@ -41,6 +41,10 @@
     margin-bottom: 0 !important;
 }
 
+.mb-1rem{
+    margin-bottom: 1rem !important;
+}
+
 .m-0{
     margin: 0 !important;
 }
@@ -194,6 +198,16 @@ bg-1a72ff{
 .pr-0{
     padding-right: 0px !important;
 }
+
+.pr-40{
+    padding-right: 40px !important;
+}
+
+.text-error{
+    border-color:#FF7273 !important;
+    padding-right: 40px;
+}
+
 .mr-6{
     margin-right: 6px;
 }

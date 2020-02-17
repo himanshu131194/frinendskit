@@ -3,16 +3,8 @@ import Posts from '../models/posts.model'
 import likedPosts from '../models/liked_posts.model'
 import Comments from '../models/comments.model'
 import likedComments from '../models/liked_comments.model'
-
 import mongoose from 'mongoose'
-
 import CONFIG from '../../config';
-// import postSections from '../models/sections.model'
-import User from '../models/users.model'
-// import Posts from '../models/posts.model'
-// import Emojis from '../models/emojis'
-// import likedPosts from '../models/liked_posts.model'
-// import Comments from '../models/comments.model'
 import uuid from 'uuid/v4';
 import AWS from 'aws-sdk'
 import rp from 'request-promise'
@@ -42,19 +34,24 @@ export default {
         console.log('s3-upload');
          try{
              let result = null, base64 = null, mime = null, ext = null;
+             let listOfSupportedExtns = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
              if(!req.body.url && req.body.data64){
                      result = Buffer.from(req.body.data64.replace(/^data:image\/\w+;base64,/, ""), 'base64');
+                     ext = req.body.ext;
              }else{
                      result = await rp({url: req.body.url, encoding: null});
                      let buff = new Buffer(result);
                          ext = (req.body.url).split('.').pop();
                          base64 = `data:image/${ext};base64,`+buff.toString('base64');
-                         mime = `image/${ext}`;
+                         console.log('ext')
+                         console.log(ext)
              }
+
+             ext = listOfSupportedExtns.indexOf(ext)<0 ? 'jpg': ext;
              const slugId = uuid();
              const base64Data = result;
-             const type = req.body.mime? req.body.mime : mime;
-             const key = req.body.ext ? `posts/${slugId}.${req.body.ext}` : `posts/${slugId}.${ext}`;
+             const type = `image/${ext}`;
+             const key = `posts/${slugId}.${ext}`;
              const params = {
                    Bucket: CONFIG.S3.BUCKET,
                    Key: key,
@@ -68,7 +65,7 @@ export default {
                  key: key,
                  slug: slugId,
                  base64, 
-                 mime,
+                 mime: type,
                  ext
              });
 
@@ -77,13 +74,13 @@ export default {
                  key: key,
                  slug: slugId,
                  base64, 
-                 mime,
+                 mime: type,
                  ext
              });
          }catch(e){
              console.log(e);
              return res.status(400).send({
-                 error: 'Please try to upload again'
+                 error: e
              })
          }
     },
@@ -120,109 +117,58 @@ export default {
 
     listPosts : async (req, res)=>{
         const postMatchObject = { is_active: true };
-        // if(req.query && req.query['post_id']!=='undefined'){
-        //     let _id = (req.query['post_id']).trim();
-        //     postMatchObject['_id'] = mongoose.Types.ObjectId(_id)
-        // }
         try{
-            // const posts = await Posts.aggregate([
-            //     { $match : postMatchObject },
-            //     {
-            //             $lookup: {
-            //                 from : 'sections',
-            //                 localField: 'section',
-            //             foreignField: '_id',
-            //             as: 'section_details'
-            //         }
-            //     },
-            //     { $unwind: "$section_details" }
-            // ]).sort({created: -1});
-
-
-
-
             const posts = await Posts.aggregate([
-                                { $match : postMatchObject },
-                                {
-                                  $lookup: {
-                                    from : 'sections',
-                                    localField: 'section',
-                                    foreignField: '_id',
-                                    as: 'section_details'
-                                  }
-                                },
-                                { $unwind: "$section_details" },
-                                {
-                                  $lookup: {
-                                    from : 'liked_posts',
-                                    let : { liked_post : '$_id'},
-                                    pipeline: [
-                                        {
-                                            $match:{
-                                                    $expr:{
-                                                        $and: [
-                                                              { $eq: [ "$post_id",  "$$liked_post" ] },
-                                                              { user_id: mongoose.Types.ObjectId(req.user._id) }, 
-                                                        ]
-                                                    }
-                                            }
-                                        }
-                                    ],
-                                    as : 'liked'
-                                  }
-                                },
-                                { $project: 
-                                    { 
-                                        like_count: 1,
-                                        comment_count: 1,
-                                        share_count: 1,
-                                        download_count: 1,
-                                        user_id: 1,
-                                        url: 1,
-                                        title: 1,
-                                        section: 1,
-                                        mime_type: 1,
-                                        ext: 1,
-                                        created: 1,
-                                        liked: { $size:  "$liked" },
-                                        'section_details._id': 1, 
-                                        'section_details.value': 1, 
-                                        'section_details.url': 1, 
-                                    }
-                                },
-                                { $sort: { created : -1 } }
-                            ])
-
-                // _id: "5e46e6f75416b6765da3f858"
-                // liked: true
-                // like_count: 1
-                // comment_count: 0
-                // share_count: 0
-                // download_count: 32
-                // tags: []
-                // content_type: 1
-                // is_new: true
-                // is_hide: false
-                // is_nsfw: false
-                // duration: 0
-                // liker_list: []
-                // is_active: true
-                // user_id: "5e12110169481b125b9d0cb6"
-                // url: "https://stylemycv.s3.ap-south-1.amazonaws.com/posts/504f5135-42bd-4ba5-b7d9-ba456a092be2.png"
-                // title: ""
-                // section: "5cb4c313531214b21d2abbc5"
-                // mime_type: "image/png"
-                // ext: "png"
-                // created: "2020-02-14T18:29:11.537Z"
-                // __v: 0
-                // section_details:
-                // _id: "5cb4c313531214b21d2abbc5"
-                // value: "funny"
-                // url: "https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557376304.186_U5U7u5_100x100wp.webp"
-                // created: "2019-04-15T17:44:51.124Z"
-                // __v: 0
-            // console.log(posts);
-
+                        { $match : postMatchObject },
+                        {
+                          $lookup: {
+                            from : 'sections',
+                            localField: 'section',
+                            foreignField: '_id',
+                            as: 'section_details'
+                          }
+                        },
+                        { $unwind: "$section_details" },
+                        {
+                          $lookup: {
+                            from : 'liked_posts',
+                            let : { liked_post : '$_id'},
+                            pipeline: [
+                                {
+                                    $match:{
+                                            $expr:{
+                                                $and: [
+                                                      { $eq: [ "$post_id",  "$$liked_post" ] },
+                                                      { user_id: mongoose.Types.ObjectId(req.user._id) }, 
+                                                ]
+                                            }
+                                    }
+                                }
+                            ],
+                            as : 'liked'
+                          }
+                        },
+                        { $project: 
+                            { 
+                                like_count: 1,
+                                comment_count: 1,
+                                share_count: 1,
+                                download_count: 1,
+                                user_id: 1,
+                                url: 1,
+                                title: 1,
+                                section: 1,
+                                mime_type: 1,
+                                ext: 1,
+                                created: 1,
+                                liked: { $size:  "$liked" },
+                                'section_details._id': 1, 
+                                'section_details.value': 1, 
+                                'section_details.url': 1, 
+                            }
+                        },
+                        { $sort: { created : -1 } }
+                  ])
             res.status(200).send({
                 data : posts  
             })

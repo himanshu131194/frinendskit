@@ -38,7 +38,7 @@ class Post extends Component{
                <Fragment>
                    {this.props.listOfPosts && this.props.listOfPosts.map((result)=>{
                            return(
-                            <div key={result._id} className="card is-post br-0 border-0">
+                            <div key={result._id} className="card is-post br-0 border-0 mb-1rem">
                                 <div className="content-wrap">
                                     {/* HEADING */}
                                     <PostHeader onPost={result}/>

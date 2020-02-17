@@ -57,9 +57,7 @@ export const authUsers = ()=>{
 
 export const uploadS3 = ({url, mime, ext, data64}, cb)=>{
     return async ()=>{
-             //const token = localStorage.getItem(CONFIG.ACCESS_TOKEN);
              let err = null, result = null;
-            //  if(token){
                  try{
                      let {data} = await axios.post(`${CONFIG.API_URL}/api/upload-s3`, {url, mime, ext, data64});
                      cb(null, data) 
@@ -67,10 +65,6 @@ export const uploadS3 = ({url, mime, ext, data64}, cb)=>{
                      err = e;
                      cb(err, null)
                  }
-            //  }else{
-            //     err = CONFIG.ERROR[code];
-            //     cb(err, null)
-            //  }
     }
 }
 

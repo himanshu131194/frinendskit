@@ -11,7 +11,7 @@ class Uploads extends Component{
 
      uploadedFileObj = {};
      storageKey =  uuid();
-
+     externalUrlInput = React.createRef();
 
      state = {
          loading : 0,
@@ -34,19 +34,11 @@ class Uploads extends Component{
         let reader = new FileReader;
             reader.onload =  (data64)=>{
                           this.props.uploadS3({url: null, mime, ext, data64: data64.target.result}, (err, res)=>{
-                              
-                              console.log(res);
-                              
                               if(!err){
                                     this.uploadedFileObj.postMime = mime;
                                     this.uploadedFileObj.postExt = ext;
                                     this.uploadedFileObj.postSlug = res.slug;
                                     this.uploadedFileObj.uploadedURL = res.url;
-
-                                    // localStorage.setItem(this.storageKey, data64.target.result); 
-
-                                    // this.storageKey =  this.setLocalStorage(data64.target.result);
-                                    console.log( data64.target.result);
                                     this.props.onUploadComplete(this.uploadedFileObj, data64.target.result);
                               }
 
@@ -56,13 +48,14 @@ class Uploads extends Component{
     }
 
     validateUplaodURL = (url)=>{
-        return /^(https?:\/\/).+(\.(jpe?g|png|gif))?$/.test(url);
+        return (/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi).test(url);
     }
 
     onTypeImageURL = (e)=>{
-         const contentURL = e.target.value.trim();
-         if(contentURL.length>0){
-
+        
+        const contentURL = e.target.value.trim();
+        if(contentURL.length>0 && this.validateUplaodURL(contentURL)){
+            this.setState({loading: 1});
             this.props.uploadS3({url: contentURL, mime:null, ext: null, data64:null}, (err, res)=>{
                 console.log(res);
                 if(!err){
@@ -71,11 +64,24 @@ class Uploads extends Component{
                       this.uploadedFileObj.postSlug = res.slug;
                       this.uploadedFileObj.uploadedURL = res.url;
                       this.props.onUploadComplete(this.uploadedFileObj, res.base64);
+                }else{
+                      this.externalUrlInput.current.parentNode.classList.add('has-error');
+                      this.externalUrlInput.current.classList.add('text-error');
                 }
-
+                this.setState({loading: 0});
               })
              console.log(contentURL);
+         }else{
+            this.externalUrlInput.current.parentNode.classList.add('has-error');
+            this.externalUrlInput.current.classList.add('text-error');
          }
+
+    }
+
+    clearInputURL = ()=>{
+        this.externalUrlInput.current.value='';
+        this.externalUrlInput.current.parentNode.classList.remove('has-error');
+        this.externalUrlInput.current.classList.remove('text-error');
     }
 
     render(){
@@ -101,9 +107,18 @@ class Uploads extends Component{
                                     </div>
 
                                     <div className="field">
-                                        <div className="control">
-                                            <input className="input pl-0 text-center" onInput={this.onTypeImageURL} type="text" placeholder="paste url for picture/video" />
-                                        </div>
+                                        {/* <div className="control">
+                                            <input className="input text-center" onInput={this.onTypeImageURL} type="text" placeholder="paste url for picture/video" />
+                                        </div> */}
+                                        <div className="control has-validation">
+                                            <input type="text" ref={this.externalUrlInput} className="input text-center" onInput={this.onTypeImageURL} placeholder="paste url for picture/video"/>
+                                            <div className="error-icon" onClick={this.clearInputURL}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-x">
+                                                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                                                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                                                </svg>
+                                            </div>
+                                         </div>
                                     </div>
 
                                     </div>

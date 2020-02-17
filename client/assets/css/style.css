@@ -6069,8 +6069,10 @@ button.button{
     position:absolute;
     top:0;
     right:0;
-    height:36px;
-    width:36px;
+    /* height:36px; */
+    /* width:36px; */
+    height:40px;
+    width:40px;
     display:-ms-flexbox;
     display:flex;
     -ms-flex-pack:center;
@@ -6113,7 +6115,8 @@ button.button{
     color:#FF7273
 }
 .control.has-validation.has-error .error-icon{
-    opacity:1
+    opacity:1;
+    cursor:pointer;
 }
 .control.has-validation.has-error .success-icon{
     opacity:0
@@ -10176,6 +10179,11 @@ pre{
     color:#0062ff;
     font-weight:500
 }
+
+.card.is-post .content-wrap .post-text{
+    word-break: break-word;
+}
+
 .card.is-post .content-wrap .post-text p{
     color:#757a91;
     font-size:.9rem
@@ -19263,7 +19271,7 @@ pre{
 }
 .login-wrapper .form-wrapper .login-form .field .control .input{
     height:40px;
-    padding-left:40px
+    /* padding-left:40px */
 }
 .login-wrapper .form-wrapper .login-form .field .control .input:focus{
     border-color:#0062ff
