@@ -136,12 +136,9 @@ export default {
                             pipeline: [
                                 {
                                     $match:{
-                                            $expr:{
-                                                $and: [
-                                                      { $eq: [ "$post_id",  "$$liked_post" ] },
-                                                      { user_id: mongoose.Types.ObjectId(req.user._id) }, 
-                                                ]
-                                            }
+                                         $expr: { $eq: [ "$post_id",  "$$liked_post" ] },
+                                         user_id: mongoose.Types.ObjectId(req.user._id),
+                                         is_active: true       
                                     }
                                 }
                             ],
@@ -172,6 +169,8 @@ export default {
             res.status(200).send({
                 data : posts  
             })
+
+            console.log(posts);
         }catch(e){
             console.log(e);
             res.status(400).send({
@@ -184,6 +183,9 @@ export default {
         console.log(req.user);
         const postId = (req.body.post_id).trim();
         const counter = req.body.flag===true ? 1: -1;
+
+        console.log(counter);
+
         try{
            let isActive = counter>0 ? true: false;
            await likedPosts.findOneAndUpdate({
@@ -196,7 +198,6 @@ export default {
            const updatePosts = await Posts.findOneAndUpdate(
                     { _id: postId },
                     {
-                        liked : counter>0 ?  true : false,
                         $inc : { like_count: counter }
                     },
                     {new: true}
@@ -277,14 +278,11 @@ export default {
                         let : { liked_comment: '$_id' },
                         pipeline: [
                             { $match:
-                                { $expr:
-                                   { $and:
-                                      [
-                                        { $eq: [ "$comment_id",  "$$liked_comment" ] },
-                                        { post_id: mongoose.Types.ObjectId(postId) },
-                                        { user_id: mongoose.Types.ObjectId(req.user._id)},
-                                      ]
-                                   }
+                                { 
+                                    $expr: { $eq: [ "$comment_id",  "$$liked_comment" ] },
+                                    post_id: mongoose.Types.ObjectId(postId) ,
+                                    user_id: mongoose.Types.ObjectId(req.user._id),
+                                    is_active: true,
                                 }
                             }
                         ],
@@ -295,7 +293,7 @@ export default {
                     { 
                         points: 1,
                         created: 1,
-                        liked: { $size:  "$liked" },
+                        liked: {$size: "$liked"},
                         user_id: 1, post_id: 1, text: 1,
                         'user_details._id': 1, 
                         'user_details.name': 1, 

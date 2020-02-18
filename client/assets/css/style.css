@@ -171,7 +171,9 @@ body.is-white{
     padding:60px 0 0 0
 }
 .view-wrapper .view-wrap{
-    padding:20px 0
+    /* padding:20px 0 */
+    padding:1rem 0;
+
 }
 .view-wrapper .view-wrap.is-headless{
     padding-top:10px

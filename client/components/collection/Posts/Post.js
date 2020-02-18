@@ -12,26 +12,6 @@ class Post extends Component{
     };
     componentDidMount(){
         this.props.listPosts();
-        console.log(this.props.user);
-    }
-    onLike = (e)=>{
-        e.preventDefault();
-        const ele = e.currentTarget;
-        const { postid, liked, count } = ele.dataset;
-        const flag = liked==='false' ? true : false;
-              ele.dataset.liked = flag.toString();
-        
-        this.props.postLiked( postid, flag, (err, data)=>{
-              if(data){
-                if(flag){
-                    ele.classList.add('post-liked');
-                    document.getElementById(`${postid}_liked`).innerHTML = data.like_count;
-                }else{
-                    ele.classList.remove('post-liked');
-                    document.getElementById(`${postid}_liked`).innerHTML = data.like_count;
-                }
-              }
-        });
     }
     render(){
         return(
