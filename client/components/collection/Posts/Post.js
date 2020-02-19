@@ -41,6 +41,9 @@ class Post extends Component{
                             </div>
                     )
                  })}
+                 <div className="narrow-top has-text-centered">
+                    <a href="#" className="load-more-button loading border-grey">Load More</a>
+                 </div>
                 </Fragment>
         )
     }

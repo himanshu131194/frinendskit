@@ -286,3 +286,9 @@ bg-1a72ff{
 .download-arrow-svg{
     fill:#1a72ff;
 }
+
+
+
+.load-more-button.loading.border-grey{
+    border-color:#eee #eee #eee #999 !important;
+}
