@@ -1,18 +1,18 @@
-import React, {Component, Fragment} from 'react'
+import React, {PureComponent, Fragment} from 'react'
 import {connect} from 'react-redux'
 import * as actions from '../../actions'
 
 import AccountDropdown from './AccountDropdown'
 
-class Header extends Component{
+class Header extends PureComponent{
       state = {
 		  loading : 0
 	  }
 	  componentDidMount(){
-		this.props.authUsers();
+		 this.props.authUsers();
 	  }
       render(){
-		console.log(this.props);
+		console.log('Header is laoding');
       	return(
           <Fragment>
 					<div id="main-navbar" className="navbar is-inline-flex is-transparent no-shadow is-hidden-mobile">

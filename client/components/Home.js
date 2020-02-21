@@ -1,7 +1,7 @@
-import React, {Component, Fragment} from 'react';
+import React, {PureComponent, Fragment} from 'react';
 
-import Header from './collection/partials/Header';
-import MobileHeader from './collection/partials/MobileHeader';
+import Header from './collection/Partials/Header';
+import MobileHeader from './collection/Partials/MobileHeader';
 import LoginModel from './collection/Models/Accounts/Login'
 import Upload from './collection/Models/Upload/'
 
@@ -16,23 +16,19 @@ import CommentsModel from './collection/Models/Comments'
 
 
 
-class Home extends Component{
+class Home extends PureComponent{
       render(){
+            console.log('home component');
       	 return(
-           <Fragment>
-			   <Header/>
-            <MobileHeader/>
-
-
-            <Posts/>
-            
-
-            <LoginModel/>
-            <Upload/>
-            
-            <CommentsModel/>
-                    
+             <Fragment>
+		 <Header/>
+             <MobileHeader/>
+             <Posts/>
+             <LoginModel/>
+             <Upload/>
+             <CommentsModel/>
            </Fragment>
+
       	 )
       }
 }

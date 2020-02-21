@@ -118,8 +118,11 @@ export default {
     listPosts : async (req, res)=>{
         const postMatchObject = { is_active: true };
         try{
-            const skip = parseInt(req.body.offset) || 0,
-                  limit = parseInt(req.body.limit) || 2;
+            const skip = parseInt(req.query.offset) || 0,
+                  limit = parseInt(req.query.limit) || 2;
+
+            console.log(req.query);
+            
             const posts = await Posts.aggregate([
                         { $match : postMatchObject },
                         {
