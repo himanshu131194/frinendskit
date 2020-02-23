@@ -292,3 +292,27 @@ bg-1a72ff{
 .load-more-button.loading.border-grey{
     border-color:#eee #eee #eee #999 !important;
 }
+
+.bg-cover{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    transition: all .3s;
+    background-color: rgba(10,10,10,0.86);
+}
+
+.popular-sections-list-header{
+    padding: 6px 12px !important; 
+}
+
+.slideout-open{
+    overflow: hidden;
+}
+
+.slideout-scroll{
+    max-height: 650px;
+    overflow-y: auto;
+}

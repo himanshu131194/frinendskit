@@ -1,10 +1,16 @@
 import React, {Component} from 'react'
 import Post from './Post'
 
+import Leftsidebar from '../Partials/Leftsidebar';
+
 class Posts extends Component{
     render(){
         return(
-            <div className="view-wrapper">
+            <div className="view-wrapper position-r">
+                 
+                 {/* LEFT SIDEBAR */}
+                 <Leftsidebar/>
+
                  <div className="container">
 
                      <div className="view-wrap true-dom">

@@ -10840,16 +10840,17 @@ pre{
     justify-content:flex-start;
     -ms-flex-align:center;
     align-items:center;
-    padding:16px
+    padding:6px 12px;
+    
 }
 .card .card-body .page-block:not(:first-child),.card .card-body .add-friend-block:not(:first-child){
-    border-top:1px solid #e8e8e8
+    /* border-top:1px solid #e8e8e8 */
 }
 .card .card-body .page-block img,.card .card-body .add-friend-block img{
-    height:40px;
-    width:40px;
-    max-height:40px;
-    border-radius:50%
+    height:30px;
+    width:30px;
+    max-height:30px;
+    /* border-radius:50% */
 }
 .card .card-body .page-block .page-meta,.card .card-body .add-friend-block .page-meta{
     padding:0 10px;
@@ -10874,8 +10875,8 @@ pre{
     justify-content:center;
     -ms-flex-align:center;
     align-items:center;
-    width:36px;
-    height:36px;
+    /* width:36px;
+    height:36px; */
     margin-left:auto;
     border-radius:50%;
     transition:all .3s;
@@ -11416,22 +11417,22 @@ pre{
     width:100%;
     height:100%
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-left-sidebar{
-    position:absolute;
+.inbox-left-sidebar{
+    position:fixed;
     top:0;
     left:0;
     height:100%;
     width:16%;
-    background:#f4f4f4 !important;
+    background:#fff !important;
     border-right:1px solid #dbdbdb;
-    z-index:1;
+    z-index:1050;
     transition:all .3s
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-left-sidebar .inbox-left-sidebar-inner{
+.inbox-left-sidebar .inbox-left-sidebar-inner{
     width:100%;
     height:100%
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-left-sidebar .inbox-left-sidebar-inner .compose{
+.inbox-left-sidebar .inbox-left-sidebar-inner .compose{
     padding:0 20px;
     min-height:60px;
     display:-ms-flexbox;
@@ -11439,13 +11440,13 @@ pre{
     -ms-flex-align:center;
     align-items:center
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-left-sidebar .inbox-left-sidebar-inner .compose .button{
+.inbox-left-sidebar .inbox-left-sidebar-inner .compose .button{
     height:40px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-left-sidebar .inbox-left-sidebar-inner .left-menu{
+.inbox-left-sidebar .inbox-left-sidebar-inner .left-menu{
     padding:10px 0
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-left-sidebar .inbox-left-sidebar-inner .left-menu a{
+.inbox-left-sidebar .inbox-left-sidebar-inner .left-menu a{
     display:-ms-flexbox;
     display:flex;
     -ms-flex-pack:start;
@@ -11458,24 +11459,24 @@ pre{
     font-size:.95rem;
     border-radius:4px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-left-sidebar .inbox-left-sidebar-inner .left-menu a.is-active{
+.inbox-left-sidebar .inbox-left-sidebar-inner .left-menu a.is-active{
     background-color:#0062ff;
     color:#fafafa;
     box-shadow:0 14px 26px -12px rgba(0,98,255,0.42),0 4px 23px 0px rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,98,255,0.2) !important
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-left-sidebar .inbox-left-sidebar-inner .left-menu a span{
+.inbox-left-sidebar .inbox-left-sidebar-inner .left-menu a span{
     display:block;
     margin-left:10px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-left-sidebar .inbox-left-sidebar-inner .left-menu a svg{
+.inbox-left-sidebar .inbox-left-sidebar-inner .left-menu a svg{
     height:18px;
     width:18px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-left-sidebar .inbox-left-sidebar-inner .close-menu{
+.inbox-left-sidebar .inbox-left-sidebar-inner .close-menu{
     padding:20px 50px;
     text-align:center
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-left-sidebar .inbox-left-sidebar-inner .close-menu a{
+.inbox-left-sidebar .inbox-left-sidebar-inner .close-menu a{
     display:-ms-flexbox;
     display:flex;
     -ms-flex-align:center;
@@ -11483,12 +11484,12 @@ pre{
     color:#999;
     cursor:pointer
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-left-sidebar .inbox-left-sidebar-inner .close-menu a svg{
+.inbox-left-sidebar .inbox-left-sidebar-inner .close-menu a svg{
     height:20px;
     width:20px;
     margin-right:4px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container{
+.inbox-center-container{
     position:absolute;
     top:0;
     left:0;
@@ -11497,25 +11498,25 @@ pre{
     background:#fff;
     transition:all .3s
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container.is-left-opened{
+.inbox-center-container.is-left-opened{
     width:calc(100% - 280px);
     left:280px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container.is-both-opened{
+.inbox-center-container.is-both-opened{
     width:34%;
     left:16%;
     right:50%
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner{
+.inbox-center-container .inbox-center-container-inner{
     position:relative;
     width:100%;
     height:100%
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .messages{
+.inbox-center-container .inbox-center-container-inner .messages{
     display:block;
     background-color:#fff
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .messages .action-buttons{
+.inbox-center-container .inbox-center-container-inner .messages .action-buttons{
     min-height:60px;
     display:-ms-flexbox;
     display:flex;
@@ -11524,21 +11525,21 @@ pre{
     padding:0 20px;
     border-bottom:1px solid #e8e8e8
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .messages .action-buttons .button{
+.inbox-center-container .inbox-center-container-inner .messages .action-buttons .button{
     max-height:32px;
     padding:4px 8px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .messages .action-buttons .button svg{
+.inbox-center-container .inbox-center-container-inner .messages .action-buttons .button svg{
     height:16px;
     width:16px;
     stroke:#888da8
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .message-count{
+.inbox-center-container .inbox-center-container-inner .message-count{
     font-size:.9rem;
     color:#999;
     margin-left:12px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages{
+.inbox-center-container .inbox-center-container-inner .inbox-messages{
     position:absolute;
     top:0;
     left:0;
@@ -11547,63 +11548,63 @@ pre{
     max-height:calc(100% - 60px);
     overflow-y:auto
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner{
     padding:20px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .message{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .message{
     display:block;
     background-color:#fff
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card{
     width:100%;
     cursor:pointer;
     transition:all .3s
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card.is-active{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card.is-active{
     background-color:#fcfcfc;
     box-shadow:0px 5px 18px rgba(0,0,0,0.11) !important
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card.is-active .msg-from a{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card.is-active .msg-from a{
     color:#0062ff
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card.is-active .msg-attachment svg{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card.is-active .msg-attachment svg{
     stroke:#0062ff
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card.has-attachment .msg-attachment svg{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card.has-attachment .msg-attachment svg{
     display:block;
     transition:stroke .3s
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-from{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-from{
     color:#999
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-from a{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-from a{
     font-weight:500;
     color:#999;
     transition:color .3s
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-timestamp{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-timestamp{
     float:right;
     padding:0 20px;
     color:#999;
     font-size:.9rem
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-attachment{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-attachment{
     float:right
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-attachment svg{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-attachment svg{
     display:none;
     height:16px;
     width:16px;
     stroke:#999
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-subject{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-subject{
     display:-ms-flexbox;
     display:flex;
     -ms-flex-align:center;
     align-items:center;
     padding:10px 0
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-subject span{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-subject span{
     display:block;
     font-family:'Montserrat', sans-serif;
     font-weight:600;
@@ -11611,7 +11612,7 @@ pre{
     color:#393a4f;
     margin:0 4px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-subject svg{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-subject svg{
     position:relative;
     top:-1px;
     height:16px;
@@ -11623,18 +11624,18 @@ pre{
     transform:rotate(0);
     transition:all .3s
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-subject svg.is-active{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-subject svg.is-active{
     -webkit-transform:rotate(360deg);
     transform:rotate(360deg);
     stroke:#ff5f59;
     fill:#ff5f59
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-snippet{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-snippet{
     color:#999;
     font-size:.9rem;
     padding-right:20px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-snippet p{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-snippet p{
     overflow:hidden;
     position:relative;
     line-height:1.2em;
@@ -11643,13 +11644,13 @@ pre{
     margin-right:-1em;
     padding-right:1em
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-snippet p:before{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-snippet p:before{
     content:'...';
     position:absolute;
     right:0;
     bottom:0
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-snippet p:after{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .card .msg-snippet p:after{
     content:'';
     position:absolute;
     right:0;
@@ -11658,13 +11659,13 @@ pre{
     margin-top:0.2em;
     background:#fff
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner strong{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner strong{
     color:#5D5D5D
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .msg-check{
+.inbox-center-container .inbox-center-container-inner .inbox-messages .inbox-messages-inner .msg-check{
     padding:0 20px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container{
+.inbox-message-container{
     position:absolute;
     top:0;
     right:0;
@@ -11674,12 +11675,12 @@ pre{
     transition:all .3s;
     border-left:1px solid #dbdbdb
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner{
+.inbox-message-container .inbox-message-container-inner{
     position:relative;
     height:100%;
     width:100%
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-head .action-buttons{
+.inbox-message-container .inbox-message-container-inner .message-head .action-buttons{
     min-height:60px;
     display:-ms-flexbox;
     display:flex;
@@ -11688,16 +11689,16 @@ pre{
     padding:0 20px;
     border-bottom:1px solid #e8e8e8
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-head .action-buttons .button{
+.inbox-message-container .inbox-message-container-inner .message-head .action-buttons .button{
     max-height:32px;
     padding:4px 8px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-head .action-buttons .button svg{
+.inbox-message-container .inbox-message-container-inner .message-head .action-buttons .button svg{
     height:16px;
     width:16px;
     stroke:#888da8
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body{
+.inbox-message-container .inbox-message-container-inner .message-body{
     position:absolute;
     top:0;
     left:0;
@@ -11709,7 +11710,7 @@ pre{
     border-left:none;
     padding:1.25em !important
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner{
     position:relative;
     width:100%;
     height:100%;
@@ -11720,13 +11721,13 @@ pre{
     -webkit-animation-duration:.5s;
     animation-duration:.5s
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner.is-active{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner.is-active{
     display:block
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview-transition.is-first{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview-transition.is-first{
     margin-top:-36px !important
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview-transition .mail{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview-transition .mail{
     position:relative;
     display:-ms-flexbox;
     display:flex;
@@ -11741,7 +11742,7 @@ pre{
     color:#fff;
     border:1px solid #ccc
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview-transition .mail:before{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview-transition .mail:before{
     content:'';
     position:absolute;
     top:-30px;
@@ -11753,7 +11754,7 @@ pre{
     -webkit-transform:rotate(90deg);
     transform:rotate(90deg)
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview-transition .mail:after{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview-transition .mail:after{
     content:'';
     position:absolute;
     bottom:-30px;
@@ -11765,18 +11766,18 @@ pre{
     -webkit-transform:rotate(90deg);
     transform:rotate(90deg)
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview-transition .mail svg{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview-transition .mail svg{
     width:20px;
     height:20px;
     stroke:#888da8
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview{
     margin:0 0 20px 0;
     padding:30px;
     box-shadow:-1px 3px 10px 0 rgba(0,0,0,0.06);
     border:1px solid #e8e8e8
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview .avatar{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview .avatar{
     display:-ms-flexbox;
     display:flex;
     -ms-flex-pack:center;
@@ -11784,54 +11785,54 @@ pre{
     -ms-flex-align:center;
     align-items:center
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview .avatar img{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview .avatar img{
     width:48px;
     border-radius:50px;
     border:2px solid #999;
     padding:2px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview .box-inner .header{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview .box-inner .header{
     display:-ms-flexbox;
     display:flex;
     -ms-flex-align:center;
     align-items:center
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview .box-inner .header .meta{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview .box-inner .header .meta{
     display:block;
     padding:0 20px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview .box-inner .header .meta .name{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview .box-inner .header .meta .name{
     font-weight:500;
     color:#393a4f
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview .box-inner .header .meta .date{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview .box-inner .header .meta .date{
     font-size:.9rem;
     color:#999
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview .box-inner .header .meta-right{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview .box-inner .header .meta-right{
     text-align:right;
     margin-left:auto
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview .box-inner .header .meta-right .tag{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview .box-inner .header .meta-right .tag{
     font-weight:500;
     background:#f7f7f7;
     color:#393a4f
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview .box-inner .header .meta-right svg{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview .box-inner .header .meta-right svg{
     position:relative;
     top:2px;
     height:16px;
     width:16px;
     stroke:#cecece
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview .box-inner .header .meta-right small{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .message-preview .box-inner .header .meta-right small{
     color:#999;
     font-size:.95rem
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments{
     padding-bottom:40px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-header .paperclip{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-header .paperclip{
     position:relative;
     display:-ms-flexbox;
     display:flex;
@@ -11846,7 +11847,7 @@ pre{
     color:#fff;
     border:1px solid #ccc
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-header .paperclip:before{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-header .paperclip:before{
     content:'';
     position:absolute;
     top:-30px;
@@ -11858,7 +11859,7 @@ pre{
     -webkit-transform:rotate(90deg);
     transform:rotate(90deg)
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-header .paperclip:after{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-header .paperclip:after{
     content:'';
     position:absolute;
     bottom:-30px;
@@ -11870,12 +11871,12 @@ pre{
     -webkit-transform:rotate(90deg);
     transform:rotate(90deg)
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-header .paperclip svg{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-header .paperclip svg{
     width:20px;
     height:20px;
     stroke:#888da8
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner{
     display:-ms-flexbox;
     display:flex;
     -ms-flex-wrap:wrap;
@@ -11883,7 +11884,7 @@ pre{
     max-width:380px;
     margin:0 auto
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box{
     width:calc(50% - 20px);
     margin:0 10px 16px 10px;
     padding:0;
@@ -11891,31 +11892,31 @@ pre{
     border:1px solid #e8e8e8;
     border-radius:4px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box.has-file{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box.has-file{
     -ms-flex-pack:center;
     justify-content:center;
     -ms-flex-align:center;
     align-items:center
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box.has-file .box-inner{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box.has-file .box-inner{
     text-align:center;
     padding:22px 12px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box.has-file .box-inner svg{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box.has-file .box-inner svg{
     stroke-width:1.2px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box.has-file .box-inner h5{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box.has-file .box-inner h5{
     font-weight:500;
     font-size:.9rem;
     overflow:hidden;
     text-overflow:ellipsis
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box.has-file .actions-group{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box.has-file .actions-group{
     display:-ms-flexbox;
     display:flex;
     border-top:1px solid #e8e8e8
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box.has-file .actions-group .action{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box.has-file .actions-group .action{
     width:50%;
     height:34px;
     display:-ms-flexbox;
@@ -11926,29 +11927,29 @@ pre{
     align-items:center;
     transition:all .3s
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box.has-file .actions-group .action:first-child{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box.has-file .actions-group .action:first-child{
     border-right:1px solid #e8e8e8
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box.has-file .actions-group .action:hover{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box.has-file .actions-group .action:hover{
     background:#fafafa
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box.has-file .actions-group .action:hover svg{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box.has-file .actions-group .action:hover svg{
     stroke:#393a4f
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box.has-file .actions-group .action svg{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box.has-file .actions-group .action svg{
     height:18px;
     width:18px;
     stroke:#888da8;
     transition:stroke .3s
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box img{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .attachments .attachments-inner .box img{
     display:block;
     border-radius:2px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper{
     padding:40px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-title{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-title{
     font-size:1.1rem;
     color:#393a4f;
     font-weight:500;
@@ -11958,54 +11959,54 @@ pre{
     -ms-flex-align:center;
     align-items:center
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-title svg{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-title svg{
     height:18px;
     width:18px;
     stroke:#999;
     margin-left:8px;
     cursor:pointer
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-wrapper-inner{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-wrapper-inner{
     width:100%;
     border:1px solid #e8e8e8;
     border-radius:4px;
     padding:30px;
     box-shadow:-1px 3px 10px 0 rgba(0,0,0,0.06)
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-wrapper-inner .flex-form{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-wrapper-inner .flex-form{
     display:-ms-flexbox;
     display:flex
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-wrapper-inner img{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-wrapper-inner img{
     margin-top:2px;
     height:44px;
     width:44px;
     border-radius:50%
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-wrapper-inner .control{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-wrapper-inner .control{
     position:relative;
     width:100%;
     margin-left:10px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-wrapper-inner .control .textarea{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-wrapper-inner .control .textarea{
     border:none !important;
     margin-bottom:20px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-wrapper-inner .control .reply-textarea{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-wrapper-inner .control .reply-textarea{
     margin-bottom:20px;
     min-height:120px
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-wrapper-inner .control .reply-textarea p{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-wrapper-inner .control .reply-textarea p{
     font-style:normal;
     font-size:1rem;
     font-family:'Roboto', sans-serif
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-wrapper-inner .control .ql-editor::before{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-wrapper-inner .control .ql-editor::before{
     font-style:normal;
     font-size:1rem;
     color:#cecece
 }
-.inbox-wrapper .inbox-wrapper-inner .inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-wrapper-inner .send-message{
+.inbox-message-container .inbox-message-container-inner .message-body .message-body-inner .reply-wrapper .reply-wrapper-inner .send-message{
     line-height:0
 }
 .action-buttons .control.is-grouped{
@@ -19569,7 +19570,7 @@ pre{
         margin-bottom:8px
     }
     .inbox-left-sidebar{
-        width:260px !important;
+        width:240px !important;
         -webkit-transform:translateX(-260px);
         transform:translateX(-260px)
     }

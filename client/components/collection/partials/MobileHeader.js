@@ -1,11 +1,11 @@
 import React, {Component, Fragment} from 'react'
 import {connect} from 'react-redux'
 import * as actions from '../../actions'
-
+import CommonClass from '../CommonClass';
 import AccountDropdown from './AccountDropdown'
 
 
-class MobileHeader extends Component{
+class MobileHeader extends CommonClass(Component){
       state = {
           loading : 0
       }
@@ -20,7 +20,7 @@ class MobileHeader extends Component{
                         <div className="d-flex space-bw aln-cntr">
                         <div className="navbar-brand">
                             <div className="">
-                                <div className="navbar-burger">
+                                <div onClick={this.toggleLeftSidebar} className="navbar-burger">
                                     <span></span>
                                     <span></span>
                                     <span></span>

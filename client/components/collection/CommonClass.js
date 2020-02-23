@@ -1,18 +1,13 @@
-import uuid from 'uuid/v4';
- 
+
 export default (Component)=>{
    return class Common extends Component{
-           state = {
-              key :''
-           }
-           setLocalStorage(data64){
-              const key = uuid();
-              const stored = localStorage.setItem(key, data64); 
-              return key;
-           }
+          toggleLeftSidebar = ()=>{
+             console.log(document.getElementsByTagName('html'));
+            document.getElementsByTagName('html')[0].classList.toggle('slideout-open');
+            document.getElementsByTagName('body')[0].classList.toggle('slideout-open');
 
-           getocalStorage(key){
-               return localStorage.getItem(key);
-           }
+            document.getElementById('bg-cover').classList.toggle('d-none');
+            document.getElementById('sections_left_sidebar').classList.toggle('is-opened-mobile');
+          }
    }
 }
