@@ -9,7 +9,7 @@ class Leftsidebar extends CommonClass(Component){
                <Fragment>
                    <div  className="">
                     <div id="bg-cover"  className="bg-cover d-none" onClick={this.toggleLeftSidebar}></div>
-                    <div id="sections_left_sidebar" className="inbox-left-sidebar">
+                    <div id="sections_left_sidebar" className="inbox-left-sidebar slideout-scroll has-slimscroll">
                            <PopularSections/>
                     </div>
                    </div>

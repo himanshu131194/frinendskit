@@ -300,6 +300,9 @@ bg-1a72ff{
     right: 0;
     top: 0;
     z-index: 1000;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
     transition: all .3s;
     background-color: rgba(10,10,10,0.86);
 }
@@ -313,6 +316,6 @@ bg-1a72ff{
 }
 
 .slideout-scroll{
-    max-height: 650px;
+    /* max-height: 450px; */
     overflow-y: auto;
 }

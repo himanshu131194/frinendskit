@@ -20,7 +20,7 @@ class MobileHeader extends CommonClass(Component){
                         <div className="d-flex space-bw aln-cntr">
                         <div className="navbar-brand">
                             <div className="">
-                                <div onClick={this.toggleLeftSidebar} className="navbar-burger">
+                                <div onClick={this.toggleLeftSidebar} id="sections_left" className="navbar-burger">
                                     <span></span>
                                     <span></span>
                                     <span></span>

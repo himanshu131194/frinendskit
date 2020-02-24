@@ -127,9 +127,9 @@
 /*! _layout.scss | Friendkit | Â© Css Ninja. 2018-2019 */
 body{
     background:#f4f4f4 !important;
-    height:100%;
+    /* height:100%;
     width:100%;
-    min-height:100vh;
+    min-height:100vh; */
     font-family:Roboto,-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
     color:#344258
 }
@@ -10843,6 +10843,10 @@ pre{
     padding:6px 12px;
     
 }
+
+.card .card-body .page-block,.card .card-body .add-friend-block:first-child{
+    padding-top:12px;
+}
 .card .card-body .page-block:not(:first-child),.card .card-body .add-friend-block:not(:first-child){
     /* border-top:1px solid #e8e8e8 */
 }
@@ -10880,19 +10884,35 @@ pre{
     margin-left:auto;
     border-radius:50%;
     transition:all .3s;
-    cursor:pointer
+    cursor:pointer;
 }
-.card .card-body .page-block .add-page svg,.card .card-body .page-block .add-friend svg,.card .card-body .add-friend-block .add-page svg,.card .card-body .add-friend-block .add-friend svg{
-    width:18px;
-    height:18px;
-    stroke:#888da8;
-    transition:all .3s
+
+.card .card-body .page-block .add-page svg,.card .card-body .page-block .add-friend svg,
+.card .card-body .add-friend-block .add-page svg,.card .card-body .add-friend-block .add-friend svg{
+    height: 20px;
+    width: 20px;
+    stroke: #cecece;
+    fill: #cecece;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
 }
+
+.card .card-body .page-block .add-page svg,.card .card-body .page-block .add-friend.is-active svg,
+.card .card-body .add-friend-block .add-page svg,.card .card-body .add-friend-block .add-friend.is-active svg{
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    stroke: #FFEB3B;
+    fill: #FFEB3B;
+}
+
+
 .card .card-body .page-block .add-page:hover,.card .card-body .page-block .add-friend:hover,.card .card-body .add-friend-block .add-page:hover,.card .card-body .add-friend-block .add-friend:hover{
-    background:#f5f5f5
+    /* background:#f5f5f5 */
 }
 .card .card-body .page-block .add-page:hover svg,.card .card-body .page-block .add-friend:hover svg,.card .card-body .add-friend-block .add-page:hover svg,.card .card-body .add-friend-block .add-friend:hover svg{
-    stroke:#0062ff
+    /* stroke:#0062ff */
 }
 .card .card-body .page-block .checkmark-wrapper,.card .card-body .add-friend-block .checkmark-wrapper{
     margin-left:auto;
@@ -14697,8 +14717,8 @@ pre{
 .friend-card .star-friend.is-active svg{
     -webkit-transform:rotate(360deg);
     transform:rotate(360deg);
-    stroke:#ff5f59;
-    fill:#ff5f59
+    stroke:#FFEB3B;
+    fill:#FFEB3B;
 }
 .friend-card .star-friend svg{
     height:20px;

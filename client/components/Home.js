@@ -13,17 +13,21 @@ class Home extends PureComponent{
       render(){
       	 return(
                   <Fragment>
-                {/* LEFT SIDEBAR */}
-                 <Leftsidebar/>
+                        {/* LEFT SIDEBAR */}
+                        <Leftsidebar/>
+                        
                         <Header/>
-                        <MobileHeader/>
-                        <Posts/>
-                        <LoginModel/>
-                        <Upload/>
-                        <CommentsModel/>
+                        <div>
+                              <MobileHeader/>
+                              <Posts/>
+                              <LoginModel/>
+                              <Upload/>
+                              <CommentsModel/>
+                        </div>
                   </Fragment>
       	 )
       }
 }
 
 export default Home;
+
