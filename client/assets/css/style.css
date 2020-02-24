@@ -160,7 +160,7 @@ body.is-white{
     margin:0 !important
 }
 .view-wrapper{
-    padding:60px 12px;
+    padding:60px 5px;
     transition:all .3s
 }
 .view-wrapper.is-side{
