@@ -59,7 +59,7 @@ class Post extends Component{
         this.state.tracks.map((result, i) => {
             items.push(
                 <div key={result._id} className="card is-post br-0 border-0 mb-1rem">
-                    <div className="content-wrap">
+                    <div className="content-wrap is-post">
                         {/* HEADING */}
                         <PostHeader onPost={result}/>
                         {/* BODY */}
