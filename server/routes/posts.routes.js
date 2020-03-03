@@ -14,10 +14,13 @@ export default (router)=>{
     // router.get('/list-emojis', postsController.listEmojis);
     
     router.post('/list-comments', usersController.authenticate, postsController.listComments);
+
     router.post('/upvote-comments', usersController.authenticate, postsController.upvoteComments);
 
     router.post('/delete-comments', usersController.authenticate, postsController.deleteComment);
 
+    router.post('/report-post', usersController.authenticate, postsController.reportPost);
+    
 
 
     

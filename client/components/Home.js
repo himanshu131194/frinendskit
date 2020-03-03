@@ -4,6 +4,10 @@ import Header from './collection/Partials/Header';
 import MobileHeader from './collection/Partials/MobileHeader';
 import LoginModel from './collection/Models/Accounts/Login'
 import Upload from './collection/Models/Upload/'
+
+import ReportPost from './collection/Models/ReportPost/'
+
+
 import Posts from './collection/Posts/'
 import CommentsModel from './collection/Models/Comments'
 import Leftsidebar from './collection/Partials/Leftsidebar';
@@ -22,6 +26,7 @@ class Home extends PureComponent{
                               <Posts/>
                               <LoginModel/>
                               <Upload/>
+                              <ReportPost/>
                               <CommentsModel/>
                         </div>
                   </Fragment>

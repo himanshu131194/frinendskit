@@ -3,6 +3,7 @@ import Posts from '../models/posts.model'
 import likedPosts from '../models/liked_posts.model'
 import Comments from '../models/comments.model'
 import likedComments from '../models/liked_comments.model'
+import Reportposts from '../models/report_posts.model'
 import mongoose from 'mongoose'
 import CONFIG from '../../config';
 import uuid from 'uuid/v4';
@@ -407,7 +408,36 @@ export default {
                 error : e   
             })
          }
-    }
+    },
+
+    reportPost : async (req, res)=>{
+        const {post_id, report_reason, report_text} = req.body;
+        try {
+            console.log(req.body);
+            await Posts.findOneAndUpdate({
+                _id: mongoose.Types.ObjectId(post_id)
+            }, 
+            { is_active: false });
+            
+            const reportPost = new Reportposts({
+                text: report_text,
+                reason: report_reason,
+                user_id: mongoose.Types.ObjectId(req.user._id),
+                post_id: mongoose.Types.ObjectId(post_id) 
+            });
+            const result = await reportPost.save();
+            res.status(200).send({
+                data : result  
+            })
+        } catch(e) {
+           res.status(400).send({
+              error : e
+           })
+        }
+  }
+
+
+    
 
 }
 

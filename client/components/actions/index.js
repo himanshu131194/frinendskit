@@ -195,7 +195,17 @@ export const downloadContent = (content_url, post_id, cb)=>{
     }
 }
 
-
+export const reportPost = ({post_id, report_reason, report_text}, cb)=>{
+    return async ()=>{
+        let result = null;
+            try{
+                let {data} = await axios.post(`${CONFIG.API_URL}/api/report-post`, {post_id, report_reason, report_text});
+                cb(null, data)
+            }catch(e){
+                cb(e, null)
+            }
+    }
+}
 
 
 

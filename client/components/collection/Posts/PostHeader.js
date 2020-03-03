@@ -4,6 +4,11 @@ import * as actions from '../../actions'
 
 
 class PostHeader extends Component{
+      onOpenReport = (e)=>{
+        e.preventDefault();
+        let postId = e.currentTarget.dataset.postid;
+        this.props.setPostId(postId); 
+      }
       render(){
           return(
             <div className="card-heading">
@@ -12,7 +17,7 @@ class PostHeader extends Component{
                         <img src={this.props.onPost.section_details.url} data-demo-src={this.props.onPost.section_details.url} alt="" />
                     </div>
                     <div className="user-info">
-                        <a href="#" className="uppercase">funny</a>
+                        <a href="#" className="uppercase">{this.props.onPost.section_details.value}</a>
                         <span className="time">July 26 2018, 01:03pm</span>
                     </div>
                 </div>
@@ -26,7 +31,19 @@ class PostHeader extends Component{
                             </svg>
                         </div>
                     </div>
-
+                    <div className="dropdown-menu" role="menu">
+                        <div className="dropdown-content">
+                            <a href="#" data-postid={this.props.onPost._id}  onClick={this.onOpenReport} className="dropdown-item next-modal raised modal-trigger" data-modal="report-modal">
+                                <div className="media">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-flag"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+                                    <div className="media-content">
+                                        <h3>Report</h3>
+                                        <small>In case of inappropriate content.</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div> 
           )

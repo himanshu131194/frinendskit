@@ -31,6 +31,9 @@
 .no-border{
     border: none;
 }
+.no-shadow{
+    box-shadow: none;
+}
 .flex-end{
     justify-content: flex-end !important;
 }
@@ -318,4 +321,12 @@ bg-1a72ff{
 .slideout-scroll{
     /* max-height: 450px; */
     overflow-y: auto;
+}
+
+.no-width{
+    width: 0px;
+}
+
+.width-100pr{
+    width: 100%;
 }
