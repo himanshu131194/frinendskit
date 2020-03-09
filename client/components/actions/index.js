@@ -3,11 +3,12 @@ import CONFIG from '../../../config'
 import axios from 'axios'
 
 
-export const listPosts = ({limit, offset}, cb)=>{
+export const listPosts = ({limit, offset, filters}, cb)=>{
     return async (dispatch)=>{
+           console.log(filters);
            let err = null, result = [];
            try{
-               let {data} = await axios.get(`${CONFIG.API_URL}/api/list-posts?limit=${limit}&offset=${offset}`);
+               let {data} = await axios.post(`${CONFIG.API_URL}/api/list-posts`, {limit, offset, filters});
                     result = data.data
            }catch(e){
                err = e.response.data.error;

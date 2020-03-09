@@ -1,16 +1,24 @@
 import React, {Component, Fragment} from 'react'
-import {Switch, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 import Home from './components/Home'
+
+import Posts from './components/collection/Posts/'
+import Accounts from './components/collection/Accounts/'
 
 
 class MainRouter extends Component{
 	  render(){
 	  	  return(
              <Fragment>
-               <Switch>
-               	    <Route exact path="/" component={Home}/>
-               </Switch>
+			   <Router>
+					<Home/>
+					<Switch>
+							<Route exact path="/" component={Posts}/>
+							<Route path="/account/:type" component={Accounts}/>
+							<Route path="/account" component={Accounts}/>
+					</Switch>
+			   </Router>
              </Fragment>
 	  	  )
 	  }

@@ -117,12 +117,22 @@ export default {
     },
 
     listPosts : async (req, res)=>{
+        // console.log(JSON.parse(req.body.filters));
         const postMatchObject = { is_active: true };
-        try{
-            const skip = parseInt(req.query.offset) || 0,
-                  limit = parseInt(req.query.limit) || 2;
+        if(req.body.filters.account==1){
+              postMatchObject.userId = mongoose.Types.ObjectId(req.user._id)
+        }
 
-            console.log(req.query);
+        // if(req.body.filters.value){
+        //     postMatchObject.userId = mongoose.Types.ObjectId(req.user._id)
+        // }
+        
+
+        try{
+            const skip = parseInt(req.body.offset) || 0,
+                  limit = parseInt(req.body.limit) || 2;
+
+            console.log(req.body);
             
             const posts = await Posts.aggregate([
                         { $match : postMatchObject },
@@ -179,8 +189,6 @@ export default {
             res.status(200).send({
                 data : posts  
             })
-
-            console.log(posts);
         }catch(e){
             console.log(e);
             res.status(400).send({

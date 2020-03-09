@@ -44,6 +44,11 @@
     margin-bottom: 0 !important;
 }
 
+.mt-40{
+    margin-top: 40px !important;
+}
+
+
 .mb-1rem{
     margin-bottom: 1rem !important;
 }
@@ -198,6 +203,14 @@ bg-1a72ff{
   padding-left: 0px !important;
 }
 
+.pl-10{
+    padding-left: 10px !important;
+}
+.pr-10{
+    padding-right: 10px !important;
+}
+  
+
 .pr-0{
     padding-right: 0px !important;
 }
@@ -329,4 +342,8 @@ bg-1a72ff{
 
 .width-100pr{
     width: 100%;
+}
+
+.dropdown-content{
+    border-radius: unset !important;
 }

@@ -18,7 +18,7 @@ class CommentsModel extends Component{
                 <div id="comment-modal" className="modal share-modal is-xsmall has-light-bg">
                     <div className="modal-background"></div>
                     <div className="modal-content comment-content">
-                        <div id="feed-post-1" class="card is-post br-0">
+                        <div id="feed-post-1" className="card is-post br-0">
                             <div className="card-heading">
                                 {this.props.listOfComments && this.props.listOfComments.length>0
                                 ?
@@ -32,17 +32,17 @@ class CommentsModel extends Component{
                                     </span>
                                 </div>
                             </div>
-                            <div class="comments-wrap position-r">
+                            <div className="comments-wrap position-r">
                                {this.state.loading===1 && <Loader/> }
                                {this.props.listOfComments 
                                 ? this.props.listOfComments.length>0
                                   &&
-                                   <div class="comments-body has-slimscroll">
+                                   <div className="comments-body has-slimscroll">
                                       {this.loadListOfComments(this.props.listOfComments)}
                                     </div>
                                 : <Loader/>
                                }
-                                <div class="card-footer">
+                                <div className="card-footer">
                                     <CommentContent onCommentChange={(status)=>this.setState({loading: status})}/>
                                 </div>
                             </div>

@@ -1253,11 +1253,11 @@ body.is-white{
     position:relative;
     display:-ms-flexbox;
     display:flex;
-    width:210px
+    /* width:210px */
 }
 .options-nav .nav-inner.is-friends .option-tabs .option-tab,.options-nav .nav-inner.is-events .option-tabs .option-tab{
     height:50px;
-    width:33.3%;
+    /* width:33.3%; */
     display:-ms-flexbox;
     display:flex;
     -ms-flex-align:center;
@@ -1265,9 +1265,13 @@ body.is-white{
     -ms-flex-pack:center;
     justify-content:center
 }
+
+.options-nav .nav-inner.is-friends .option-tabs .option-tab.is-active{
+    border-bottom: 2.6px solid #393a4f;
+}
 .options-nav .nav-inner.is-friends .option-tabs .option-tab.is-active span,.options-nav .nav-inner.is-events .option-tabs .option-tab.is-active span{
     font-weight:500;
-    color:#393a4f
+    color:#393a4f;
 }
 .options-nav .nav-inner.is-friends .option-tabs .option-tab.is-active:first-child ~ .option-naver,.options-nav .nav-inner.is-events .option-tabs .option-tab.is-active:first-child ~ .option-naver{
     margin-left:0
@@ -1282,7 +1286,7 @@ body.is-white{
     display:block;
     color:#cecece;
     font-family:Roboto, sans-serif;
-    font-size:.9rem
+    font-size:.8rem
 }
 .options-nav .nav-inner.is-friends .option-tabs .option-naver,.options-nav .nav-inner.is-events .option-tabs .option-naver{
     position:absolute;
@@ -2199,18 +2203,18 @@ body.is-white{
     align-items:center;
     padding:16px
 }
-.card .card-heading .dropdown{
+.dropdown{
     margin-left:auto
 }
-.card .card-heading .dropdown .button{
+.dropdown .button{
     padding:0;
     background:none;
     border:none
 }
-.card .card-heading .dropdown .button svg{
+.dropdown .button svg{
     stroke:#888da8
 }
-.card .card-heading .dropdown.is-light svg{
+.dropdown.is-light svg{
     stroke:#fff
 }
 .card .card-heading.is-bordered{
@@ -3465,7 +3469,7 @@ button.button{
     width:8px;
     margin:0 4px
 }
-.card-heading .dropdown.is-spaced>div .button,.about-card .header .actions .dropdown.is-spaced>div .button{
+.dropdown.is-spaced>div .button,.dropdown.is-spaced>div .button{
     padding:0;
     display:-ms-flexbox;
     display:flex;
@@ -3479,10 +3483,10 @@ button.button{
     border-radius:50%;
     transition:all .3s
 }
-.card-heading .dropdown.is-spaced>div .button:hover,.about-card .header .actions .dropdown.is-spaced>div .button:hover{
+.dropdown.is-spaced>div .button:hover,.dropdown.is-spaced>div .button:hover{
     background:#f5f5f5
 }
-.card-heading .dropdown.is-spaced>div .button svg,.about-card .header .actions .dropdown.is-spaced>div .button svg{
+.dropdown.is-spaced>div .button svg,.dropdown.is-spaced>div .button svg{
     height:20px;
     width:20px;
     transition:all .3s

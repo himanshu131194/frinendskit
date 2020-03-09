@@ -3,6 +3,9 @@ import Post from './Post'
 
 
 class Posts extends Component{
+    componentDidMount(){
+
+    }
     render(){
         return(
             <div className="view-wrapper position-r">
@@ -13,7 +16,7 @@ class Posts extends Component{
                          <div className="columns">
                               <div className="column is-6 pr-0 pl-0">
                                   {/* POST */}
-                                     <Post/>
+                                   <Post/>
                                   {/* END POST */}
                               </div>
                          </div>

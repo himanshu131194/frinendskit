@@ -8,7 +8,7 @@ import Upload from './collection/Models/Upload/'
 import ReportPost from './collection/Models/ReportPost/'
 
 
-import Posts from './collection/Posts/'
+// import Posts from './collection/Posts/'
 import CommentsModel from './collection/Models/Comments'
 import Leftsidebar from './collection/Partials/Leftsidebar';
 
@@ -19,11 +19,10 @@ class Home extends PureComponent{
                   <Fragment>
                         {/* LEFT SIDEBAR */}
                         <Leftsidebar/>
-
                         <div>
                               <Header/>
                               <MobileHeader/>
-                              <Posts/>
+                              {/* <Posts/> */}
                               <LoginModel/>
                               <Upload/>
                               <ReportPost/>

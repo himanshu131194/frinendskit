@@ -6,6 +6,7 @@ import PostFooter from "./PostFooter";
 import PostHeader from "./PostHeader";
 
 
+
 class Post extends Component{
     counter = 0;
     defaultLimit = 3;
@@ -18,7 +19,6 @@ class Post extends Component{
         loadCounter: 0
     };
     componentDidMount(){
-        //this.props.listPosts();
         this.setState({
             loadCounter: 1
         })
@@ -28,7 +28,11 @@ class Post extends Component{
         this.counter = this.counter + this.defaultSkip;
         this.props.listPosts({
             limit: this.defaultLimit,
-            offset : this.counter
+            offset : this.counter,
+            filters: {
+                account:  this.props.onRefreshPosts ? 1: 0,
+                value:  this.props.onRefreshPosts ? this.props.onRefreshPosts : null
+            }
         }, (err, result)=>{
             this.defaultSkip = 3;   
             const tracks = this.state.tracks;

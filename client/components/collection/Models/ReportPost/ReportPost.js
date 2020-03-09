@@ -38,7 +38,7 @@ class Reportpost extends Component{
             <div className="card-body model-pd">
                 <img src="https://friendkit.cssninja.io/assets/img/icons/chat/bubbles.svg" alt=""/>
                 <div className="field is-autocomplete">
-                            <div class="control select width-100pr">
+                            <div className="control select width-100pr">
                             <select ref={this.reportReason} className="no-shadow width-100pr" id="cars">
                                 <option value="volvo">Volvo</option>
                                 <option value="saab">Saab</option>
@@ -48,8 +48,8 @@ class Reportpost extends Component{
                             </div>
                 </div>
                 <div className="field is-autocomplete">
-                            <div class="control">
-                                <input ref={this.reportText} type="text" class="input" placeholder="Tell us what is wrong in this post"/>
+                            <div className="control">
+                                <input ref={this.reportText} type="text" className="input" placeholder="Tell us what is wrong in this post"/>
                             </div>
                 </div>
                 <div className="action has-text-centered uppercase">
