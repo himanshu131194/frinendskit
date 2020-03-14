@@ -119,9 +119,9 @@ export default {
     listPosts : async (req, res)=>{
         // console.log(JSON.parse(req.body.filters));
         const postMatchObject = { is_active: true };
-        if(req.body.filters.account==1){
-              postMatchObject.userId = mongoose.Types.ObjectId(req.user._id)
-        }
+        // if(req.body.filters.account==1){
+        //       postMatchObject.userId = mongoose.Types.ObjectId(req.user._id)
+        // }
 
         // if(req.body.filters.value){
         //     postMatchObject.userId = mongoose.Types.ObjectId(req.user._id)

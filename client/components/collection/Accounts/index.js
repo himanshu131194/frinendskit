@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Tabs from './Tabs'
 import Post from '../Posts/Post'
+import AccountActions from './Actions'
 
 
 class Posts extends Component{
@@ -10,7 +11,7 @@ class Posts extends Component{
         console.log(type);
     }
     state = {
-        type: null
+        type: 'user-info'
     }
     render(){
         return(
@@ -26,7 +27,11 @@ class Posts extends Component{
                          <div className="columns">
                               <div className="column is-6 pr-0 pl-0 mt-40">
                                   {/* POST */}
-                                     <Post onRefreshPosts={this.props.match.params.type}/>
+                                     {!this.state.type || this.state.type==='user-info'
+                                     ? <AccountActions/>
+                                     :
+                                       <Post onRefreshPosts={this.props.match.params.type}/>
+                                     }
                                   {/* END POST */}
                               </div>
                          </div>

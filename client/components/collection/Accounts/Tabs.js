@@ -20,7 +20,7 @@ class Tabs extends Component{
                 <div className="container is-fluid">
                     <div className="nav-inner is-friends uppercase space-bw">
                         <div className="option-tabs uppercase">
-                            <a className="option-tab is-active pl-10 pr-10" data-tab="all-friends">
+                            <a onClick={this.onChangeTab} data-type="user-info" className="option-tab is-active pl-10 pr-10" data-tab="all-friends">
                                 <span>my account</span>
                             </a>     
                         </div>
