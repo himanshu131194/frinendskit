@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux';
 import * as actions from '../../actions'
-import ReactTimeAgo from 'react-time-ago'
 
 
 class PostHeader extends Component{
@@ -19,9 +18,7 @@ class PostHeader extends Component{
                     </div>
                     <div className="user-info">
                         <a href="#" className="uppercase">{this.props.onPost.section_details.value}</a>
-                        <span className="time">
-                            <ReactTimeAgo date={this.props.onPost.created} timeStyle="twitter"/>
-                        </span>
+                        <span className="time">July 26 2018, 01:03pm</span>
                     </div>
                 </div>
                 <div className="dropdown is-spaced is-right is-neutral dropdown-trigger">

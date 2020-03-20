@@ -7967,8 +7967,14 @@ code{
 .mt-10{
     margin-top:10px !important
 }
+.mt-0{
+    margin-top:0px !important
+}
 .mb-10{
     margin-bottom:10px !important
+}
+.mb-0{
+    margin-bottom:0px !important
 }
 .has-background-image{
     background-size:cover !important;
@@ -15866,13 +15872,14 @@ pre{
 }
 /*! _app-questions.scss | Friendkit | Â© Css Ninja. 2018-2019 */
 .question-tabs{
-    margin-bottom:20px !important;
+    /* margin-bottom:20px !important; */
     max-width:680px;
     margin-left:auto;
     margin-right:auto;
     box-shadow:-1px 3px 10px 0 rgba(0,0,0,0.06);
-    border:1px solid #e8e8e8;
-    border-radius:8px
+    background: #fff;
+    /* border:1px solid #e8e8e8;
+    border-radius:8px */
 }
 .question-tabs.is-nav{
     margin-bottom:0 !important;
@@ -15890,11 +15897,24 @@ pre{
     color:#0062ff;
     border-bottom-color:#0062ff
 }
+.question-tabs ul li {
+    padding: .6em .4em;
+}
+.question-tabs ul li a:hover{
+    border-color: #000 !important;
+    color: #fff !important;
+}
 .question-tabs ul li a{
-    color:#c6c6c6;
-    border-bottom:1px solid transparent;
+    /* color:#c6c6c6; */
+    font-weight: 500;
+    color: #fff;
+    background: #000 !important;
+    /* border-bottom:1px solid transparent; */
     font-size:.9rem;
-    padding:1em
+    border-color: #000 !important;
+    border-width: 1.5px !important;
+    /* padding:.8em */
+    padding: 1.3em 1.5em !important;
 }
 .questions-wrap,.questions-demo{
     margin:60px 0

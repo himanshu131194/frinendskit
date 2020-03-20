@@ -6076,21 +6076,21 @@ a.panel-block:hover,label.panel-block:hover{
 .tabs a{
     -ms-flex-align:center;
     align-items:center;
-    border-bottom-color:#dbdbdb;
+    /* border-bottom-color:#dbdbdb;
     border-bottom-style:solid;
-    border-bottom-width:1px;
+    border-bottom-width:1px; */
     color:#4a4a4a;
     display:-ms-flexbox;
     display:flex;
     -ms-flex-pack:center;
     justify-content:center;
-    margin-bottom:-1px;
+    /* margin-bottom:-1px; */
     padding:0.5em 1em;
     vertical-align:top
 }
 .tabs a:hover{
-    border-bottom-color:#363636;
-    color:#363636
+    /* border-bottom-color:#363636;
+    color:#363636 */
 }
 .tabs li{
     display:block

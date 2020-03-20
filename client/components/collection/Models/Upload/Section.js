@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react'
 import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 import * as actions from '../../../actions'
 
 import Loader from './Loader'
@@ -52,6 +53,7 @@ class Section extends Component{
                     setTimeout(()=>{
                         this.setState({loading : 0});
                         this.props.onCloseModel();
+                        window.location = "/";
                     }, 2000)
                 }
                 console.log(this.props.onCloseModel);

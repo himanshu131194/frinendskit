@@ -7,6 +7,11 @@ export default {
     googleCallback: (req, res) => {
         res.redirect('/');
     }, 
+
+    facebookCallback: (req, res)=>{
+        res.redirect('/');
+    },
+    
     googleAuthenticate: (req, res) => {
         if(req.user){
             res.status(200).send({
@@ -18,12 +23,13 @@ export default {
             })
         }
     },
-    googleLogout:  (req, res) => {
+    allLogout:  (req, res) => {
         req.logout();
         res.redirect('/');
     },
-
     authenticate: (req, res, next)=>{
+        console.log('req.user');
+        console.log(req.user);
         if(req.user){
            next();
         }else{

@@ -116,6 +116,114 @@ export default {
         }
     },
 
+    listOfUsersPosts: async (req, res)=>{
+        //GET FILTERED POSTIDS 
+        const { COMMENTED, LIKED } = CONFIG.USER.POST_TYPES;
+        let uploadedPosts = false;
+        let postIds = [];
+        switch (parseInt(req.body.filters.value)) {
+            case LIKED:
+                postIds = await likedPosts.find({
+                    user_id:  mongoose.Types.ObjectId(req.user._id),
+                    is_active: true
+                },{
+                    _id: 0,
+                    post_id: 1,
+                })
+                break;
+            case COMMENTED:
+                postIds = await Comments.find({
+                    user_id:  mongoose.Types.ObjectId(req.user._id),
+                    is_active: true
+                },{
+                    _id: 0,
+                    post_id: 1,  
+                })
+                break;     
+            default:    
+                uploadedPosts = true;
+                break;
+        }
+        
+        let postMatchObject = null;
+        let listOfPostIds = []; 
+        if(!uploadedPosts){
+            for(const postId of postIds) {
+                listOfPostIds.push(postId.post_id);
+            }
+            postMatchObject = { is_active: true,  _id: {$in: listOfPostIds}  };
+        }else{
+            postMatchObject = { is_active: true, user_id:  mongoose.Types.ObjectId(req.user._id)};
+        }
+        try{
+            const skip = parseInt(req.body.offset) || 0,
+                  limit = parseInt(req.body.limit) || 2;
+            
+            const posts = await Posts.aggregate([
+                        { $match : postMatchObject },
+                        {
+                          $lookup: {
+                            from : 'sections',
+                            localField: 'section',
+                            foreignField: '_id',
+                            as: 'section_details'
+                          }
+                        },
+                        { $unwind: "$section_details" },
+                        {
+                          $lookup: {
+                            from : 'liked_posts',
+                            let : { liked_post : '$_id'},
+                            pipeline: [
+                                {
+                                    $match:{
+                                         $expr: { $eq: [ "$post_id",  "$$liked_post" ] },
+                                         user_id: mongoose.Types.ObjectId(req.user._id),
+                                         is_active: true       
+                                    }
+                                }
+                            ],
+                            as : 'liked'
+                          }
+                        },
+                        { $project: 
+                            { 
+                                like_count: 1,
+                                comment_count: 1,
+                                share_count: 1,
+                                download_count: 1,
+                                user_id: 1,
+                                url: 1,
+                                title: 1,
+                                section: 1,
+                                mime_type: 1,
+                                ext: 1,
+                                created: 1,
+                                liked: { $size:  "$liked" },
+                                'section_details._id': 1, 
+                                'section_details.value': 1, 
+                                'section_details.url': 1, 
+                            }
+                        },
+                        { $sort: { created : -1 } }
+                  ])
+                  .skip(skip)
+                  .limit(limit);
+
+
+            res.status(200).send({
+                data : posts  
+            })
+        }catch(e){
+            console.log(e);
+            res.status(400).send({
+                error : CONFIG.ERRORS[100]
+            })
+        } 
+
+
+    },
+
     listPosts : async (req, res)=>{
         // console.log(JSON.parse(req.body.filters));
         const postMatchObject = { is_active: true };

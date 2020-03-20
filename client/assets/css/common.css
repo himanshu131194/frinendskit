@@ -347,3 +347,7 @@ bg-1a72ff{
 .dropdown-content{
     border-radius: unset !important;
 }
+
+.inline{
+    display: inline !important;
+}

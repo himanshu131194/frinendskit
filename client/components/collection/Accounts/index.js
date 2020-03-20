@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Tabs from './Tabs'
-import Post from '../Posts/Post'
+import Post from '../UserPosts/Post'
 import AccountActions from './Actions'
 
 

@@ -46,6 +46,13 @@ export default {
    ERRORS : {
       100 : "something went wrong, please try to post again"
    },
+   USER: {
+       POST_TYPES :{
+            UPLOADED : 1,
+            LIKED: 2,
+            COMMENTED: 3
+       }
+   },
    JWT_SECRET: "himanshu@1234",
    ACCESS_TOKEN : "0z6v8b4uua"
 }

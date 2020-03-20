@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../../actions'
+import CONFIG from '../../../../config';
 import InfiniteScroll from 'react-infinite-scroller';
 import PostFooter from "./PostFooter";
 import PostHeader from "./PostHeader";
@@ -24,14 +25,29 @@ class Post extends Component{
         })
     }
 
+    mapPostsTypes(postType){
+        const { UPLOADED, COMMENTED, LIKED } = CONFIG.USER.POST_TYPES;
+        switch (postType) {
+            case 'uploaded-posts':
+                return UPLOADED;
+                break;
+            case 'liked-posts':
+                return LIKED;
+                break;
+            case 'commented-posts':
+                return COMMENTED;
+                break;
+        }
+    }
+
     loadItems(){
         this.counter = this.counter + this.defaultSkip;
-        this.props.listPosts({
+        this.props.listUserPosts({
             limit: this.defaultLimit,
             offset : this.counter,
             filters: {
                 account:  this.props.onRefreshPosts ? 1: 0,
-                value:  this.props.onRefreshPosts ? this.props.onRefreshPosts : null
+                value:  this.props.onRefreshPosts ? this.mapPostsTypes(this.props.onRefreshPosts) : null
             }
         }, (err, result)=>{
             this.defaultSkip = 3;   

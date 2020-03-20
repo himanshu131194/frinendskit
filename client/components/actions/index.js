@@ -21,14 +21,32 @@ export const listPosts = ({limit, offset, filters}, cb)=>{
     }
 }
 
+export const listUserPosts = ({limit, offset, filters}, cb)=>{
+    return async (dispatch)=>{
+           console.log(filters);
+           let err = null, result = [];
+           try{
+               let {data} = await axios.post(`${CONFIG.API_URL}/api/list-usersposts`, {limit, offset, filters});
+                    result = data.data
+           }catch(e){
+               err = e.response.data.error;
+           }
+           dispatch({
+               type: LOAD_POSTS,
+               payload: result
+           })
+           cb(null, result);
+    }
+}
+
+
+
 export const authUsers = ()=>{
     return async (dispatch)=>{
            let err = null, result = null;
            try{
                let {data} = await axios.get(`${CONFIG.API_URL}/api/authenticate`);
-                    console.log(data)
                     result = data.user;
-                    console.log(result);
            }catch(e){
                err = e.response.data.error;
            }

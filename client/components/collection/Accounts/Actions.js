@@ -39,12 +39,11 @@ class Actions extends Component{
                             </div>
                             <i className="mdi mdi-map-marker"></i>
                         </div>
-                        <div className="info-row">
+                        <div class="info-row">
+                            <div><span>Switch account</span></div>
                             <div>
-                                <span>Followers</span>
-                                <a className="is-muted">258 followers</a>
+                                <a href="/api/logout" class="button is-solid primary-button raised uppercase d-flex">logout</a>
                             </div>
-                            <i className="mdi mdi-bell-ring"></i>
                         </div>
                     </div>
                 </div>

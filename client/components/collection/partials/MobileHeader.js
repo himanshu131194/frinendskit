@@ -19,13 +19,13 @@ class MobileHeader extends CommonClass(Component){
                         {/* Brand */} 
                         <div className="d-flex space-bw aln-cntr">
                         <div className="navbar-brand">
-                            <div className="">
+                            {/* <div className="">
                                 <div onClick={this.toggleLeftSidebar} id="sections_left" className="navbar-burger">
                                     <span></span>
                                     <span></span>
                                     <span></span>
                                 </div>
-                            </div>
+                            </div> */}
                             <a className="navbar-item" href="/">
                                 <img src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/images/logo/friendkit.svg" alt="" />
                             </a>

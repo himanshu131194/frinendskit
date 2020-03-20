@@ -32,7 +32,7 @@ class LoginModel extends Component{
                                                 <div className="field">
                                                   <h3 className="uppercase text-center">OR</h3>
                                                 </div>
-                                              <button className="button is-solid accent-button raised is-fullwidth uppercase">Login with Facebook</button>
+                                              <a className="button is-solid accent-button raised is-fullwidth uppercase" href="/api/auth/facebook">Login with Facebook</a>
                                            </div>
                                         </div>
                                             {/* <div className="field">
