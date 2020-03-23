@@ -1,4 +1,5 @@
 import postSections from '../models/sections.model'
+import postTags from '../models/tags.model'
 import Posts from '../models/posts.model'
 import likedPosts from '../models/liked_posts.model'
 import Comments from '../models/comments.model'
@@ -23,6 +24,19 @@ export default {
            const sections = await postSections.find({});
            res.status(200).send({
                data : sections  
+           })
+        }catch(e){
+           res.status(400).send({
+               error : CONFIG.ERRORS[100]
+           })
+         }
+    },
+
+    listTags : async (req, res)=>{
+        try{
+           const tags = await postTags.find({});
+           res.status(200).send({
+               data : tags  
            })
         }catch(e){
            res.status(400).send({

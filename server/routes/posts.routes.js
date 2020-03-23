@@ -4,6 +4,8 @@ import usersController from '../controllers/users.controller'
 export default (router)=>{
     
     router.get('/list-sections', postsController.listSections);
+
+    router.get('/list-tags', postsController.listTags);
     
     router.post('/list-posts', usersController.authenticate, postsController.listPosts);
 

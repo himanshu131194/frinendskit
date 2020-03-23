@@ -1,4 +1,4 @@
-import {LOAD_POSTS, AUTH_USERS, LIST_SECTIONS, CURRENT_POST, COMMENTS_LIST, COMMENT_UPVOTE} from './types'
+import {LOAD_POSTS, AUTH_USERS, LIST_SECTIONS, LIST_TAGS, CURRENT_POST, COMMENTS_LIST, COMMENT_UPVOTE} from './types'
 import CONFIG from '../../../config'
 import axios from 'axios'
 
@@ -115,6 +115,22 @@ export const listSections = ()=>{
            }
            dispatch({
                type: LIST_SECTIONS,
+               payload: result
+           })
+    }
+}
+
+export const listTags = ()=>{
+    return async (dispatch)=>{
+           let err = null, result = null;
+           try{
+               let {data} = await axios.get(`${CONFIG.API_URL}/api/list-tags`);
+                    result = data.data;
+           }catch(e){
+               err = e.response.data.error;
+           }
+           dispatch({
+               type: LIST_TAGS,
                payload: result
            })
     }
