@@ -11,7 +11,7 @@ export const listOfPostsReducer = (state=null, action)=>{
 
 export const authUsersReducer = (state=null, action)=>{
 	state  = {
-		auth : true,
+		auth : false,
 		data : {
 			gender: 1,
 			badgets: 1,

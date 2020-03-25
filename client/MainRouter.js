@@ -16,6 +16,7 @@ class MainRouter extends Component{
 					<Switch>
 							<Route exact path="/" component={Posts}/>
 							<Route exact path="/tags/:tag" component={Posts}/>
+							<Route exact path="/section/:section" component={Posts}/>
 							<Route path="/account/:type" component={Accounts}/>
 							<Route path="/account" component={Accounts}/>
 					</Switch>

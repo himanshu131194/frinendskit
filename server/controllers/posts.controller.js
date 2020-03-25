@@ -253,8 +253,14 @@ export default {
         try{
             const skip = parseInt(req.body.offset) || 0,
                   limit = parseInt(req.body.limit) || 2;
-
-            console.log(req.body);
+            const { section , tag } = req.body;
+            if(section){
+                postMatchObject.section = mongoose.Types.ObjectId(section.trim())
+            }
+            if(tag){
+                postMatchObject.tag = { $in : [mongoose.Types.ObjectId(tag.trim())] }
+            }
+            console.log(postMatchObject);
             
             const posts = await Posts.aggregate([
                         { $match : postMatchObject },

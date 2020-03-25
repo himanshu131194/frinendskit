@@ -12,9 +12,8 @@ class Tags extends Component{
             <ul className="">
                 {this.props.listOfTags.length>0 &&
                  this.props.listOfTags.map((tag)=>{
-                    let tagName = tag.name.toLowerCase();
                     return(
-                        <li><a href={"/tags/"+tagName} data-id={tag._id} className="button is-rounded" >{tag.name}</a></li>
+                        <li><a href={"/tags/"+tag._id} key={tag._id} data-id={tag._id} className="button is-rounded" >{tag.name}</a></li>
                     )
                 }) }
             </ul>

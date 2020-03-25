@@ -21,14 +21,17 @@ class Post extends Component{
     componentDidMount(){
         this.setState({
             loadCounter: 1
-        })
+        });
     }
 
     loadItems(){
+        console.log(this.props);
         this.counter = this.counter + this.defaultSkip;
         this.props.listPosts({
             limit: this.defaultLimit,
             offset : this.counter,
+            tag : this.props.onTags,
+            section : this.props.onSection, 
             filters: {
                 account:  this.props.onRefreshPosts ? 1: 0,
                 value:  this.props.onRefreshPosts ? this.props.onRefreshPosts : null

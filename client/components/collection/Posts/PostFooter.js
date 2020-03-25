@@ -10,6 +10,10 @@ class PostFooter extends Component{
         downloadLoading : 0,
     }
     downloadCount = React.createRef();
+    checkLogin = false;
+    componentDidMount(){
+        this.checkLogin = this.props.user && this.props.user.auth===true;
+    }
     onLike = (e)=>{
         e.preventDefault();
         const ele = e.currentTarget;
@@ -57,18 +61,38 @@ class PostFooter extends Component{
         return(
                 <div className="card-footer">
                 <div className="likers-group">
-                    <div onClick={this.onLike} data-postid={this.props.onPost._id} data-liked={this.props.onPost.liked>0 ? true: false}  data-count={this.like_count} className={this.props.onPost.liked>0 ? "post-liked fab-wrapper post-action mr-6": "fab-wrapper post-action mr-6"}>
-                        <div className="small-fab">
+                    {this.checkLogin 
+                    ?
+                        <div onClick={this.onLike} data-postid={this.props.onPost._id} data-liked={this.props.onPost.liked>0 ? true: false}  data-count={this.like_count} className={this.props.onPost.liked>0 ? "post-liked fab-wrapper post-action mr-6": "fab-wrapper post-action mr-6"}>
+                            <div className="small-fab">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-thumbs-up"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+                            </div>
+                        </div>
+                    :
+                        <div className="fab-wrapper post-action modal-trigger mr-6" data-modal="login-modal">
+                            <div className="small-fab">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-thumbs-up"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+                            </div>
                         </div>
-                    </div> 
-                    <div className="fab-wrapper post-action mr-6" data-postid={this.props.onPost._id} onClick={this.onOpenComment}>
-                        <div className="small-fab modal-trigger" data-modal="comment-modal">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-message-circle">
-                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-                            </svg>
+                    } 
+                    {this.checkLogin 
+                    ?
+                        <div className="fab-wrapper post-action mr-6" data-postid={this.props.onPost._id} onClick={this.onOpenComment}>
+                            <div className="small-fab modal-trigger" data-modal="comment-modal">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-message-circle">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                                </svg>
+                            </div>
                         </div>
-                    </div> 
+                    :
+                        <div className="fab-wrapper post-action mr-6">
+                            <div className="small-fab modal-trigger" data-modal="login-modal">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-message-circle">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    } 
                     <div className="fab-wrapper post-action"  data-id={this.props.onPost._id} data-url={this.props.onPost.url} data-section={this.props.onPost.section_details.value} data-ext={this.props.onPost.ext} onClick={this.downLoadOnpage}>
                         
                         {

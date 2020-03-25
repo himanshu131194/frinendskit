@@ -40,7 +40,8 @@ const Posts = new mongoose.Schema({
          default: DB.DEFAULT_COUNT
       },
       tags:[{
-             type: String  
+             type: mongoose.Schema.ObjectId,
+             ref: 'tags'  
       }],
       section:{
          type:mongoose.Schema.ObjectId,

@@ -4,12 +4,8 @@ import TagslistScroll from '../Partials/TagslistScroll'
 
 
 class Posts extends Component{
-    tag = null;
-    componentDidMount(){
-       const {tag} = this.props.match.params;
-       this.tag = tag;
-    }
     render(){
+        const {tag, section} = this.props.match.params;
         return(
             <div className="view-wrapper position-r">
              
@@ -22,7 +18,7 @@ class Posts extends Component{
                         <div className="columns">
                             <div className="column is-6 pr-0 pl-0">
                                 {/* POST */}
-                                <Post onTags={this.tag}/>
+                                <Post onSection={section} onTags={tag}/>
                                 {/* END POST */}
                             </div>
                         </div>
