@@ -64,10 +64,6 @@ class Comment extends Component{
                                 <a href="#" data-postid={this.props.onLoadedComment.post_id} data-commentid={this.props.onLoadedComment._id} onClick={this.deleteComment}>Delete</a>
                              </div>
                             }
-
-                            {/* <div className="edit">
-                                <a href="#">Edit</a>
-                            </div> */}
                         </div>
                     </div>
                 </div>

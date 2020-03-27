@@ -3,7 +3,6 @@ import Loader from './Loader';
 
 
 class Title extends Component{
-
     state = {
         loading : 0
     }

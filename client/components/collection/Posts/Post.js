@@ -25,7 +25,6 @@ class Post extends Component{
     }
 
     loadItems(){
-        console.log(this.props);
         this.counter = this.counter + this.defaultSkip;
         this.props.listPosts({
             limit: this.defaultLimit,

@@ -1,14 +1,10 @@
 import React, {Component, Fragment} from 'react'
 import uuid from 'uuid/v4';
-
 import {connect} from 'react-redux';
 import * as actions from '../../../actions'
-
-// import Common from '../../CommonClass';
 import Loader from './Loader';
 
 class Uploads extends Component{
-
      uploadedFileObj = {};
      storageKey =  uuid();
      externalUrlInput = React.createRef();
@@ -18,13 +14,7 @@ class Uploads extends Component{
          storageKey : null
      }
 
-    //  setLocalStorage(data64){
-    //     const key = uuid();
-    //     const stored = localStorage.setItem(key, data64); 
-    //     return key;
-    //  }
-    
-    onUploadContent = (e)=>{
+     onUploadContent = (e)=>{
         e.preventDefault();
 
         this.setState({loading: 1});
@@ -57,7 +47,6 @@ class Uploads extends Component{
         if(contentURL.length>0 && this.validateUplaodURL(contentURL)){
             this.setState({loading: 1});
             this.props.uploadS3({url: contentURL, mime:null, ext: null, data64:null}, (err, res)=>{
-                console.log(res);
                 if(!err){
                       this.uploadedFileObj.postMime = res.mime;
                       this.uploadedFileObj.postExt = res.ext;
@@ -70,7 +59,6 @@ class Uploads extends Component{
                 }
                 this.setState({loading: 0});
               })
-             console.log(contentURL);
          }else{
             this.externalUrlInput.current.parentNode.classList.add('has-error');
             this.externalUrlInput.current.classList.add('text-error');
@@ -107,9 +95,6 @@ class Uploads extends Component{
                                     </div>
 
                                     <div className="field">
-                                        {/* <div className="control">
-                                            <input className="input text-center" onInput={this.onTypeImageURL} type="text" placeholder="paste url for picture/video" />
-                                        </div> */}
                                         <div className="control has-validation">
                                             <input type="text" ref={this.externalUrlInput} className="input text-center" onInput={this.onTypeImageURL} placeholder="paste url for picture/video"/>
                                             <div className="error-icon" onClick={this.clearInputURL}>

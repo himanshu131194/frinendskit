@@ -12,7 +12,6 @@ class Header extends PureComponent{
 		 this.props.authUsers();
 	  }
       render(){
-		console.log('Header is laoding');
       	return(
           <Fragment>
 					<div id="main-navbar" className="navbar is-inline-flex is-transparent no-shadow is-hidden-mobile">

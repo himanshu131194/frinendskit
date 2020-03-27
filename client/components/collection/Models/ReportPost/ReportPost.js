@@ -1,7 +1,6 @@
 import React, {Component, Fragment} from 'react'
 import {connect} from 'react-redux';
 import * as actions from '../../../actions'
-
 import Loader from '../Upload/Loader'
 
 class Reportpost extends Component{
@@ -28,7 +27,6 @@ class Reportpost extends Component{
                     }, 2000)
                 }
         })
-        // post_id, report_reason, report_text
     }
 
     render(){

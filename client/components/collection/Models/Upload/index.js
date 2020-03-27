@@ -1,15 +1,10 @@
 import React, {Component, Fragment} from 'react'
 import {connect} from 'react-redux';
 import * as actions from '../../../actions'
-
-
 import Title from './Title';
 import Uploads from './Uploads';
 import Section from './Section';
-
 import Common from '../../CommonClass';
-
-
 
 class PostModel extends Common(Component){
     data64 = null;
@@ -60,18 +55,9 @@ class PostModel extends Common(Component){
         }
     }
 
-    // onPostSubmit = (e)=>{
-    //     e.preventDefault();
-    //     this.props.uploadAll(this.dataToUplaod, (err, data)=>{
-    //         console.log(err)
-    //         console.log(data)
-    //    })
-    // }
-
     closeModel = (e)=>{
        this.setState({ upload : 1});
        this.closeUpload.current.click();
-    //    console.log(this.closeUpload.current);
     }
 
     render(){
@@ -99,11 +85,6 @@ class PostModel extends Common(Component){
                                     this.postUpload(this.state.upload)
                                 }
                             </div>
-
-                            {/* <div className="card-footer flex-end">
-                                <div className="button-wrap">
-                                </div>
-                            </div> */}
                         </div>
                 </div>
             </div>

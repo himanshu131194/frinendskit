@@ -5,7 +5,6 @@ import User from '../models/users.model'
 import CONFIG from '../../config';
 
 passport.serializeUser((user, done) => {
-  console.log(user.id);
   done(null, user.id);
 });
 
@@ -22,12 +21,8 @@ passport.use(
       callbackURL: '/api/auth/google/callback',
     },
     async (accessToken, refreshToken, profile, done) => {
-      
-      console.log(profile);
 
       const existingUser = await User.findOne({ account_id: profile.id});
-      console.log('existing user');
-      console.log(existingUser);
       
       if (existingUser) {
           return done(null, existingUser);

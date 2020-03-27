@@ -46,7 +46,6 @@ export default {
     },
 
     uploadImagetoS3 : async (req, res)=>{
-        console.log('s3-upload');
          try{
              let result = null, base64 = null, mime = null, ext = null;
              let listOfSupportedExtns = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
@@ -58,8 +57,6 @@ export default {
                      let buff = new Buffer(result);
                          ext = (req.body.url).split('.').pop();
                          base64 = `data:image/${ext};base64,`+buff.toString('base64');
-                         console.log('ext')
-                         console.log(ext)
              }
 
              ext = listOfSupportedExtns.indexOf(ext)<0 ? 'jpg': ext;
@@ -75,15 +72,6 @@ export default {
              }
              const s3Result = await s3.putObject(params).promise(); 
 
-             console.log({
-                 url : `https://${CONFIG.S3.BUCKET}.s3.ap-south-1.amazonaws.com/${key}`,
-                 key: key,
-                 slug: slugId,
-                 base64, 
-                 mime: type,
-                 ext
-             });
-
              return res.status(200).send({
                  url : `https://${CONFIG.S3.BUCKET}.s3.ap-south-1.amazonaws.com/${key}`,
                  key: key,
@@ -93,7 +81,6 @@ export default {
                  ext
              });
          }catch(e){
-             console.log(e);
              return res.status(400).send({
                  error: e
              })
@@ -118,12 +105,10 @@ export default {
         const posts = new Posts(newPost);
         try{
             const result = await posts.save();
-            console.log(result);
             return res.status(200).send({
                 data : CONFIG.MESSAGES[100]   
             })
         }catch(e){
-            console.log(e);
             return res.status(400).send({
                 error : CONFIG.ERRORS[100]   
             })
@@ -229,7 +214,6 @@ export default {
                 data : posts  
             })
         }catch(e){
-            console.log(e);
             res.status(400).send({
                 error : CONFIG.ERRORS[100]
             })
@@ -239,20 +223,11 @@ export default {
     },
 
     listPosts : async (req, res)=>{
-        // console.log(JSON.parse(req.body.filters));
         const postMatchObject = { is_active: true };
-        // if(req.body.filters.account==1){
-        //       postMatchObject.userId = mongoose.Types.ObjectId(req.user._id)
-        // }
-
-        // if(req.body.filters.value){
-        //     postMatchObject.userId = mongoose.Types.ObjectId(req.user._id)
-        // }
-        
-
         try{
             const skip = parseInt(req.body.offset) || 0,
-                  limit = parseInt(req.body.limit) || 2;
+                  limit = parseInt(req.body.limit) || 2,
+                  userId = req.user ? mongoose.Types.ObjectId(req.user._id): 0;
             const { section , tag } = req.body;
             if(section){
                 postMatchObject.section = mongoose.Types.ObjectId(section.trim())
@@ -260,8 +235,6 @@ export default {
             if(tag){
                 postMatchObject.tag = { $in : [mongoose.Types.ObjectId(tag.trim())] }
             }
-            console.log(postMatchObject);
-            
             const posts = await Posts.aggregate([
                         { $match : postMatchObject },
                         {
@@ -281,7 +254,7 @@ export default {
                                 {
                                     $match:{
                                          $expr: { $eq: [ "$post_id",  "$$liked_post" ] },
-                                         user_id: mongoose.Types.ObjectId(req.user._id),
+                                         user_id: userId,
                                          is_active: true       
                                     }
                                 }
@@ -318,7 +291,6 @@ export default {
                 data : posts  
             })
         }catch(e){
-            console.log(e);
             res.status(400).send({
                 error : CONFIG.ERRORS[100]
             })
@@ -326,11 +298,8 @@ export default {
     },
 
     postLiked: async (req, res)=>{
-        console.log(req.user);
         const postId = (req.body.post_id).trim();
         const counter = req.body.flag===true ? 1: -1;
-
-        console.log(counter);
 
         try{
            let isActive = counter>0 ? true: false;
@@ -359,11 +328,6 @@ export default {
     },
 
     queryTest : async (req, res)=>{
-        // const postMatchObject = {};
-        // if(req.query && req.query['post_id']!=='undefined'){
-        //     let _id = (req.query['post_id']).trim();
-        //     postMatchObject['_id'] = mongoose.Types.ObjectId(_id)
-        // }
         try{
             const posts  = await Posts.updateMany({}, {liked: false, like_count: 0, comment_count: 0, share_count: 0});
             res.status(200).send({
@@ -452,7 +416,6 @@ export default {
                   },
                   { $sort: { created : -1 } }
            ]);
-           console.log(comments);
            res.status(200).send({
                data : comments  
            })
@@ -539,7 +502,6 @@ export default {
             );
             res.status(200).send(content)
          }catch(e){
-             console.log(e);
             res.status(400).send({
                 error : e   
             })
@@ -549,7 +511,6 @@ export default {
     reportPost : async (req, res)=>{
         const {post_id, report_reason, report_text} = req.body;
         try {
-            console.log(req.body);
             await Posts.findOneAndUpdate({
                 _id: mongoose.Types.ObjectId(post_id)
             }, 

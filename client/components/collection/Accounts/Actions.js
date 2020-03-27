@@ -11,34 +11,6 @@ class Actions extends Component{
             <div id="profile-timeline-widgets" className="column is-4">
                 <div className="basic-infos-wrapper">
                     <div className="card is-profile-info br-0">
-                        <div className="info-row">
-                            <div>
-                                <span>Studied at</span>
-                                <a className="is-inverted">Georgetown University</a>
-                            </div>
-                            <i className="mdi mdi-school"></i>
-                        </div>
-                        <div className="info-row">
-                            <div>
-                                <span>Married to</span>
-                                <a className="is-inverted">Dan Walker</a>
-                            </div>
-                            <i className="mdi mdi-heart"></i>
-                        </div>
-                        <div className="info-row">
-                            <div>
-                                <span>From</span>
-                                <a className="is-inverted">Melbourne, AU</a>
-                            </div>
-                            <i className="mdi mdi-earth"></i>
-                        </div>
-                        <div className="info-row">
-                            <div>
-                                <span>Lives in</span>
-                                <a className="is-inverted">Los Angeles, CA</a>
-                            </div>
-                            <i className="mdi mdi-map-marker"></i>
-                        </div>
                         <div class="info-row">
                             <div><span>Switch account</span></div>
                             <div>

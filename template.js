@@ -7,7 +7,7 @@ export default () => {
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
             <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-            <title> Friendkit | Feed</title>
+            <title>feelfunny</title>
             <link rel="icon" type="image/png" href="assets/images/favicon.png" />
             <!-- Fonts -->
             <link href="https://fonts.googleapis.com/css?family=Montserrat:600,700,800,900" rel="stylesheet">
@@ -27,11 +27,6 @@ export default () => {
                
                 <div id="root"></div>
                 <script type="text/javascript" src="/dist/bundle.js"></script>
-
-
-
-
-
 
                 <!-- Concatenated js plugins and jQuery -->
                 <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/app.js"></script>

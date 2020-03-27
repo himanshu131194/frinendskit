@@ -7,7 +7,7 @@ export default (router)=>{
 
     router.get('/list-tags', postsController.listTags);
     
-    router.post('/list-posts', usersController.authenticate, postsController.listPosts);
+    router.post('/list-posts' , postsController.listPosts);
 
     router.post('/list-usersposts', usersController.authenticate, postsController.listOfUsersPosts);
 

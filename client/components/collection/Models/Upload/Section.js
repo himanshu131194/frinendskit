@@ -19,7 +19,6 @@ class Section extends Component{
     selectedSection = (e)=>{
           const id = e.target.id;
           this.sectionsList[id]=e.target;
-          
           const sectionsList = this.sectionsList;
           
           for(let x in sectionsList){
@@ -29,21 +28,8 @@ class Section extends Component{
           }
 
           const selected =  e.target.checked ? id : null; 
-       
-          console.log(selected);
-
-        //   const sections = Object.keys(this.sectionsList);
-          
-        //   console.log(this.sectionsList);
-        //   console.log(sections);
-
-
           selected ? this.postPublish.current.classList.remove('is-disabled') : this.postPublish.current.classList.add('is-disabled')
-          
           this.props.onSectionComplete(selected);
-
-          console.log('this.props.onSendComplete')  
-          console.log(this.props.onSendComplete)
     }
 
     onSubmitPost = ()=>{
@@ -56,7 +42,6 @@ class Section extends Component{
                         window.location = "/";
                     }, 2000)
                 }
-                console.log(this.props.onCloseModel);
            })
         })
 

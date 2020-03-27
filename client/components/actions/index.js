@@ -5,7 +5,6 @@ import axios from 'axios'
 
 export const listPosts = ({limit, offset, section, tag, filters}, cb)=>{
     return async (dispatch)=>{
-           console.log(filters);
            let err = null, result = [];
            try{
                let {data} = await axios.post(`${CONFIG.API_URL}/api/list-posts`, {limit, offset, tag, section, filters});
@@ -23,7 +22,6 @@ export const listPosts = ({limit, offset, section, tag, filters}, cb)=>{
 
 export const listUserPosts = ({limit, offset, filters}, cb)=>{
     return async (dispatch)=>{
-           console.log(filters);
            let err = null, result = [];
            try{
                let {data} = await axios.post(`${CONFIG.API_URL}/api/list-usersposts`, {limit, offset, filters});
@@ -51,22 +49,8 @@ export const authUsers = ()=>{
                err = e.response.data.error;
            }
            result = {
-                auth : true,
-                data : {
-                    gender: 1,
-                    badgets: 1,
-                    account_type: 1,
-                    favourite_sections: [],
-                    _id: "5e3551da2dafec60becda62c",
-                    name: "himanshu131194@gmail.com",
-                    email: "himanshu savita",
-                    account_id: "113944163418601847954",
-                    created: "2020-02-01T10:24:26.981Z",
-                    __v: 0
-                }    
-
-                // auth : result ? true : false,
-                // data : result 
+                auth : result ? true : false,
+                data : result 
            }
            dispatch({
                type: AUTH_USERS,
@@ -91,9 +75,7 @@ export const uploadS3 = ({url, mime, ext, data64}, cb)=>{
 export const uploadAll = ({uploadedURL, postSlug, postTitle , postSections, postMime, postExt}, cb)=>{
     return async ()=>{
                 let err = null, result = null;
-                console.log('uploadAll');
                 try{
-                    console.log({uploadedURL, postSlug, postTitle, postSections, postMime, postExt});
                     let {data} = await axios.post(`${CONFIG.API_URL}/api/upload-posts`,
                                                     {uploadedURL, postSlug, postTitle, postSections, postMime, postExt});
                     cb(null, data) 
@@ -166,7 +148,6 @@ export const postComments = (post_id, text, cb)=>{
 export const listComments = (post_id)=>{
     return async (dispatch)=>{
              let err = null, result = null;
-             console.log(post_id);
                  try{
                      let {data} = await axios.post(`${CONFIG.API_URL}/api/list-comments`, {post_id});
                      result = data['data'];
@@ -195,7 +176,6 @@ export const upvoteComments = (comment_id, post_id, flag, cb)=>{
 }
 
 export const setPostId = (post_id)=>{
-    console.log("post_id");
     return (dispatch)=>{
             dispatch({
                 type: CURRENT_POST,

@@ -423,8 +423,8 @@ body.is-white{
     min-width:58px
 }
 .navbar .navbar-brand .navbar-item img{
-    max-height:42px;
-    max-width:42px
+    width:120px;
+    height:auto;
 }
 .navbar .navbar-brand .navbar-item:hover{
     background:#ff5f59 !important
@@ -1120,8 +1120,8 @@ body.is-white{
 .mobile-navbar .navbar-brand img{
     height:34px;
     max-height:34px;
-    -webkit-animation:pulse 1s infinite;
-    animation:pulse 1s infinite
+    /* -webkit-animation:pulse 1s infinite; */
+    /* animation:pulse 1s infinite */
 }
 .mobile-navbar .navbar-link{
     padding-right:12px !important
