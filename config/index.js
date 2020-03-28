@@ -2,7 +2,8 @@ export default {
    env : process.env.NODE_ENV || 'development',
    port : process.env.PORT || 8080,
    // API_URL: "http://localhost:8080",
-   API_URL: "https://feelfunny.app",
+   API_URL: "http://192.168.0.132:8080",
+   // API_URL: "http://192.168.43.140:8080",
    MONGO_URI : 'mongodb+srv://feelfunny:feelfunny123@cluster0-ekrsc.mongodb.net/test?retryWrites=true&w=majority',
    COOKIEKEY: 'mycookiesecret',
    DB:{
@@ -22,6 +23,10 @@ export default {
       }
    },
    S3:{
+      // BUCKET : 'feel-funny',
+      // URL : 'https://feel-funny.s3.ap-south-1.amazonaws.com',
+      // ACCESS: 'AKIA3YIPQLXV4NIO3PWA',
+      // SECRET: '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',
       BUCKET : 'stylemycv',
       URL : 'https://stylemycv.s3.ap-south-1.amazonaws.com',
       ACCESS: 'AKIA3YIPQLXVUZ3S3UD7',

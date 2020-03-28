@@ -2,10 +2,10 @@ import React, {Component, Fragment} from 'react'
 import {connect} from 'react-redux'
 import {Redirect} from 'react-router-dom'
 import * as actions from '../../../actions'
-
+import CommonClass from '../../CommonClass';
 import Loader from './Loader'
 
-class Section extends Component{
+class Section extends CommonClass(Component){
     state = {
         loading : 0
     }

@@ -4,9 +4,9 @@ import * as actions from '../../../actions'
 import Title from './Title';
 import Uploads from './Uploads';
 import Section from './Section';
-import Common from '../../CommonClass';
+import CommonClass from '../../CommonClass';
 
-class PostModel extends Common(Component){
+class PostModel extends CommonClass(Component){
     data64 = null;
     s3Upladed = null;
     dataToUplaod = null;
@@ -55,9 +55,9 @@ class PostModel extends Common(Component){
         }
     }
 
-    closeModel = (e)=>{
+    closeThisModal = (e)=>{
        this.setState({ upload : 1});
-       this.closeUpload.current.click();
+       this.closeModal(e);
     }
 
     render(){
@@ -73,7 +73,7 @@ class PostModel extends Common(Component){
                                 {this.state.upload==3 && <h3 className="uppercase">choose section</h3>}
                                 {this.state.upload==4 && <h3 className="uppercase">upload status</h3>}
 
-                                <div className="close-wrap" onClick={this.closeModel}>
+                                <div className="close-wrap" data-modal="upload-modal" onClick={this.closeThisModal}>
                                     <span ref={this.closeUpload} className="close-modal">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                                     </span>

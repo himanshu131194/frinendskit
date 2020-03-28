@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import {connect} from 'react-redux';
 import * as actions from '../../actions'
 import ReactTimeAgo from 'react-time-ago'
+import CommonClass from '../CommonClass';
 
 
-class PostHeader extends Component{
+class PostHeader extends CommonClass(Component){
       checkLogin = false;
       componentDidMount(){
         this.checkLogin = this.props.user && this.props.user.auth===true;
@@ -42,7 +43,7 @@ class PostHeader extends Component{
                         <div className="dropdown-content">
                             {this.checkLogin 
                             ?
-                                <a href="#" data-postid={this.props.onPost._id}  onClick={this.onOpenReport} className="dropdown-item next-modal raised modal-trigger" data-modal="report-modal">
+                                <a href="#" data-postid={this.props.onPost._id}  onClick={this.onOpenReport} className="dropdown-item next-modal raised modal-trigger" data-modal="report-modal" onClick={this.openModal}>
                                     <div className="media">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-flag"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
                                         <div className="media-content">
@@ -52,7 +53,7 @@ class PostHeader extends Component{
                                     </div>
                                 </a>
                             :
-                                <a href="#" data-postid={this.props.onPost._id}  onClick={this.onOpenReport} className="dropdown-item next-modal raised modal-trigger" data-modal="login-modal">
+                                <a href="#" data-postid={this.props.onPost._id} className="dropdown-item next-modal raised modal-trigger" data-modal="login-modal" onClick={this.openModal}>
                                     <div className="media">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-flag"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
                                         <div className="media-content">

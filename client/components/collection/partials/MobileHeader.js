@@ -46,7 +46,7 @@ class MobileHeader extends CommonClass(Component){
                               : 
                               <Fragment>
                                     <div className="navbar-item">
-													<button type="button" className="button is-solid accent-button next-modal raised modal-trigger" data-modal="login-modal">LOGIN</button>
+										<button type="button" className="button is-solid accent-button next-modal raised modal-trigger" data-modal="login-modal" onClick={this.openModal}>LOGIN</button>
 									</div>
                               </Fragment>
                               } 
