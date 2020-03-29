@@ -38,7 +38,7 @@ class Section extends CommonClass(Component){
                 if(!err){
                     setTimeout(()=>{
                         this.setState({loading : 0});
-                        this.props.onCloseModel();
+                        //this.props.onCloseModel();
                         window.location = "/";
                     }, 2000)
                 }
