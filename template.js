@@ -28,16 +28,6 @@ export default () => {
             <link rel="stylesheet" href="/css/app.css">
             
 
-            <!-- Concatenated js plugins and jQuery -->
-            <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/app.js"></script>
-            
-            <!-- Core js -->
-            <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/data/tipuedrop_content.js"></script>
-            <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/global.js"></script>
-            <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/main.js"></script>
-            
-            <!-- Page and UI related js -->
-            <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/feed.js"></script>
 
         </head>
         <body>
@@ -49,19 +39,17 @@ export default () => {
                 <div id="root"></div>
                 <script type="text/javascript" src="/dist/bundle.js"></script>
 
-       
-      
+                <!-- Concatenated js plugins and jQuery -->
+                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/app.js"></script>
                 
-                <!-- Components js -->
-                <script src="httpss://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/widgets.js"></script>
-                <script src="httpss://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/autocompletes.js"></script>
-                <script src="httpss://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/modal-uploader.js"></script>
-                <script src="httpss://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/popovers-users.js"></script>
-                <script src="httpss://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/popovers-pages.js"></script>
-                <script src="httpss://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/go-live.js"></script>
-                <script src="httpss://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/lightbox.js"></script>
-                <script src="httpss://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/touch.js"></script>
-                <script src="httpss://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/tour.js"></script>   
+                <!-- Core js -->
+                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/data/tipuedrop_content.js"></script>
+                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/global.js"></script>
+                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/main.js"></script>
+                
+                <!-- Page and UI related js -->
+                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/feed.js"></script>
+        
         </body> 
     </html>`  
 }

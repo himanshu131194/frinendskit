@@ -351,3 +351,8 @@ bg-1a72ff{
 .inline{
     display: inline !important;
 }
+
+.tabs a:hover{
+    border-bottom-color: #fff;
+    /* color: #; */
+}

@@ -47,7 +47,7 @@ class PostModel extends CommonClass(Component){
                 return <Title onLoaddata64={this.data64} ons3Uploaded={this.s3Upladed} onTitleComplete={(data)=>this.onChangeTitleState(data)}/>
                 break;
             case 3:
-                return <Section onCloseModel={this.closeModel} onSectionComplete={(sections)=>this.onSectionSelected(sections)}  onSendComplete={this.state.dataToUplaod}/>
+                return <Section onCloseModel={this.closeThisModal} onSectionComplete={(sections)=>this.onSectionSelected(sections)}  onSendComplete={this.state.dataToUplaod}/>
                 break;
             default:
                 return <Uploads onUploadComplete={(result, key)=>this.onChangeUploadState(result, key)}/>
