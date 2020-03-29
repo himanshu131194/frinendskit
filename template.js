@@ -2,6 +2,16 @@ export default () => {
     return `<!DOCTYPE html>
         <html>
         <head>
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162054083-1"></script>
+            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-162054083-1');
+            </script>
+
             <!-- Required meta tags -->
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,7 +39,7 @@ export default () => {
             
             <!-- Page and UI related js -->
             <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/feed.js"></script>
-            
+
         </head>
         <body>
                 <!-- Pageloader -->
