@@ -33,7 +33,7 @@ class MobileHeader extends CommonClass(Component){
                               ?
                                <Fragment>
                                     <div className="navbar-item">
-                                            <button type="button" className="button is-solid accent-button next-modal raised modal-trigger" data-modal="upload-modal">
+                                            <button type="button" className="button is-solid accent-button next-modal raised modal-trigger" data-modal="upload-modal" onClick={this.openModal}>
                                                 <i class="mdi mdi-plus"></i> UPLOAD NEW
                                             </button>
                                     </div>
