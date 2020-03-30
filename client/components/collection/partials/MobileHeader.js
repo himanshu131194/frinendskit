@@ -16,6 +16,8 @@ class MobileHeader extends CommonClass(Component){
       	return(
           <Fragment>
                     <nav className="navbar mobile-navbar is-hidden-desktop" aria-label="main navigation">
+                        {/* ADD NEW UPLOADS */}
+                        {this.props.user && this.props.user.auth===true && <a className="upload-fixed" data-modal="upload-modal" onClick={this.openModal}>+</a>}
                         {/* Brand */} 
                         <div className="d-flex space-bw aln-cntr">
                         <div className="navbar-brand">
@@ -39,11 +41,11 @@ class MobileHeader extends CommonClass(Component){
                               {this.props.user && this.props.user.auth===true
                               ?
                                <Fragment>
-                                    <div className="navbar-item">
+                                    {/* <div className="navbar-item">
                                             <button type="button" className="button is-solid accent-button next-modal raised modal-trigger" data-modal="upload-modal" onClick={this.openModal}>
                                                 <i class="mdi mdi-plus"></i> UPLOAD NEW
                                             </button>
-                                    </div>
+                                    </div> */}
                                     <a href="/account" id="account-dropdown" className="navbar-item is-account drop-trigger has-caret">
                                             <div className="user-image">
                                                 <img src={this.props.user.data.profile_pic} data-demo-src={this.props.user.data.profile_pic} alt="" />

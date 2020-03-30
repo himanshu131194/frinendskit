@@ -37,10 +37,10 @@ class Section extends CommonClass(Component){
             this.props.uploadAll(this.props.onSendComplete, (err, data)=>{
                 if(!err){
                     setTimeout(()=>{
-                        this.setState({loading : 0});
+                        //this.setState({loading : 0});
                         //this.props.onCloseModel();
                         window.location = "/";
-                    }, 2000)
+                    }, 1000)
                 }
            })
         })

@@ -356,3 +356,26 @@ bg-1a72ff{
     border-bottom-color: #fff;
     /* color: #; */
 }
+
+.upload-fixed{
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    right: 16px;
+    font-size: 40px;
+    font-weight: 400;
+    /* top: calc(100vh - 120px ); */
+    bottom: 90px;
+    background: #0062ff;
+    border-color: #0062ff;
+    color: #fcfcfc;
+    border-radius: 100%;
+    box-shadow: 0 14px 26px -12px rgba(0,98,255,0.42),0 4px 23px 0px rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,98,255,0.2) !important;
+}
+.upload-fixed:hover{
+    color: #fcfcfc;
+    background: #0062ff;
+    border-color: #0062ff;
+}

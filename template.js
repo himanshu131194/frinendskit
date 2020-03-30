@@ -43,12 +43,9 @@ export default () => {
                 <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/jquery.js"></script>
                 
                 <!-- Core js -->
-                <script src="htttps://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/data/tipuedrop_content.js"></script>
                 <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/global.js"></script>
                 <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/main.js"></script>
                 
-                <!-- Page and UI related js -->
-                <script src="htttps://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/feed.js"></script>
         
         </body> 
     </html>`  
