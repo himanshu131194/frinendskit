@@ -40,7 +40,7 @@ export default () => {
                 <script type="text/javascript" src="/dist/bundle.js"></script>
 
                 <!-- Concatenated js plugins and jQuery -->
-                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/app.js"></script>
+                <script src="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/js/jquery.js"></script>
                 
                 <!-- Core js -->
                 <script src="htttps://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/data/tipuedrop_content.js"></script>
