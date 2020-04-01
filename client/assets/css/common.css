@@ -379,3 +379,10 @@ bg-1a72ff{
     background: #0062ff;
     border-color: #0062ff;
 }
+
+.post-heading{
+    word-wrap: break-word;
+    font-size: 20px;
+    color: #000;
+    font-weight: 500;
+}

@@ -50,7 +50,7 @@ class Post extends Component{
         })
 
     }
-
+    
     shouldComponentUpdate(nextProps, nextState){
         return nextState.loadCounter>0 ? false: true;
     }
@@ -72,7 +72,7 @@ class Post extends Component{
                         <div className="card-body">
                             <div className="post-text">
                                 <p>
-                                    <a href="#">{result.title}</a> 
+                                    <a href="#"><h1 className="post-heading">{result.title}</h1></a> 
                                 </p>
                             </div>
                             <div className="post-image">
