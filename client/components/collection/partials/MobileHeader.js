@@ -17,7 +17,10 @@ class MobileHeader extends CommonClass(Component){
           <Fragment>
                     <nav className="navbar mobile-navbar is-hidden-desktop" aria-label="main navigation">
                         {/* ADD NEW UPLOADS */}
-                        {this.props.user && this.props.user.auth===true && <a className="upload-fixed" data-modal="upload-modal" onClick={this.openModal}>+</a>}
+                        {this.props.user && this.props.user.auth===true 
+                         ? <a className="upload-fixed" data-modal="upload-modal" onClick={this.openModal}>+</a>
+                         : <a className="upload-fixed" data-modal="login-modal" onClick={this.openModal}>+</a>
+                        }
                         {/* Brand */} 
                         <div className="d-flex space-bw aln-cntr">
                         <div className="navbar-brand">

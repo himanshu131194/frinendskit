@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux';
 import * as actions from '../../../actions'
+import ReactTimeAgo from 'react-time-ago'
 
 class Comment extends Component{
     
@@ -51,7 +52,9 @@ class Comment extends Component{
                     </div>
                     <div className="media-content">
                         <a href="#">{this.props.onLoadedComment.user_details.name}</a>
-                        <span className="time">28 minutes ago</span>
+                        <span className="time">
+                            <ReactTimeAgo date={this.props.onLoadedComment.created} timeStyle="twitter"/>
+                        </span>
                         <p ref={this.commentText}>{this.props.onLoadedComment.text}</p>
                         <div className="controls">
                             <div className="like-count">
