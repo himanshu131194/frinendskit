@@ -171,6 +171,11 @@
     position: relative;
 }
 
+.position-f{
+    position: fixed;
+}
+
+
 .post-loader{
     display: flex;
     align-items: center;
@@ -386,3 +391,4 @@ bg-1a72ff{
     color: #000;
     font-weight: 500;
 }
+

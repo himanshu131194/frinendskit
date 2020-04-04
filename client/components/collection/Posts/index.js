@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Post from './Post'
 import TagslistScroll from '../Partials/TagslistScroll'
+import Leftsidebar from '../Partials/Leftsidebar';
 
 
 class Posts extends Component{
@@ -14,12 +15,16 @@ class Posts extends Component{
                             <TagslistScroll />
                     </div>
                      <div className="view-wrap true-dom">
-                       
                         <div className="columns">
-                            <div className="column is-6 pr-0 pl-0">
-                                {/* POST */}
-                                <Post onSection={section} onTags={tag}/>
-                                {/* END POST */}
+                           <div className="noin-mobile position-f column is-2 pr-0 pl-0">
+                             <Leftsidebar/>
+                           </div>
+                            <div className="column is-8 pr-0 pl-0 ml-200">
+                                <div className="post-size">
+                                    {/* POST */}
+                                    <Post onSection={section} onTags={tag}/>
+                                    {/* END POST */}
+                                </div>
                             </div>
                         </div>
                      </div>

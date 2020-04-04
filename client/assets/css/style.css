@@ -7964,6 +7964,7 @@ code{
 .ml-auto{
     margin-left:auto !important
 }
+
 .mt-10{
     margin-top:10px !important
 }
@@ -11457,6 +11458,16 @@ pre{
     z-index:1050;
     transition:all .3s
 }
+.inbox-left-sidebar{
+    width:260px !important;
+    -webkit-transform:translateX(-260px);
+    transform:translateX(-260px)
+}
+.inbox-left-sidebar.is-opened-mobile{
+    -webkit-transform:translateX(0);
+    transform:translateX(0)
+}
+
 .inbox-left-sidebar .inbox-left-sidebar-inner{
     width:100%;
     height:100%
@@ -19508,11 +19519,14 @@ pre{
         margin-left:0
     }
 }
-/*! _reponsive.scss | Friendkit | Â© Css Ninja. 2018-2019 */
+/*! _reponsive.scss  */
 @media screen and (min-width: 1297px){
     .container.is-custom{
         max-width:1240px;
         width:1240px
+    }
+    body{
+        background-color: red;
     }
 }
 @media screen and (min-width: 1088px){
@@ -19522,6 +19536,11 @@ pre{
     }
 }
 @media (max-width: 767px){
+        
+    .noin-mobile{
+        display: none;
+    }
+
     .view-wrap.is-headless{
         padding-top:10px !important
     }
@@ -19746,6 +19765,15 @@ pre{
     .friend-cards-list .is-friend-card .friend-item .text-content span{
         font-size:.65rem !important
     }
+    .inbox-left-sidebar{
+        width:260px !important;
+        -webkit-transform:translateX(-260px);
+        transform:translateX(-260px)
+    }
+    .inbox-left-sidebar.is-opened-mobile{
+        -webkit-transform:translateX(0);
+        transform:translateX(0)
+    }
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait){
     .columns.has-portrait-padding{
@@ -19833,4 +19861,26 @@ pre{
     .profile-about .right-content{
         padding:0
     }
+}
+
+@media screen and (min-width: 768px){
+    .post-size{
+        padding: 0 10rem;
+    }
+
+    .view-wrapper .stick-sections-list{
+        position : relative !important;
+        height: auto !important;
+        transform: none !important;
+        z-index: 99 !important;
+    }
+    
+    .noin-desktop{
+        display: none;
+    }
+
+    .ml-200{
+        margin-left: 200px !important
+    }
+
 }

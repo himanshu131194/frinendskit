@@ -15,7 +15,7 @@ class Home extends PureComponent{
                         {/* LEFT SIDEBAR */}
                         <Leftsidebar/>
                         <div>
-                              {/* <Header/> */}
+                              <Header/>
                               <MobileHeader/>
                               {/* <Posts/> */}
                               <LoginModel/>

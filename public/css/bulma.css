@@ -5662,7 +5662,7 @@ a.navbar-item:focus,a.navbar-item:focus-within,a.navbar-item:hover,a.navbar-item
         color:#3273dc
     }
     .navbar-burger{
-        display:none
+        /* display:none */
     }
     .navbar-item,.navbar-link{
         -ms-flex-align:center;
