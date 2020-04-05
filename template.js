@@ -21,13 +21,10 @@ export default () => {
             <!-- Fonts -->
             <link href="https://fonts.googleapis.com/css?family=Montserrat:600,700,800,900" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
-            <link href="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/css/materialdesignicons.min.css" rel="stylesheet">
             <link href="https://feel-funny.s3.ap-south-1.amazonaws.com/friendskit/assets/css/webfont.css" rel="stylesheet">
             <!-- Core CSS -->
             <link rel="stylesheet" href="/css/bulma.css">
-            <link rel="stylesheet" href="/css/app.css">
-            
-
+            <link rel="stylesheet" href="/css/core.css">
 
         </head>
         <body>

@@ -19,7 +19,7 @@ class Posts extends Component{
                            <div className="noin-mobile position-f column is-2 pr-0 pl-0">
                              <Leftsidebar/>
                            </div>
-                            <div className="column is-8 pr-0 pl-0 ml-200">
+                            <div className="post-list-container column is-8 pr-0 pl-0 ml-200">
                                 <div className="post-size">
                                     {/* POST */}
                                     <Post onSection={section} onTags={tag}/>
