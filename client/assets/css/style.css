@@ -10233,6 +10233,8 @@ pre{
     margin:5px 0 10px 0;
 }
 .card.is-post .content-wrap .post-image img{
+    width:100%;
+    height: auto;
     display:block;
     border-radius:none;
 }
@@ -19864,6 +19866,9 @@ pre{
 }
 
 @media screen and (min-width: 768px){
+    .view-wrapper{
+        z-index:100;
+    }
     .post-size{
         padding: 0 10rem;
     }
