@@ -2,6 +2,9 @@ import postsController from '../controllers/posts.controller'
 import usersController from '../controllers/users.controller'
 
 export default (router)=>{
+
+    
+    router.get('/ask-post-updates', postsController.serverRealTimeNotifications);
     
     router.get('/list-sections', postsController.listSections);
 

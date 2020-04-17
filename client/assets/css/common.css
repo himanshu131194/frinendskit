@@ -385,6 +385,31 @@ bg-1a72ff{
     border-color: #0062ff;
 }
 
+
+.refresh-feed{
+    position: fixed;
+    text-align: center;
+    font-weight: 300;
+    text-transform: uppercase;
+    left: 40%;
+    top: 85px;
+    color: #fcfcfc;
+    padding: 0.65rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.25;
+    border-radius: 3px;
+    background-color: #23272b;
+    background-image: none;
+    border-color: #1d2124;
+    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.12);
+    transition: all 2s linear;
+}
+.refresh-feed:hover{
+    color: #fcfcfc;
+    background-color: #23272b;
+    border-color: #1d2124;
+}
+
 .post-heading{
     word-wrap: break-word;
     font-size: 20px;

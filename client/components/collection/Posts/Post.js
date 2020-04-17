@@ -5,12 +5,11 @@ import InfiniteScroll from 'react-infinite-scroller';
 import PostFooter from "./PostFooter";
 import PostHeader from "./PostHeader";
 
-
-
 class Post extends Component{
     counter = 0;
     defaultLimit = 3;
     defaultSkip = 0;
+    totalPostsCount = 0;
     state = {
         tracks: [],
         hasMoreItems: true,
@@ -38,8 +37,12 @@ class Post extends Component{
         }, (err, result)=>{
             this.defaultSkip = 3;   
             const tracks = this.state.tracks;
-            const hasMoreItems = this.props.listOfPosts.length==0? false: true;
-            this.props.listOfPosts.map((track) => {
+            if(this.totalPostsCount>0 && this.props.listOfPosts.count>this.totalPostsCount){
+               document.getElementById('refresh-posts').classList.remove('d-none');
+            }
+            this.totalPostsCount = this.props.listOfPosts.count;
+            const hasMoreItems = this.props.listOfPosts.data.length==0? false: true;
+            this.props.listOfPosts.data.map((track) => {
                 tracks.push(track);
             });
             this.setState({

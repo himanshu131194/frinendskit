@@ -235,6 +235,7 @@ export default {
             if(tag){
                 postMatchObject.tag = { $in : [mongoose.Types.ObjectId(tag.trim())] }
             }
+            const totalPostsCount = await Posts.count();
             const posts = await Posts.aggregate([
                         { $match : postMatchObject },
                         {
@@ -288,11 +289,12 @@ export default {
 
 
             res.status(200).send({
-                data : posts  
+                data : posts,
+                count : totalPostsCount  
             })
         }catch(e){
             res.status(400).send({
-                error : CONFIG.ERRORS[100]
+                error : e
             })
         } 
     },
@@ -531,6 +533,17 @@ export default {
               error : e
            })
         }
+  },
+
+  //REAL TIME NOTIFICATION FROM SERVER 
+  serverRealTimeNotifications : (req, res)=>{
+        res.status(200).set({
+            'connection': 'keep-alive',
+            'cache-control': 'no-cache',
+            'content-Type': 'text/event-stream'
+        });
+        let date = Date.now();
+        res.write(`data: ${date}\n\n`);
   }
 
 

@@ -8,7 +8,7 @@ export const listPosts = ({limit, offset, section, tag, filters}, cb)=>{
            let err = null, result = [];
            try{
                let {data} = await axios.post(`${CONFIG.API_URL}/api/list-posts`, {limit, offset, tag, section, filters});
-                    result = data.data
+                    result = data
            }catch(e){
                err = e.response.data.error;
            }
@@ -36,6 +36,7 @@ export const listUserPosts = ({limit, offset, filters}, cb)=>{
            cb(null, result);
     }
 }
+
 
 
 
@@ -221,6 +222,7 @@ export const reportPost = ({post_id, report_reason, report_text}, cb)=>{
             }
     }
 }
+
 
 
 
