@@ -94,13 +94,6 @@ class PostFooter extends Component{
                         } 
                     </div>
                 </div>
-                <div className="likers-text">
-                    <p>
-                        <a href="#">Milly</a>,
-                        <a href="#">David</a>
-                    </p>
-                    <p>and 23 more liked this</p>
-                </div>
                 <div className="social-count">
                     
                     <div className="likes-count">
