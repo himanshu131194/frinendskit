@@ -15,6 +15,7 @@ const config = {
     output: {
         path: path.join(CURRENT_WORKING_DIR , '/dist'),
         filename: 'bundle.js',
+        chunkFilename: '[id].js',
         publicPath: '/dist/'
     },
     module: {

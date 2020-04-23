@@ -11,18 +11,6 @@ class App extends Component{
       shouldComponentUpdate(){
          return false;
       }
-      componentDidMount(){
-        // if ($('.modal-trigger').length) {
-        //   $('.modal-trigger').on('click', function () {
-        //       var modalID = $(this).attr('data-modal');
-        //       $('#' + modalID).toggleClass('is-active');
-        //   })
-
-        //   $('.modal-close, .close-modal').on('click', function () {
-        //       $('.modal.is-active').removeClass('is-active');
-        //   })
-        // }
-      }
       render(){
       	 return(
       	 	<BrowserRouter>

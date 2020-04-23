@@ -1,10 +1,15 @@
-import React, {Component, Fragment} from 'react'
+import React, { Component, Fragment, Suspense, lazy } from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 import Home from './components/Home'
 
-import Posts from './components/collection/Posts/'
-import Accounts from './components/collection/Accounts/'
+// import Posts from './components/collection/Posts/'
+
+const Posts = lazy(() => import('./components/collection/Posts/'));
+const Accounts = lazy(() => import('./components/collection/Accounts/'));
+
+
+// import Accounts from './components/collection/Accounts/'
 
 
 class MainRouter extends Component{
@@ -13,13 +18,15 @@ class MainRouter extends Component{
              <Fragment>
 			   <Router>
 					<Home/>
-					<Switch>
+					<Suspense fallback={<div>Loading...</div>}>
+						<Switch>
 							<Route exact path="/" component={Posts}/>
 							<Route exact path="/tags/:tag" component={Posts}/>
 							<Route exact path="/section/:section" component={Posts}/>
 							<Route path="/account/:type" component={Accounts}/>
 							<Route path="/account" component={Accounts}/>
-					</Switch>
+						</Switch>
+					</Suspense>
 			   </Router>
              </Fragment>
 	  	  )

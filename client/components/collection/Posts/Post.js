@@ -79,7 +79,7 @@ class Post extends Component{
                                 </p>
                             </div>
                             <div className="post-image">
-                                <a onClick={(e)=>e.preventDefault()} data-fancybox="post1" data-lightbox-type="comments" data-thumb="https://friendkit.cssninja.io/assets/images/demo/unsplash/1.jpg" href="https://friendkit.cssninja.io/assets/images/demo/unsplash/1.jpg" data-demo-href="https://friendkit.cssninja.io/assets/images/demo/unsplash/1.jpg">
+                                <a onClick={(e)=>e.preventDefault()} data-fancybox="post1" data-lightbox-type="comments">
                                     <img src={result.url} data-demo-src={result.url} alt="" />
                                 </a>
                             </div>
