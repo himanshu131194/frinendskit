@@ -40,8 +40,7 @@ const Posts = new mongoose.Schema({
          default: DB.DEFAULT_COUNT
       },
       tags:[{
-             type: mongoose.Schema.ObjectId,
-             ref: 'tags'  
+             type: String  
       }],
       section:{
          type:mongoose.Schema.ObjectId,
@@ -86,6 +85,15 @@ const Posts = new mongoose.Schema({
       ],
       is_active:{
       	type: Boolean, default: DB.DEFAULT_TRUE
+      },
+      crawled: {
+         type: Boolean, default: DB.DEFAULT_FALSE
+      },
+      crawled_source:{
+         type: String
+      },
+      crawled_source_url:{
+         type: String
       },
       created: {
       	 type: Date,
