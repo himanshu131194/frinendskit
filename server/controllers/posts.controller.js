@@ -22,7 +22,7 @@ const s3 = new AWS.S3({
 
 var cron = require('node-cron');
  
-cron.schedule('*/5 * * * * *', async () => {
+cron.schedule('*/10 * * * * *', async () => {
     console.log('running a task every five seconds');
     //GET ALL PAGES LIST 
     const listOfPages = await externalUrls.aggregate([
@@ -62,7 +62,7 @@ cron.schedule('*/5 * * * * *', async () => {
 
     //CHECK CRAWLED_SOURCE_URL
     const crawledSourceUrl = await Posts.findOne({
-        url: (urlToUplaod.s3_url).trim(),
+        crawled_source_url: urlToUplaod.url.trim(),
         crawled: true,
     });
     
