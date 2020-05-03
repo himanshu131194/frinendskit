@@ -10230,6 +10230,7 @@ pre{
 }
 .card.is-post .content-wrap .post-image{
     position:relative;
+    min-height: 400px;
     margin:5px 0 10px 0;
 }
 .card.is-post .content-wrap .post-image img{
@@ -19539,6 +19540,10 @@ pre{
 }
 @media (max-width: 767px){
         
+    .card.is-post .content-wrap .post-image{
+        min-height: 200px;
+    }
+    
     .noin-mobile{
         display: none;
     }

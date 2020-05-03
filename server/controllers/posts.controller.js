@@ -20,83 +20,83 @@ const s3 = new AWS.S3({
 });
 
 
-// var cron = require('node-cron');
+var cron = require('node-cron');
  
-// cron.schedule('*/10 * * * * *', async () => {
-//     console.log('running a task every five seconds');
-//     //GET ALL PAGES LIST 
-//     const listOfPages = await externalUrls.aggregate([
-//         {
-//             $group: {
-//                 _id : "$source" ,
-//                 count: { $sum : 1},
-//                 section : { $first: '$section'}
-//             }
-//         }
-//     ]);
-//     //GET RANDON VALUE FROM LIST OF PAGES
-//     const randomIntFromInterval = (min, max) => (Math.floor(Math.random() * (max - min + 1) + min)),
-//             randomSelectedPage = listOfPages[randomIntFromInterval(0, listOfPages.length-1)],
-//             selectedPage = randomSelectedPage._id,
-//             sectionId = randomSelectedPage.section;
+cron.schedule('*/2 * * * *', async () => {
+    console.log('running a task every 2 min');
+    //GET ALL PAGES LIST 
+    const listOfPages = await externalUrls.aggregate([
+        {
+            $group: {
+                _id : "$source" ,
+                count: { $sum : 1},
+                section : { $first: '$section'}
+            }
+        }
+    ]);
+    //GET RANDON VALUE FROM LIST OF PAGES
+    const randomIntFromInterval = (min, max) => (Math.floor(Math.random() * (max - min + 1) + min)),
+            randomSelectedPage = listOfPages[randomIntFromInterval(0, listOfPages.length-1)],
+            selectedPage = randomSelectedPage._id,
+            sectionId = randomSelectedPage.section;
     
-//     //UPDATE PAGE AND GET ONE URL
-//     const getNewUrl = await externalUrls.findOne({
-//         source: selectedPage.trim(),
-//         post_uploaded: false
-//     });
+    //UPDATE PAGE AND GET ONE URL
+    const getNewUrl = await externalUrls.findOne({
+        source: selectedPage.trim(),
+        post_uploaded: false
+    });
     
-//     if(!getNewUrl){
-//         return res.status(200).send({
-//             data : []
-//         })
-//     };
+    if(!getNewUrl){
+        return res.status(200).send({
+            data : []
+        })
+    };
     
-//     const urlToUplaod = await externalUrls.findOneAndUpdate({
-//         _id : getNewUrl._id,
-//         source: selectedPage.trim(),
-//         post_uploaded: false
-//     },
-//     { post_uploaded: true },
-//     { new : true });
+    const urlToUplaod = await externalUrls.findOneAndUpdate({
+        _id : getNewUrl._id,
+        source: selectedPage.trim(),
+        post_uploaded: false
+    },
+    { post_uploaded: true },
+    { new : true });
 
-//     //CHECK CRAWLED_SOURCE_URL
-//     const crawledSourceUrl = await Posts.findOne({
-//         crawled_source_url: urlToUplaod.url.trim(),
-//         crawled: true,
-//     });
+    //CHECK CRAWLED_SOURCE_URL
+    const crawledSourceUrl = await Posts.findOne({
+        crawled_source_url: urlToUplaod.url.trim(),
+        crawled: true,
+    });
     
-//     if(crawledSourceUrl){
-//         console.log('alredy exits post');
-//         console.log(urlToUplaod.url.trim());
-//         return;
-//     }
-//     //UPDATE POST TABLE
-//     const newPost = {
-//             user_id: '5e7ea43f9cf4640b79d58e6c',
-//             url: (urlToUplaod.s3_url).trim(),
-//             slugId: (urlToUplaod.slug_id).trim(),
-//             title: urlToUplaod.title,
-//             crawled: true,
-//             crawled_source: urlToUplaod._id,
-//             crawled_source_url: urlToUplaod.url.trim(),
-//             section: sectionId,
-//             mime_type: (urlToUplaod.mime_type).trim(),
-//             ext: (urlToUplaod.ext).trim(),
-//     };
-//     if((urlToUplaod.mime_type).indexOf('video')>=0){
-//         newPost['content_type'] = 2;
-//     }
-//     const posts = new Posts(newPost);
-//     try{
-//         const result = await posts.save();
-//         console.log('post uploaded successfully');
-//         return;
-//     }catch(e){
-//         console.log(e);
-//         return;
-//     }
-// });
+    if(crawledSourceUrl){
+        console.log('alredy exits post');
+        console.log(urlToUplaod.url.trim());
+        return;
+    }
+    //UPDATE POST TABLE
+    const newPost = {
+            user_id: '5e7ea43f9cf4640b79d58e6c',
+            url: (urlToUplaod.s3_url).trim(),
+            slugId: (urlToUplaod.slug_id).trim(),
+            title: urlToUplaod.title,
+            crawled: true,
+            crawled_source: urlToUplaod._id,
+            crawled_source_url: urlToUplaod.url.trim(),
+            section: sectionId,
+            mime_type: (urlToUplaod.mime_type).trim(),
+            ext: (urlToUplaod.ext).trim(),
+    };
+    if((urlToUplaod.mime_type).indexOf('video')>=0){
+        newPost['content_type'] = 2;
+    }
+    const posts = new Posts(newPost);
+    try{
+        const result = await posts.save();
+        console.log('post uploaded successfully');
+        return;
+    }catch(e){
+        console.log(e);
+        return;
+    }
+});
 
 
 

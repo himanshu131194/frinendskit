@@ -10,7 +10,6 @@ class Leftsidebar extends CommonClass(Component){
         this.props.listSections();
     }
     render(){
-        console.log(this.props.listOfSections);
         return(
                <Fragment>
                    <div  className="">

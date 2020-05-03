@@ -6,6 +6,7 @@ import PostFooter from "./PostFooter";
 import PostHeader from "./PostHeader";
 
 class Post extends Component{
+    postImageContainer = React.createRef();
     counter = 0;
     defaultLimit = 3;
     defaultSkip = 0;
@@ -43,6 +44,7 @@ class Post extends Component{
             this.totalPostsCount = this.props.listOfPosts.count;
             const hasMoreItems = this.props.listOfPosts.data.length==0? false: true;
             this.props.listOfPosts.data.map((track) => {
+                console.log('pushed');
                 tracks.push(track);
             });
             this.setState({
@@ -78,9 +80,9 @@ class Post extends Component{
                                     <a href="#"><h1 className="post-heading">{result.title}</h1></a> 
                                 </p>
                             </div>
-                            <div className="post-image">
+                            <div ref={this.postImageContainer} className="post-image loads">
                                 <a onClick={(e)=>e.preventDefault()} data-fancybox="post1" data-lightbox-type="comments">
-                                    <img src={result.url} data-demo-src={result.url} alt="" />
+                                    <img src={result.url} data-demo-src={result.url} alt="" onLoad={this.onPostImageLoad}/>
                                 </a>
                             </div>
                         </div>
