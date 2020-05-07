@@ -22,8 +22,7 @@ export default () => {
             <!-- Fonts -->
             <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
             <!-- Core CSS -->
-            <link rel="stylesheet" href="/css/bulma.css">
-            <link rel="stylesheet" href="/css/core.css">
+            <link rel="stylesheet" href="/css/test.css">
 
         </head>
         <body>

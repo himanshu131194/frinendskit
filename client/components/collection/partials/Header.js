@@ -15,7 +15,7 @@ class MobileHeader extends CommonClass(Component){
       render(){
       	return(
           <Fragment>
-                    <nav className="navbar mobile-navbar is-hidden-mobile" aria-label="main navigation">
+                    <nav className="navbar is-hidden-mobile" aria-label="main navigation">
                         {/* ADD NEW UPLOADS
                         {this.props.user && this.props.user.auth===true 
                          ? <a className="upload-fixed" data-modal="upload-modal" onClick={this.openModal}>+</a>

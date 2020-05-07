@@ -15,7 +15,7 @@ class MobileHeader extends CommonClass(Component){
       render(){
       	return(
           <Fragment>
-                    <nav className="navbar mobile-navbar is-hidden-desktop" aria-label="main navigation">
+                    <nav className="navbar is-hidden-desktop" aria-label="main navigation">
                         {/* ADD NEW UPLOADS */}
                         <a href="/" id="refresh-posts" className="refresh-feed d-none">latest posts</a>
                         {this.props.user && this.props.user.auth===true 
