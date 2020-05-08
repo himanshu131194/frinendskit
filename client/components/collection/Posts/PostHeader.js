@@ -39,32 +39,6 @@ class PostHeader extends CommonClass(Component){
                             </svg>
                         </div>
                     </div>
-                    <div className="dropdown-menu" role="menu">
-                        <div className="dropdown-content">
-                            {this.checkLogin 
-                            ?
-                                <a href="#" data-postid={this.props.onPost._id}  onClick={this.onOpenReport} className="dropdown-item next-modal raised modal-trigger" data-modal="report-modal" onClick={this.openModal}>
-                                    <div className="media">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-flag"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
-                                        <div className="media-content">
-                                            <h3>Report</h3>
-                                            <small>In case of inappropriate content.</small>
-                                        </div>
-                                    </div>
-                                </a>
-                            :
-                                <a href="#" data-postid={this.props.onPost._id} className="dropdown-item next-modal raised modal-trigger" data-modal="login-modal" onClick={this.openModal}>
-                                    <div className="media">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-flag"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
-                                        <div className="media-content">
-                                            <h3>Report</h3>
-                                            <small>In case of inappropriate content.</small>
-                                        </div>
-                                    </div>
-                                </a>
-                            }
-                        </div>
-                    </div>
                 </div>
             </div> 
           )
