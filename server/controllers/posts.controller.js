@@ -104,7 +104,7 @@ export default {
 
     listSections : async (req, res)=>{
         try{
-           const sections = await postSections.find({});
+           const sections = await postSections.find({is_active: true});
            res.status(200).send({
                data : sections  
            })
