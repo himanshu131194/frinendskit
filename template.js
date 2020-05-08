@@ -20,7 +20,7 @@ export default () => {
 
             <!-- Fonts -->
             <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
-
+            <link href="/css/style.css" rel="stylesheet">
         </head>
         <body>
                 <div id="root"></div>

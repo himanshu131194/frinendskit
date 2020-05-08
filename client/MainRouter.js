@@ -3,13 +3,8 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 import Home from './components/Home'
 
-// import Posts from './components/collection/Posts/'
-
 const Posts = lazy(() => import('./components/collection/Posts/'));
 const Accounts = lazy(() => import('./components/collection/Accounts/'));
-
-
-// import Accounts from './components/collection/Accounts/'
 
 
 class MainRouter extends Component{
