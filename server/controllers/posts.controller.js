@@ -9,7 +9,7 @@ import externalUrls from '../models/external.url.model'
 import latestCursor from '../models/latest_cursor.model'
 import mongoose from 'mongoose'
 import CONFIG from '../../config';
-import uuid from 'uuid/v4';
+import { v4 as uuidv4 } from 'uuid';
 import AWS from 'aws-sdk'
 import rp from 'request-promise'
 
@@ -143,7 +143,7 @@ export default {
              }
 
              ext = listOfSupportedExtns.indexOf(ext)<0 ? 'jpg': ext;
-             const slugId = uuid();
+             const slugId = uuidv4();
              const base64Data = result;
              const type = `image/${ext}`;
              const key = `posts/${slugId}.${ext}`;
