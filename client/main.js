@@ -1,6 +1,7 @@
 import React from 'react';
 import { hydrate } from 'react-dom';
 import App from './App';
+import './assets/css/style.css';
 import JavascriptTimeAgo from 'javascript-time-ago'
 
 // The desired locales.

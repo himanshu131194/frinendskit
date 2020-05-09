@@ -19,8 +19,7 @@ export default () => {
             </script>
 
             <!-- Fonts -->
-            <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
-            <link href="/css/style.css" rel="stylesheet">
+            <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:400,500" as="font" type="font/woff2" crossorigin>
         </head>
         <body>
                 <div id="root"></div>
