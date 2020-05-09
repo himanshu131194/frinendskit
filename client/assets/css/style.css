@@ -390,21 +390,22 @@ button.button {
 
 .upload-fixed{
     position: fixed;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     text-align: center;
-    line-height: 80px;
+    line-height: 60px;
     right: 16px;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 300;
     /* top: calc(100vh - 120px ); */
-    bottom: 90px;
+    bottom: 70px;
     background: #0062ff;
     border-color: #0062ff;
     color: #fcfcfc;
     border-radius: 100%;
     box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.12);
 }
+
 .upload-fixed:hover{
     color: #fcfcfc;
     background: #0062ff;
@@ -669,7 +670,7 @@ button.button {
 
 @media screen and (min-width: 768px){
     .post-size {
-        padding: 0 10rem;
+        padding: 0 12rem;
     }
     .stick-sections-list .card{
         margin-bottom: 0 !important;
@@ -677,7 +678,7 @@ button.button {
 }
 
 .card.is-post .card-heading, .card.is-post .card-body {
-    padding: 10px 16px 0 16px;
+    padding: 10px 12px 0 12px;
 }
 .card.is-post .user-block {
     display: flex;
@@ -697,6 +698,7 @@ button.button {
     width:100%;
     height: auto;
     display:block;
+    overflow: hidden;
     border-radius: unset;
 }
 .card.is-post .user-block img {
@@ -753,12 +755,13 @@ button.button {
 
 .card.is-post .content-wrap .post-image {
     position: relative;
-    min-height: 200px;
+    max-height: 400px;
     margin: 5px 0 10px 0;
+    overflow: hidden;
 }
 @media (max-width: 767px){
     .card.is-post .content-wrap .post-image {
-        min-height: 200px;
+        max-height: 300px;
     }
 }
 

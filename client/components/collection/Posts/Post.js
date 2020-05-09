@@ -60,6 +60,12 @@ class Post extends Component{
         return nextState.loadCounter>0 ? false: true;
     }
 
+    getTitleText = (title)=>{
+        const txt = document.createElement("textarea");
+        txt.innerHTML = title;
+        return txt.value;
+    }
+
     render(){
         const loader = (
             <div className="narrow-top has-text-centered">
@@ -77,7 +83,7 @@ class Post extends Component{
                         <div className="card-body">
                             <div className="post-text">
                                 <p>
-                                    <a href="#"><h1 className="post-heading">{result.title}</h1></a> 
+                                    <a onClick={(e)=>e.preventDefault()}><h1 className="post-heading">{this.getTitleText(result.title)}</h1></a> 
                                 </p>
                             </div>
                             <div ref={this.postImageContainer} className="post-image loads">
@@ -91,6 +97,7 @@ class Post extends Component{
                     </div>
                 </div>
             );
+            
         });
         return (
             <InfiniteScroll

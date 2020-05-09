@@ -2,7 +2,7 @@ export default () => {
     return `<!DOCTYPE html>
         <html>
         <head>
-            <meta charset=utf-8>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
             <meta name=viewport content="width=device-width,initial-scale=1">
             <title>feelfunny: Get feel of the fun</title>
             <meta name=keywords content="funny, image, gif, gifs, memes, jokes, image upload, upload image, lol, humor, vote, comment, share, feelfunny, feelfunny.app, wallpaper" />
