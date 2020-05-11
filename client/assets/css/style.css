@@ -999,6 +999,13 @@ button.button {
     }
 }
 
+@media (max-width: 767px){
+    .modal .modal-content {
+        max-width: 340px;
+        max-height: calc(100vh - 80px) !important;
+    }
+}
+
 .modal-content, .modal-card {
     margin: 0 20px;
     max-height: calc(100vh - 160px);
@@ -1291,4 +1298,5 @@ span {
 }
 
 /* END COMMON CLASS*/
+
 
