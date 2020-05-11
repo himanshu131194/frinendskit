@@ -17,7 +17,7 @@ class MobileHeader extends CommonClass(Component){
           <Fragment>
                     <nav className="navbar is-hidden-desktop" aria-label="main navigation">
                         {/* ADD NEW UPLOADS */}
-                        <a href="/" id="refresh-posts" className="refresh-feed d-none">latest posts</a>
+                        <a href="/" id="refresh-posts" className="refresh-feed d-none"></a>
                         {this.props.user && this.props.user.auth===true 
                          ? <a className="upload-fixed" data-modal="upload-modal" onClick={this.openModal}>+</a>
                          : <a className="upload-fixed" data-modal="login-modal" onClick={this.openModal}>+</a>

@@ -755,17 +755,21 @@ button.button {
 
 .card.is-post .content-wrap .post-image {
     position: relative;
-    max-height: 400px;
+    min-height: 200px;
     margin: 5px 0 10px 0;
     overflow: hidden;
 }
 @media (max-width: 767px){
     .card.is-post .content-wrap .post-image {
-        max-height: 300px;
+        min-height: 200px;
+    }
+    .post-loads{
+        min-height: 200px;
     }
 }
 
-.loads {
+.post-loads {
+    min-height: 400px;
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
     -webkit-animation-fill-mode: forwards;
@@ -831,27 +835,28 @@ button.button {
         display: flex;
         align-items: stretch;
     }
-    .fab-wrapper .small-fab {
-        display: -ms-flexbox;
+    .small-fab {
         display: flex;
         -ms-flex-pack: center;
         justify-content: center;
         -ms-flex-align: center;
         align-items: center;
-        width: 43px;
-        height: 43px;
-        border-radius: 50%;
+        /* width: 43px; */
+        /* height: 43px; */
+        width: 40px;
+        height: 30px;
+        border-radius: 4px;
         color: #fcfcfc;
         opacity: 1;
         /* transition: all .3s; */
     }
-    .fab-wrapper.post-action div.small-fab {
+    .post-action div.small-fab {
         /* background: #1a72ff; */
         /* box-shadow: 0 14px 26px -12px rgba(0,98,255,0.42),0 4px 23px 0px rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,98,255,0.2) !important; */
         border: 1.6px solid #1a72ff;
         color: #1a72ff;
     }
-    .fab-wrapper .small-fab svg {
+    .small-fab svg {
         width: 18px;
         height: 18px;
         transition: all .3s;
@@ -893,6 +898,10 @@ button.button {
         pointer-events:none;
         -webkit-animation:spin 1.2s infinite linear;
         animation:spin 1.2s infinite linear
+    }
+    .load-more-button.wait-download{
+        width: 30px;
+        height: 30px;
     }
     .load-more-button.loading.border-grey {
         border-color: #eee #eee #eee #999 !important;
@@ -1163,6 +1172,9 @@ a:hover {
 }
 .mr-6 {
     margin-right: 6px;
+}
+.mr-10 {
+    margin-right: 10px;
 }
 .border-0 {
     border: none;

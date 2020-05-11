@@ -86,7 +86,7 @@ class Post extends Component{
                                     <a onClick={(e)=>e.preventDefault()}><h1 className="post-heading">{this.getTitleText(result.title)}</h1></a> 
                                 </p>
                             </div>
-                            <div ref={this.postImageContainer} className="post-image loads">
+                            <div ref={this.postImageContainer} className="post-image post-loads">
                                 <a onClick={(e)=>e.preventDefault()} data-fancybox="post1" data-lightbox-type="comments">
                                     <img src={result.url} data-demo-src={result.url} alt="" onLoad={this.onPostImageLoad}/>
                                 </a>
