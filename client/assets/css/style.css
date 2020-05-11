@@ -366,7 +366,7 @@ button.button {
 
 .refresh-feed {
     position: fixed;
-    text-align: center;
+    /* text-align: center;
     font-weight: 300;
     text-transform: uppercase;
     left: 40%;
@@ -380,7 +380,7 @@ button.button {
     background-image: none;
     border-color: #1d2124;
     box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.12);
-    transition: all 2s linear;
+    transition: all 2s linear; */
 }
 .refresh-feed:hover{
     color: #fcfcfc;
