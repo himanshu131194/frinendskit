@@ -10,7 +10,6 @@ class MobileHeader extends CommonClass(Component){
           loading : 0
       }
       componentDidMount(){
-          this.props.authUsers();
       }
       render(){
       	return(
