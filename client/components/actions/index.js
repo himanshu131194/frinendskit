@@ -107,8 +107,8 @@ export const listTags = ()=>{
     return async (dispatch)=>{
            let err = null, result = null;
            try{
-               let {data} = await axios.get(`${CONFIG.API_URL}/api/list-tags`);
-                    result = data.data;
+            //    let {data} = await axios.get(`${CONFIG.API_URL}/api/list-tags`);
+                    result = [];//data.data;
            }catch(e){
                err = e.response.data.error;
            }

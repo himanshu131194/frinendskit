@@ -7,6 +7,7 @@ import PopularSections from './PopularSections'
 
 class Leftsidebar extends CommonClass(Component){
     componentDidMount(){
+        this.props.authUsers();
         this.props.listSections();
     }
     render(){

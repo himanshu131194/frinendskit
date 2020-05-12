@@ -309,7 +309,7 @@ export default {
         const postMatchObject = { is_active: true };
         try{
             const skip = parseInt(req.body.offset) || 0,
-                  limit = parseInt(req.body.limit) || 2,
+                  limit = parseInt(req.body.limit) ? (parseInt(req.body.limit)>4 ? 2 : parseInt(req.body.limit)): 2,
                   userId = req.user ? mongoose.Types.ObjectId(req.user._id): 0;
             const { section , tag } = req.body;
             if(section){
@@ -369,6 +369,9 @@ export default {
                         { $skip: skip},
                         { $limit : limit}
                   ]);
+
+            console.log(req.hostname);
+
             res.status(200).send({
                 data : posts,
                 count : totalPostsCount  
