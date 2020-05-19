@@ -1,7 +1,5 @@
 import React, {Component, Fragment} from 'react'
 import {Redirect} from 'react-router-dom'
-import FacebookLogin from 'react-facebook-login';
-import GoogleLogin from 'react-google-login';
 
 class LoginModel extends Component{
     componentDidMount(){

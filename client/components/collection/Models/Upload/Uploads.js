@@ -1,6 +1,5 @@
 import React, {Component, Fragment} from 'react'
-import uuid from 'uuid/v4';
-
+import { v4 as uuidv4 } from 'uuid';
 import {connect} from 'react-redux';
 import * as actions from '../../../actions'
 
@@ -10,7 +9,7 @@ import Loader from './Loader';
 class Uploads extends Component{
 
      uploadedFileObj = {};
-     storageKey =  uuid();
+     storageKey =  uuidv4();
      externalUrlInput = React.createRef();
 
      state = {
