@@ -41,7 +41,7 @@ class MobileHeader extends CommonClass(Component){
                            {this.props.user
                             ?
                             <Fragment> 
-                              {this.props.user && this.props.user.auth===true
+                              {this.props.user && this.props.user.auth===false
                               ?
                                <Fragment>
                                     {/* <div className="navbar-item">
@@ -51,7 +51,8 @@ class MobileHeader extends CommonClass(Component){
                                     </div> */}
                                     <a href="/account" id="account-dropdown" className="navbar-item is-account drop-trigger has-caret">
                                             <div className="user-image">
-                                                <img src={this.props.user.data.profile_pic} data-demo-src={this.props.user.data.profile_pic} alt="" />
+                                                {/* <img src={this.props.user.data.profile_pic} data-demo-src={this.props.user.data.profile_pic} alt="" /> */}
+                                                <img src="https://lh3.googleusercontent.com/a-/AAuE7mAEEHwJWAXZA6cPFP1f36ptZjHtU2-hY3rQh4vv1A" data-demo-src="https://lh3.googleusercontent.com/a-/AAuE7mAEEHwJWAXZA6cPFP1f36ptZjHtU2-hY3rQh4vv1A" alt="" />
                                             </div>
                                     </a>
                                </Fragment>
