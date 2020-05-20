@@ -6,7 +6,8 @@
   "scripts": {
     "d": "nodemon",
     "build": "webpack --config webpack.config.client.production.js && webpack --mode=production --config webpack.config.server.js",
-    "start": "NODE_ENV=production node ./dist/server.generated.js"
+    "start": "NODE_ENV=production node ./dist/server.generated.js",
+    "live": "git add . && git commit -m 'added' && git push origin master"
   },
   "engines": {
     "node": "12.16.x",

@@ -47,9 +47,8 @@ cron.schedule('*/2 * * * *', async () => {
     });
     
     if(!getNewUrl){
-        return res.status(200).send({
-            data : []
-        })
+        console.log('No post left to upload from this source');
+        return;
     };
     
     const urlToUplaod = await externalUrls.findOneAndUpdate({
