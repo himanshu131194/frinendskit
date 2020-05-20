@@ -26,6 +26,7 @@ cron.schedule('*/2 * * * *', async () => {
     console.log('running a task every 2 min');
     //GET ALL PAGES LIST 
     const listOfPages = await externalUrls.aggregate([
+        { $match : { upload_selected: true } },
         {
             $group: {
                 _id : "$source" ,
