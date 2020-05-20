@@ -17,9 +17,6 @@ export default () => {
             gtag('js', new Date());
             gtag('config', 'UA-162054083-1');
             </script>
-
-            <!-- Fonts -->
-            <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:400,500" as="font" type="font/woff2" crossorigin>
         </head>
         <body>
                 <div id="root"></div>
