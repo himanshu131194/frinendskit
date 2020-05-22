@@ -4,6 +4,7 @@ import passport from 'passport'
 import CONFIG from './../config'
 import bodyParser from 'body-parser'
 import Template from './../template.js'
+import FBshareTemplate from './service_templates/fb_share.js'
 import csrf from 'csurf'
 import usersRoutes from './routes/users.routes'
 import postsRoutes from './routes/posts.routes'
@@ -46,6 +47,11 @@ app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
 app.use('/api', usersRoutes(express.Router()));
 app.use('/api', postsRoutes(express.Router()));
 
+app.get('/share-facebook', (req, res)=>{
+  const postTitle = 'I know everyone’s got that teacher that everyone stares at .', 
+        postContent = 'https://stylemycv.s3.ap-south-1.amazonaws.com/uploads/19-05-2020/75b4a2c5-4e4c-45e7-aaf8-3ed4405ef3b3.jpg';
+  res.send(FBshareTemplate(postTitle, postContent));
+})
 
 app.get('*', (req, res)=>{
    res.send(Template());
