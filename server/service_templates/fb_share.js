@@ -2,6 +2,7 @@ export default (post_id, post_title, post_content) => {
     return `
     <html>
         <head>
+                <script data-ad-client="ca-pub-9854855605577492" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                 <title>Your Website Title</title>
                 <meta property="og:title" content="${post_title}" />
                 <meta property="og:site_name" content="FEELFUNNY" />
