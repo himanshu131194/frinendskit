@@ -1,8 +1,4 @@
 export default (post_id, post_title, post_content) => {
-    console.log(post_id);
-    console.log(post_title);
-    console.log(post_content);
-
     return `
     <html>
         <head>
@@ -11,7 +7,6 @@ export default (post_id, post_title, post_content) => {
                 <meta property="og:site_name" content="FEELFUNNY" />
                 <meta property="og:description" content="Discover the magic of the internet at feelfunny, a entertainment destination. Lift your spirits with funny jokes, trending memes, entertaining gifs, inspiring stories, and so much more." />
                 <meta property="og:type" content="article" />
-                <meta property="og:url" content="https://feelfunny.app/share-facebook/${post_id}/" />
                 <meta property="og:image" content="${post_content}" />
         </head>
         <body>
