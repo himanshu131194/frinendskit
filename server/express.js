@@ -47,12 +47,13 @@ app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
 app.use('/api', usersRoutes(express.Router()));
 app.use('/api', postsRoutes(express.Router()));
 
-app.get('/share-facebook', (req, res)=>{
+app.get('/share-facebook/:id', (req, res)=>{
   if(req.query && req.query.fbclid){
      return res.redirect('/');
   }
+  const post_id = req.params.id;
   const { post_title: postTitle, post_content: postContent } = req.query;
-  res.send(FBshareTemplate(postTitle, postContent));
+  res.send(FBshareTemplate(post_id, postTitle, postContent));
 })
 
 app.get('*', (req, res)=>{
