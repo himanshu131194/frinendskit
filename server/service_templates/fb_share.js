@@ -7,7 +7,7 @@ export default (post_title, post_content) => {
                 <meta property="og:site_name" content="FEELFUNNY" />
                 <meta property="og:description" content="Discover the magic of the internet at feelfunny, a entertainment destination. Lift your spirits with funny jokes, trending memes, entertaining gifs, inspiring stories, and so much more." />
                 <meta property="og:type" content="article" />
-                <meta property="og:image" content="${post_content}" />
+                <meta property="og:image" content="https://stylemycv.s3.ap-south-1.amazonaws.com/uploads/19-05-2020/98ef5de0-4453-48ed-8cf9-7e2e08dafff2.jpg" />
         </head>
         <body>
             <!-- Load Facebook SDK for JavaScript -->
