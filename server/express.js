@@ -48,8 +48,10 @@ app.use('/api', usersRoutes(express.Router()));
 app.use('/api', postsRoutes(express.Router()));
 
 app.get('/share-facebook', (req, res)=>{
-  const postTitle = 'I know everyone’s got that teacher that everyone stares at .', 
-        postContent = 'https://stylemycv.s3.ap-south-1.amazonaws.com/uploads/19-05-2020/75b4a2c5-4e4c-45e7-aaf8-3ed4405ef3b3.jpg';
+  if(req.query && req.query.fbclid){
+     return res.redirect('/');
+  }
+  const { post_title: postTitle, post_content: postContent } = req.query;
   res.send(FBshareTemplate(postTitle, postContent));
 })
 
