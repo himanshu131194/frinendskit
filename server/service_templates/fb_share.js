@@ -3,11 +3,11 @@ export default (post_id, post_title, post_content) => {
     <html>
         <head>
                 <title>Your Website Title</title>
+                <meta property="og:image" content="${post_content}" />
                 <meta property="og:title" content="${post_title}" />
                 <meta property="og:site_name" content="FEELFUNNY" />
                 <meta property="og:description" content="Discover the magic of the internet at feelfunny, a entertainment destination. Lift your spirits with funny jokes, trending memes, entertaining gifs, inspiring stories, and so much more." />
                 <meta property="og:type" content="article" />
-                <meta property="og:image" content="${post_content}" />
         </head>
         <body>
             <!-- Load Facebook SDK for JavaScript -->
