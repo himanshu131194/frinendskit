@@ -52,7 +52,8 @@ app.get('/share-facebook/:id', (req, res)=>{
      return res.redirect('/');
   }
   const postId = req.params.id;
-  const { post_title: postTitle, 'amp;post_content': postContent } = req.query;
+  const { post_title: postTitle } = req.query;
+  const postContent = 'https://stylemycv.s3.ap-south-1.amazonaws.com/uploads/10-05-2020/ff374953-9c02-4076-b601-cac3b7527c6c.jpg';
   console.log(req.query);
   console.log(postContent);
   res.send(FBshareTemplate(postId, postTitle, postContent));
