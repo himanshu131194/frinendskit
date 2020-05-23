@@ -1,4 +1,8 @@
 export default (post_id, post_title, post_content) => {
+    console.log(post_id);
+    console.log(post_title);
+    console.log(post_content);
+
     return `
     <html>
         <head>

@@ -51,9 +51,9 @@ app.get('/share-facebook/:id', (req, res)=>{
   if(req.query && req.query.fbclid){
      return res.redirect('/');
   }
-  const post_id = req.params.id;
+  const postId = req.params.id;
   const { post_title: postTitle, 'amp;post_content': postContent } = req.query;
-  res.send(FBshareTemplate(post_id, postTitle, postContent));
+  res.send(FBshareTemplate(postId, postTitle, postContent));
 })
 
 app.get('*', (req, res)=>{
@@ -61,3 +61,5 @@ app.get('*', (req, res)=>{
 })
 
 export default app;
+
+// https://www.facebook.com/sharer/sharer.php?u=http://localhost:8080/share-facebook/5ec92f30b1ae287cdf07815f?post_title=More people die from other causes anyway...&amp;post_content=https://stylemycv.s3.ap-south-1.amazonaws.com/uploads/28-04-2020/af501080-dd52-4a4a-84d7-084686622e7c.jpg
