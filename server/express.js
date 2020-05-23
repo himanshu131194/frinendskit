@@ -14,6 +14,9 @@ import cookieSession from 'cookie-session'
 
 import './services/passport_google';
 
+import mongoose from 'mongoose'
+import Posts from './models/posts.model'
+
 
 const app = express();
 
@@ -47,15 +50,14 @@ app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')))
 app.use('/api', usersRoutes(express.Router()));
 app.use('/api', postsRoutes(express.Router()));
 
-app.get('/share-facebook/:id', (req, res)=>{
+app.get('/share-facebook/:id', async (req, res)=>{
   if(req.query && req.query.fbclid){
      return res.redirect('/');
   }
   const postId = req.params.id;
-  const { post_title: postTitle, 'amp;post_content': postContent } = req.query;
-  console.log(req.query);
-  console.log(postContent);
-  res.send(FBshareTemplate(postId, postTitle, postContent));
+  const result = await Posts.findById(mongoose.Types.ObjectId(postId));
+
+  res.send(FBshareTemplate(postId, result.title, result.url));
 })
 
 app.get('*', (req, res)=>{
