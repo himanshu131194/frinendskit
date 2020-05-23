@@ -52,7 +52,7 @@ app.get('/share-facebook/:id', (req, res)=>{
      return res.redirect('/');
   }
   const post_id = req.params.id;
-  const { post_title: postTitle, post_content: postContent } = req.query;
+  const { post_title: postTitle, 'amp;post_content': postContent } = req.query;
   res.send(FBshareTemplate(post_id, postTitle, postContent));
 })
 
