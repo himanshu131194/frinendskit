@@ -3,6 +3,7 @@ export default () => {
         <html>
         <head>
             <script data-ad-client="ca-pub-9854855605577492" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <meta name="p:domain_verify" content="e9d06cc43d0b4c0f9a0e4c2d2b2db838"/>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
             <meta name=viewport content="width=device-width,initial-scale=1">
             <title>feelfunny: Get feel of the fun</title>
