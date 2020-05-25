@@ -56,6 +56,8 @@ app.get('/share-facebook/:id', async (req, res)=>{
   }
   const postId = req.params.id;
   const result = await Posts.findById(mongoose.Types.ObjectId(postId));
+  
+  console.log(result);
 
   res.send(FBshareTemplate(postId, result.title, result.url));
 })
