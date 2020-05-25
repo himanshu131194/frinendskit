@@ -72,9 +72,6 @@ class PostFooter extends CommonClass(Component){
                             </div>
                         </div>
                     } 
-                    
-
-                
                     <div className="fab-wrapper post-action mr-10" data-postid={this.props.onPost._id}>
                         <a href={`https://www.facebook.com/dialog/share?app_id=426940641303361&display=popup&href=https://feelfunny.app/share-facebook/${this.props.onPost._id}&redirect_uri=https://feelfunny.app`} className="small-fab modal-trigger share-fb">
                             <svg xmlns="http://www.w3.org/2000/svg"  version="1.1" viewBox="0 0 155.139 155.139" >
