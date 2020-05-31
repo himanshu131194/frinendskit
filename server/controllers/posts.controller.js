@@ -7,6 +7,7 @@ import likedComments from '../models/liked_comments.model'
 import Reportposts from '../models/report_posts.model'
 import externalUrls from '../models/external.url.model'
 import latestCursor from '../models/latest_cursor.model'
+import Article from '../models/articals.model'
 import mongoose from 'mongoose'
 import CONFIG from '../../config';
 import { v4 as uuidv4 } from 'uuid';
@@ -20,83 +21,83 @@ const s3 = new AWS.S3({
 });
 
 
-var cron = require('node-cron');
+// var cron = require('node-cron');
  
-cron.schedule('*/2 * * * *', async () => {
-    console.log('running a task every 2 min');
-    //GET ALL PAGES LIST 
-    const listOfPages = await externalUrls.aggregate([
-        { $match : { upload_selected: true } },
-        {
-            $group: {
-                _id : "$source" ,
-                count: { $sum : 1},
-                section : { $first: '$section'}
-            }
-        }
-    ]);
-    //GET RANDON VALUE FROM LIST OF PAGES
-    const randomIntFromInterval = (min, max) => (Math.floor(Math.random() * (max - min + 1) + min)),
-            randomSelectedPage = listOfPages[randomIntFromInterval(0, listOfPages.length-1)],
-            selectedPage = randomSelectedPage._id,
-            sectionId = randomSelectedPage.section;
+// cron.schedule('*/2 * * * *', async () => {
+//     console.log('running a task every 2 min');
+//     //GET ALL PAGES LIST 
+//     const listOfPages = await externalUrls.aggregate([
+//         { $match : { upload_selected: true } },
+//         {
+//             $group: {
+//                 _id : "$source" ,
+//                 count: { $sum : 1},
+//                 section : { $first: '$section'}
+//             }
+//         }
+//     ]);
+//     //GET RANDON VALUE FROM LIST OF PAGES
+//     const randomIntFromInterval = (min, max) => (Math.floor(Math.random() * (max - min + 1) + min)),
+//             randomSelectedPage = listOfPages[randomIntFromInterval(0, listOfPages.length-1)],
+//             selectedPage = randomSelectedPage._id,
+//             sectionId = randomSelectedPage.section;
     
-    //UPDATE PAGE AND GET ONE URL
-    const getNewUrl = await externalUrls.findOne({
-        source: selectedPage.trim(),
-        post_uploaded: false
-    });
+//     //UPDATE PAGE AND GET ONE URL
+//     const getNewUrl = await externalUrls.findOne({
+//         source: selectedPage.trim(),
+//         post_uploaded: false
+//     });
     
-    if(!getNewUrl){
-        console.log('No post left to upload from this source');
-        return;
-    };
+//     if(!getNewUrl){
+//         console.log('No post left to upload from this source');
+//         return;
+//     };
     
-    const urlToUplaod = await externalUrls.findOneAndUpdate({
-        _id : getNewUrl._id,
-        source: selectedPage.trim(),
-        post_uploaded: false
-    },
-    { post_uploaded: true },
-    { new : true });
+//     const urlToUplaod = await externalUrls.findOneAndUpdate({
+//         _id : getNewUrl._id,
+//         source: selectedPage.trim(),
+//         post_uploaded: false
+//     },
+//     { post_uploaded: true },
+//     { new : true });
 
-    //CHECK CRAWLED_SOURCE_URL
-    const crawledSourceUrl = await Posts.findOne({
-        crawled_source_url: urlToUplaod.url.trim(),
-        crawled: true,
-    });
+//     //CHECK CRAWLED_SOURCE_URL
+//     const crawledSourceUrl = await Posts.findOne({
+//         crawled_source_url: urlToUplaod.url.trim(),
+//         crawled: true,
+//     });
     
-    if(crawledSourceUrl){
-        console.log('alredy exits post');
-        console.log(urlToUplaod.url.trim());
-        return;
-    }
-    //UPDATE POST TABLE
-    const newPost = {
-            user_id: '5e7ea43f9cf4640b79d58e6c',
-            url: (urlToUplaod.s3_url).trim(),
-            slugId: (urlToUplaod.slug_id).trim(),
-            title: urlToUplaod.title,
-            crawled: true,
-            crawled_source: urlToUplaod._id,
-            crawled_source_url: urlToUplaod.url.trim(),
-            section: sectionId,
-            mime_type: (urlToUplaod.mime_type).trim(),
-            ext: (urlToUplaod.ext).trim(),
-    };
-    if((urlToUplaod.mime_type).indexOf('video')>=0){
-        newPost['content_type'] = 2;
-    }
-    const posts = new Posts(newPost);
-    try{
-        const result = await posts.save();
-        console.log('post uploaded successfully');
-        return;
-    }catch(e){
-        console.log(e);
-        return;
-    }
-});
+//     if(crawledSourceUrl){
+//         console.log('alredy exits post');
+//         console.log(urlToUplaod.url.trim());
+//         return;
+//     }
+//     //UPDATE POST TABLE
+//     const newPost = {
+//             user_id: '5e7ea43f9cf4640b79d58e6c',
+//             url: (urlToUplaod.s3_url).trim(),
+//             slugId: (urlToUplaod.slug_id).trim(),
+//             title: urlToUplaod.title,
+//             crawled: true,
+//             crawled_source: urlToUplaod._id,
+//             crawled_source_url: urlToUplaod.url.trim(),
+//             section: sectionId,
+//             mime_type: (urlToUplaod.mime_type).trim(),
+//             ext: (urlToUplaod.ext).trim(),
+//     };
+//     if((urlToUplaod.mime_type).indexOf('video')>=0){
+//         newPost['content_type'] = 2;
+//     }
+//     const posts = new Posts(newPost);
+//     try{
+//         const result = await posts.save();
+//         console.log('post uploaded successfully');
+//         return;
+//     }catch(e){
+//         console.log(e);
+//         return;
+//     }
+// });
 
 
 
@@ -306,17 +307,26 @@ export default {
     },
 
     listPosts : async (req, res)=>{
+        console.log(req.body);
         const postMatchObject = { is_active: true };
         try{
             const skip = parseInt(req.body.offset) || 0,
                   limit = parseInt(req.body.limit) ? (parseInt(req.body.limit)>4 ? 2 : parseInt(req.body.limit)): 2,
                   userId = req.user ? mongoose.Types.ObjectId(req.user._id): 0;
-            const { section , tag } = req.body;
+            const { section , tag , article } = req.body;
             if(section){
                 postMatchObject.section = mongoose.Types.ObjectId(section.trim())
             }
             if(tag){
                 postMatchObject.tag = { $in : [mongoose.Types.ObjectId(tag.trim())] }
+            }
+            if(article){
+               const postIds  = await Article.findOne({_id : mongoose.Types.ObjectId(article.trim())});
+               const posts = [];
+               for(let x of postIds.article_posts){
+                   posts.push(mongoose.Types.ObjectId(x));
+               }
+               postMatchObject._id = { $in : posts }
             }
             const totalPostsCount = await Posts.count();
             const posts = await Posts.aggregate([

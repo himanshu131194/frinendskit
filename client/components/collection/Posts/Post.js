@@ -19,18 +19,21 @@ class Post extends Component{
         loadCounter: 0
     };
     componentDidMount(){
+        console.log(this.props);
         this.setState({
             loadCounter: 1
         });
     }
 
     loadItems(){
+        console.log(this.props.onArticle);
         this.counter = this.counter + this.defaultSkip;
         this.props.listPosts({
             limit: this.defaultLimit,
             offset : this.counter,
             tag : this.props.onTags,
             section : this.props.onSection, 
+            article : this.props.onArticle,
             filters: {
                 account:  this.props.onRefreshPosts ? 1: 0,
                 value:  this.props.onRefreshPosts ? this.props.onRefreshPosts : null
@@ -44,7 +47,6 @@ class Post extends Component{
             this.totalPostsCount = this.props.listOfPosts.count;
             const hasMoreItems = this.props.listOfPosts.data.length==0? false: true;
             this.props.listOfPosts.data.map((track) => {
-                console.log('pushed');
                 tracks.push(track);
             });
             this.setState({

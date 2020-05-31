@@ -6,7 +6,7 @@ import Leftsidebar from '../Partials/Leftsidebar';
 
 class Posts extends Component{
     render(){
-        const {tag, section} = this.props.match.params;
+        const {tag, section, article} = this.props.match.params;
         return(
             <div className="view-wrapper position-r">
              
@@ -22,7 +22,7 @@ class Posts extends Component{
                             <div className="post-list-container column is-8 pr-0 pl-0 ml-200">
                                 <div className="post-size">
                                     {/* POST */}
-                                    <Post onSection={section} onTags={tag}/>
+                                    <Post onSection={section} onArticle={article} onTags={tag}/>
                                     {/* END POST */}
                                 </div>
                             </div>

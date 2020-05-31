@@ -16,8 +16,9 @@ class MainRouter extends Component{
 					<Suspense fallback={<div>Loading...</div>}>
 						<Switch>
 							<Route exact path="/" component={Posts}/>
-							<Route exact path="/tags/:tag" component={Posts}/>
-							<Route exact path="/section/:section" component={Posts}/>
+							<Route path="/tags/:tag" component={Posts}/>
+							<Route path="/article/:article" component={Posts}/>
+							<Route path="/section/:section" component={Posts}/>
 							<Route path="/account/:type" component={Accounts}/>
 							<Route path="/account" component={Accounts}/>
 						</Switch>

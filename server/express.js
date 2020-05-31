@@ -5,6 +5,8 @@ import CONFIG from './../config'
 import bodyParser from 'body-parser'
 import Template from './../template.js'
 import FBshareTemplate from './service_templates/fb_share.js'
+import ArticleshareTemplate from './service_templates/article_share.js'
+
 import csrf from 'csurf'
 import usersRoutes from './routes/users.routes'
 import postsRoutes from './routes/posts.routes'
@@ -16,11 +18,12 @@ import './services/passport_google';
 
 import mongoose from 'mongoose'
 import Posts from './models/posts.model'
+import Article from './models/articals.model'
 
 
 const app = express();
 
-// app.use(cors());
+app.use(cors());
 
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }))
 app.use(bodyParser.json({limit: '10mb', extended: true}))
@@ -56,11 +59,22 @@ app.get('/share-facebook/:id', async (req, res)=>{
   }
   const postId = req.params.id;
   const result = await Posts.findById(mongoose.Types.ObjectId(postId));
-  
-  console.log(result);
-
   res.send(FBshareTemplate(postId, result.title, result.url));
-})
+});
+
+
+app.get('/fbshare-article/:id', async (req, res)=>{
+  const articleId = req.params.id;
+  const result = await Article.findById(mongoose.Types.ObjectId(articleId));
+  res.send(ArticleshareTemplate(result));
+});
+
+app.get('/article/:id', (req, res)=>{
+   const articleId = req.params.id
+   console.log(articleId);
+   return res.send(Template());
+});
+
 
 app.get('*', (req, res)=>{
    res.send(Template());
