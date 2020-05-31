@@ -11,6 +11,8 @@ export default ({ article_title, article_sitename, article_url, article_descript
             <meta property="og:image:width" content="${article_cover.width}" />
             <meta property="og:image:height" content="${article_cover.height}" />
         </head>
-    </html>
-    `  
+        <body>
+          <a href="https://www.facebook.com/dialog/share?app_id=426940641303361&display=popup&href=https://feelfunny.app/fbshare-article/5ed3f1501374a166a06e306f&redirect_uri=https://feelfunny.app">Goto Logo</a>
+        </body>
+    </html>`  
 }
