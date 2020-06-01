@@ -16,14 +16,7 @@ export default ({ article_title, article_sitename, article_url, article_descript
         </body>
     </html>`  
 }
-<meta property="og:site_name" content="feelfunny"/>
-<meta property="og:url" content="https://feelfunny.app/article/5ed3f1501374a166a06e306f"/>
-<meta property="og:title" content="Ten Random Memes For People Tired Of Everything"/>
-<meta property="og:description" content="You get memes, everyone gets memes!"/>
-<meta property="og:type" content="article"/>
-<meta property="og:image" content="https://stylemycv.s3.ap-south-1.amazonaws.com/uploads/31-05-2020/5ce05174-177c-4877-a300-9a27f682906f.jpg"/>
-<meta property="og:image:width" content="800" />
-<meta property="og:image:height" content="200" />
+
 {/* <meta property="og:site_name" content="${article_sitename}"/>
 <meta property="og:url" content="${article_url}"/>
 <meta property="og:title" content="${article_title}"/>
