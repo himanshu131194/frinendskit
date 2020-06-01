@@ -70,8 +70,9 @@ app.get('/fbshare-article/:id', async (req, res)=>{
 });
 
 app.get('/article/:id', (req, res)=>{
-   const articleId = req.params.id
-   return res.send(Template());
+   const articleId = req.params.id;
+   const result = await Article.findById(mongoose.Types.ObjectId(articleId));
+   return res.send(Template(result));
 });
 
 app.get('/', (req, res)=>{
