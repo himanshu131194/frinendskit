@@ -71,14 +71,18 @@ app.get('/fbshare-article/:id', async (req, res)=>{
 
 app.get('/article/:id', (req, res)=>{
    const articleId = req.params.id
-   console.log(articleId);
    return res.send(Template());
 });
 
-
-app.get('*', (req, res)=>{
+app.get('/', (req, res)=>{
    res.send(Template());
 })
+
+app.get('/section/:id', (req, res)=>{
+  res.send(Template());
+})
+
+
 
 export default app;
 
