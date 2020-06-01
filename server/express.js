@@ -76,11 +76,11 @@ app.get('/article/:id', async (req, res)=>{
 });
 
 app.get('/', (req, res)=>{
-   res.send(Template());
+   res.send(Template({}));
 })
 
 app.get('/section/:id', (req, res)=>{
-  res.send(Template());
+  res.send(Template({}));
 })
 
 

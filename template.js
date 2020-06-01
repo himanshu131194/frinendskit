@@ -1,4 +1,4 @@
-export default ({ article_title='', article_sitename='', article_url='', article_description='', article_cover='' }) => {
+export default ({ article_title, article_sitename, article_url, article_description, article_cover }) => {
     let sitename = article_sitename ? article_sitename : '';
     let url = article_url ? article_url : '';
     let title = article_title ? article_title : '';
