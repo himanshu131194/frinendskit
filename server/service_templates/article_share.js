@@ -3,7 +3,7 @@ export default ({ article_title, article_sitename, article_url, article_descript
     <html>
         <head>
         <meta property="og:site_name" content="feelfunny"/>
-        <meta property="og:url" content="https://feelfunny.app/article/5ed3f1501374a166a06e306f"/>
+        <meta property="og:url" content="https://cheezburger.com/11528197/twenty-nine-random-memes-for-people-tired-of-everything"/>
         <meta property="og:title" content="Ten Random Memes For People Tired Of Everything"/>
         <meta property="og:description" content="You get memes, everyone gets memes!"/>
         <meta property="og:type" content="article"/>
