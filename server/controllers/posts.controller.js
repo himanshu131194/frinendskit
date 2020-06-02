@@ -80,6 +80,7 @@ cron.schedule('*/2 * * * *', async () => {
             title: urlToUplaod.title,
             crawled: true,
             crawled_source: urlToUplaod._id,
+            crawled_source_name: urlToUplaod.source,
             crawled_source_url: urlToUplaod.url.trim(),
             section: sectionId,
             mime_type: (urlToUplaod.mime_type).trim(),
